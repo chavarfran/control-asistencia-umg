@@ -8,7 +8,9 @@
             <div class="row gx-4">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="../assets/img/bruce-mars.jpg" alt="..." class="w-100 border-radius-lg shadow-sm">
+                        
+                        <img src="{{ Storage::url($user->profile_photo) }}" alt="..."
+                            class="w-100 border-radius-lg shadow-sm"  style="width: 75px; height: 75px; object-fit: cover;">
                         <button type="button"
                             class="btn btn-sm btn-icon-only bg-gradient-light position-absolute bottom-0 end-0 mb-n2 me-n2"
                             data-bs-toggle="modal" data-bs-target="#editar-imagen-perfil">
@@ -30,28 +32,38 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="editar-imagen-perfil" tabindex="-1" role="dialog" aria-labelledby="formulario-editar-imagen-perfil"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="formulario-editar-imagen-perfil">Actualizar foto de perfil</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">CANCELAR</button>
-                    <button type="button" class="btn bg-gradient-primary">GUARDAR CAMBIOS</button>
+    <div class="container-fluid py-4">
+        <div wire:ignore.self class="modal fade" id="editar-imagen-perfil" tabindex="-1" role="dialog"
+            aria-labelledby="formulario-editar-imagen-perfil" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="formulario-editar-imagen-perfil">Actualizar foto de perfil</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-inline-block">
+                            <input type="file" wire:model="profile_photo" class="d-none" id="file-input" onchange="updateFileName()">
+                            <label for="file-input" class="btn btn-primary">
+                                Subir Archivo
+                                <span id="file-name" class="ms-2"></span> <!-- ms-2 es para añadir un pequeño margen a la izquierda del span -->
+                            </label>
+                        </div>
+                        @error('profile_photo')
+                            <span class="error">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn bg-gradient-secondary"
+                            data-bs-dismiss="modal">CANCELAR</button>
+                        <button type="button" wire:click="savePhoto" class="btn bg-gradient-dark"
+                            data-bs-dismiss="modal">GUARDAR CAMBIOS</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid py-4">
-
         <div class="card">
             <div class="card-header pb-0 px-3">
                 <h6 class="mb-0">{{ __('Información del perfil') }}</h6>
