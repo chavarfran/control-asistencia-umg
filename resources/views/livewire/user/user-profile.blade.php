@@ -8,9 +8,8 @@
             <div class="row gx-4">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        
-                        <img src="{{ Storage::url($user->profile_photo) }}" alt="..."
-                            class="w-100 border-radius-lg shadow-sm"  style="width: 75px; height: 75px; object-fit: cover;">
+                        <img src="{{ asset('storage/' . $user->profile_photo) }}" alt="Profile Photo"  class="w-100 border-radius-lg shadow-sm"
+                        style="width: 70px; height: 70px; object-fit: cover;">
                         <button type="button"
                             class="btn btn-sm btn-icon-only bg-gradient-light position-absolute bottom-0 end-0 mb-n2 me-n2"
                             data-bs-toggle="modal" data-bs-target="#editar-imagen-perfil">
@@ -45,11 +44,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="d-inline-block">
-                            <input type="file" wire:model="profile_photo" class="d-none" id="file-input" onchange="updateFileName()">
-                            <label for="file-input" class="btn btn-primary">
-                                Subir Archivo
-                                <span id="file-name" class="ms-2"></span> <!-- ms-2 es para añadir un pequeño margen a la izquierda del span -->
-                            </label>
+                            <input type="file" wire:model="profile_photo">
                         </div>
                         @error('profile_photo')
                             <span class="error">{{ $message }}</span>
