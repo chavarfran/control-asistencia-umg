@@ -17,6 +17,8 @@ use App\Http\Livewire\Rtl;
 use App\Http\Livewire\User\UserProfile;
 use App\Http\Livewire\User\UserManagement;
 
+use App\Http\Livewire\Faculty\Table;
+
 use Laravel\Socialite\Facades\Socialite;
 
 use Illuminate\Http\Request;
@@ -66,5 +68,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/rtl', Rtl::class)->name('rtl');
     Route::get('/laravel-user-profile', UserProfile::class)->name('perfil-usuario');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
+    Route::get('/Facultad', Table::class)->name('tabla-facultad');
 });
 
