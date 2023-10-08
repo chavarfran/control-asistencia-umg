@@ -20,6 +20,8 @@ use App\Http\Livewire\User\UserManagement;
 use App\Http\Livewire\Faculty\Table as FacultyTable;
 /* Carrera */
 use App\Http\Livewire\Career\Table as CarrerTable;
+/* Pensum */
+use App\Http\Livewire\Pensum\Table as PensumTable;
 
 use Laravel\Socialite\Facades\Socialite;
 
@@ -76,5 +78,8 @@ Route::middleware('auth')->group(function () {
 
     /* Rutas de Carrera */
     Route::get('/Carrera', CarrerTable::class)->name('tabla-carrera');
+
+     /* Rutas de Carrera */
+     Route::get('/Pensu,', PensumTable::class)->name('tabla-pensum');
 });
 

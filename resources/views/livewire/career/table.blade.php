@@ -55,7 +55,7 @@
                             <div class="card card-plain">
                                 <div class="card-header pb-0 text-left">
                                     <h3 class="font-weight-bolder text-info text-gradient">Agregar una nueva
-                                        facultad</h3>
+                                        carrera</h3>
                                     <p class="mb-0">Ingresar los campos requeridos</p>
                                 </div>
                                 <div class="card-body">
