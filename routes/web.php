@@ -17,7 +17,10 @@ use App\Http\Livewire\Rtl;
 use App\Http\Livewire\User\UserProfile;
 use App\Http\Livewire\User\UserManagement;
 
+use Laravel\Socialite\Facades\Socialite;
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\PackageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +35,18 @@ use Illuminate\Http\Request;
 
 Route::get('/', function() {
     return redirect('/login');
+});
+
+Route::get('/python3-versions', [PackageController::class, 'getPython3Versions']);
+
+Route::get('/google-auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+});
+ 
+Route::get('/google-auth/callback', function () {
+    $user = Socialite::driver('google')->user();
+ 
+    // $user->token
 });
 
 Route::get('/sign-up', SignUp::class)->name('sign-up');
