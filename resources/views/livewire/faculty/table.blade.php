@@ -19,7 +19,7 @@
                                 <p class="text-gradient text-dark mb-2 text-sm">Facultad de</p>
                                 <a href="javascript:;">
                                     <h5>
-                                        Ingenieria
+                                        Ingenieria en Sistemas
                                     </h5>
                                 </a>
                                 <p class="mb-4 text-sm">
@@ -43,7 +43,7 @@
                                 <p class="text-gradient text-dark mb-2 text-sm">Facultad de</p>
                                 <a href="javascript:;">
                                     <h5>
-                                        Humanidades
+                                        Ciencias Juridicas y Sociale
                                     </h5>
                                 </a>
                                 <p class="mb-4 text-sm">
@@ -86,8 +86,7 @@
                                                     </div>
                                                     <label>Descripción</label>
                                                     <div class="form-group">
-                                                        <textarea class="form-control" id="description"
-                                                            placeholder="Descripción de la facultad"></textarea>
+                                                        <textarea class="form-control" id="description" placeholder="Descripción de la facultad"></textarea>
                                                     </div>
                                                     <div class="text-center">
                                                         <button type="button"
@@ -105,5 +104,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>

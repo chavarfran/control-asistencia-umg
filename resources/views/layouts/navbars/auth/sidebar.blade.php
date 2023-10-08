@@ -83,14 +83,25 @@
                 </a>
             </li>
             <li class="nav-item pb-2">
+                <a class="nav-link {{ Route::currentRouteName() == 'tabla-carrera' ? 'active' : '' }}"
+                    href="{{ route('tabla-carrera') }}">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i style="font-size: 1rem;" class="fas fa-lg fa-user-graduate ps-2 pe-2 text-center
+                        {{ in_array(request()->route()->getName(),['tabla-carrera']) ? 'text-white' : 'text-dark' }}"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Carreras</span>
+                </a>
+            </li>
+            <li class="nav-item pb-2">
                 <a class="nav-link {{ Route::currentRouteName() == 'user-management' ? 'active' : '' }}"
                     href="{{ route('user-management') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i style="font-size: 1rem;" class="fas fa-lg fa-user-graduate ps-2 pe-2 text-center
+                        <i style="font-size: 1rem;" class="fas fa-lg fa-graduation-cap ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['user-management']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Carreras</span>
+                    <span class="nav-link-text ms-1">Pensum</span>
                 </a>
             </li>
             <li class="nav-item pb-2">
@@ -330,7 +341,7 @@
                     </div>
                     <span class="nav-link-text ms-1">Incribirse</span>
                 </a>
-            </li>
-        </ul>--}}
+            </li>--}}
+        </ul>
     </div>
 </aside>

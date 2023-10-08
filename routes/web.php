@@ -13,11 +13,13 @@ use App\Http\Livewire\Tables;
 use App\Http\Livewire\StaticSignIn;
 use App\Http\Livewire\StaticSignUp;
 use App\Http\Livewire\Rtl;
-
+/* Usuarios */
 use App\Http\Livewire\User\UserProfile;
 use App\Http\Livewire\User\UserManagement;
-
-use App\Http\Livewire\Faculty\Table;
+/* Facultad */
+use App\Http\Livewire\Faculty\Table as FacultyTable;
+/* Carrera */
+use App\Http\Livewire\Career\Table as CarrerTable;
 
 use Laravel\Socialite\Facades\Socialite;
 
@@ -68,6 +70,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/rtl', Rtl::class)->name('rtl');
     Route::get('/laravel-user-profile', UserProfile::class)->name('perfil-usuario');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
-    Route::get('/Facultad', Table::class)->name('tabla-facultad');
+
+    /* Rutas de facultad */
+    Route::get('/Facultad', FacultyTable::class)->name('tabla-facultad');
+
+    /* Rutas de Carrera */
+    Route::get('/Carrera', CarrerTable::class)->name('tabla-carrera');
 });
 
