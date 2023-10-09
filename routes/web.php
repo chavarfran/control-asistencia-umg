@@ -27,7 +27,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\PackageController;
-
+use App\Http\Livewire\Reports\Asistencia;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,6 +80,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/Carrera', CarrerTable::class)->name('tabla-carrera');
 
      /* Rutas de Carrera */
-     Route::get('/Pensu,', PensumTable::class)->name('tabla-pensum');
+     Route::get('/Pensu', PensumTable::class)->name('tabla-pensum');
+
+     Route::get('/Reportes', Asistencia::class)->name('reporte');
 });
 
