@@ -105,56 +105,56 @@
                 </a>
             </li>
             <li class="nav-item pb-2">
-                <a class="nav-link {{ Route::currentRouteName() == 'user-management' ? 'active' : '' }}"
-                    href="{{ route('user-management') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'tabla-semestre' ? 'active' : '' }}"
+                    href="{{ route('tabla-semestre') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-chalkboard ps-2 pe-2 text-center
-                        {{ in_array(request()->route()->getName(),['user-management']) ? 'text-white' : 'text-dark' }}"></i>
+                        {{ in_array(request()->route()->getName(),['tabla-semestre']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Semestres</span>
                 </a>
             </li>
             <li class="nav-item pb-2">
-                <a class="nav-link {{ Route::currentRouteName() == 'user-management' ? 'active' : '' }}"
-                    href="{{ route('user-management') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'tabla-semestre' ? 'active' : '' }}"
+                    href="{{ route('tabla-semestre') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-address-book ps-2 pe-2 text-center
-                        {{ in_array(request()->route()->getName(),['user-management']) ? 'text-white' : 'text-dark' }}"></i>
+                        {{ in_array(request()->route()->getName(),['tabla-semestre']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Secciones</span>
                 </a>
             </li>
             <li class="nav-item pb-2">
-                <a class="nav-link {{ Route::currentRouteName() == 'user-management' ? 'active' : '' }}"
-                    href="{{ route('user-management') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'tabla-semestre' ? 'active' : '' }}"
+                    href="{{ route('tabla-semestre') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-book ps-2 pe-2 text-center
-                        {{ in_array(request()->route()->getName(),['user-management']) ? 'text-white' : 'text-dark' }}"></i>
+                        {{ in_array(request()->route()->getName(),['tabla-semestre']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Cursos</span>
                 </a>
             </li>
             <li class="nav-item pb-2">
-                <a class="nav-link {{ Route::currentRouteName() == 'user-management' ? 'active' : '' }}"
-                    href="{{ route('user-management') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'tabla-semestre' ? 'active' : '' }}"
+                    href="{{ route('tabla-semestre') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-chalkboard-teacher ps-2 pe-2 text-center
-                        {{ in_array(request()->route()->getName(),['user-management']) ? 'text-white' : 'text-dark' }}"></i>
+                        {{ in_array(request()->route()->getName(),['tabla-semestre']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Catedraticos</span>
                 </a>
             </li>
             <li class="nav-item pb-2">
-                <a class="nav-link {{ Route::currentRouteName() == 'user-management' ? 'active' : '' }}"
-                    href="{{ route('user-management') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'tabla-semestre' ? 'active' : '' }}"
+                    href="{{ route('tabla-semestre') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-users ps-2 pe-2 text-center
-                        {{ in_array(request()->route()->getName(),['user-management']) ? 'text-white' : 'text-dark' }}"></i>
+                        {{ in_array(request()->route()->getName(),['tabla-semestre']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Usuarios</span>
                 </a>

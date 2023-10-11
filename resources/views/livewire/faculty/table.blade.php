@@ -26,7 +26,15 @@
                                     Breve descripcion de la facultad y de las carreras que abarca.
                                 </p>
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">Eliminar</button>
+                                    <div class="d-flex justify-content-center align-items-center p-4">
+                                        <div class="ms-auto">
+                                            <a class="btn bg-gradient-danger px-3 mb-0"
+                                                href="javascript:;"><i class="far fa-trash-alt me-2"></i>Eliminar</a>
+                                            <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
+                                                    class="fas fa-pencil-alt me-2"
+                                                    aria-hidden="true"></i>Editar</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +58,15 @@
                                     Breve descripcion de la facultad y de las carreras que abarca.
                                 </p>
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <button type="button" class="btn btn-outline-primary btn-sm mb-0">Eliminar</button>
+                                    <div class="d-flex justify-content-center align-items-center p-4">
+                                        <div class="ms-auto">
+                                            <a class="btn bg-gradient-danger px-3 mb-0"
+                                                href="javascript:;"><i class="far fa-trash-alt me-2"></i>Eliminar</a>
+                                            <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
+                                                    class="fas fa-pencil-alt me-2"
+                                                    aria-hidden="true"></i>Editar</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

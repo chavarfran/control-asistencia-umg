@@ -16,6 +16,8 @@ use App\Http\Livewire\Faculty\Table as FacultyTable;
 use App\Http\Livewire\Career\Table as CarrerTable;
 /* Pensum */
 use App\Http\Livewire\Pensum\Table as PensumTable;
+/* Semestre*/
+use App\Http\Livewire\Semester\Table as SemestreTable;
 
 use Laravel\Socialite\Facades\Socialite;
 
@@ -42,21 +44,23 @@ Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-passwo
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
 Route::middleware('auth')->group(function () {
-    /* Rutas de inicio */ 
+    /* Rutas de Inicio */ 
     Route::get('/Inicio', Dashboard::class)->name('dashboard');
 
-    /* Rutas de perfil */
+    /* Rutas de Perfil */
     Route::get('/Perfil', UserProfile::class)->name('perfil-usuario');
-    Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
 
-    /* Rutas de facultad */
+    /* Rutas de Facultad */
     Route::get('/Facultad', FacultyTable::class)->name('tabla-facultad');
 
     /* Rutas de Carrera */
     Route::get('/Carrera', CarrerTable::class)->name('tabla-carrera');
 
      /* Rutas de Carrera */
-     Route::get('/Pensu', PensumTable::class)->name('tabla-pensum');
+    Route::get('/Pensum', PensumTable::class)->name('tabla-pensum');
+
+     /* Rutas de Semestre */
+    Route::get('/Semestre', SemestreTable::class)->name('tabla-semestre');
 
      /* RUtas de reportes */
      Route::get('/Reportes', [Asistencia::class, 'index'])->name('reporte');

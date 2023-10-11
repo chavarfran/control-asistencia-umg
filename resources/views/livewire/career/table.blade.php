@@ -16,6 +16,15 @@
                         voluptates soluta, odio quaerat nemo omnis delectus doloribus officia accusantium nisi dicta.
                         Earum nobis laborum, sit corporis vero eum!</span>
                 </div>
+                <div class="d-flex justify-content-center align-items-center p-4">
+                    <div class="ms-auto">
+                        <a class="btn bg-gradient-danger px-3 mb-0"
+                            href="javascript:;"><i class="far fa-trash-alt me-2"></i>Eliminar</a>
+                        <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
+                                class="fas fa-pencil-alt me-2"
+                                aria-hidden="true"></i>Editar</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-md-2">
@@ -33,6 +42,15 @@
                     <span class="text-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quia quasi
                         molestiae quisquam vitae, placeat consequatur reprehenderit maiores quos eligendi adipisci iure
                         sunt, repellendus consequuntur! Iure deserunt rerum tempora asperiores!</span>
+                </div>
+                <div class="d-flex justify-content-center align-items-center p-4">
+                    <div class="ms-auto">
+                        <a class="btn bg-gradient-danger px-3 mb-0"
+                            href="javascript:;"><i class="far fa-trash-alt me-2"></i>Eliminar</a>
+                        <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
+                                class="fas fa-pencil-alt me-2"
+                                aria-hidden="true"></i>Editar</a>
+                    </div>
                 </div>
             </div>
         </div>
