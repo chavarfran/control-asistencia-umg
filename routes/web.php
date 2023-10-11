@@ -1,21 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+/* Autenticacion */ 
 use App\Http\Livewire\Auth\ForgotPassword;
 use App\Http\Livewire\Auth\ResetPassword;
 use App\Http\Livewire\Auth\SignUp;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
-use App\Http\Livewire\Billing;
-use App\Http\Livewire\Profile;
-use App\Http\Livewire\Tables;
-use App\Http\Livewire\StaticSignIn;
-use App\Http\Livewire\StaticSignUp;
-use App\Http\Livewire\Rtl;
+
 /* Usuarios */
 use App\Http\Livewire\User\UserProfile;
-use App\Http\Livewire\User\UserManagement;
 /* Facultad */
 use App\Http\Livewire\Faculty\Table as FacultyTable;
 /* Carrera */
@@ -39,38 +33,20 @@ use App\Http\Controllers\Reports\Asistencia;
 |
 */
 
-Route::get('/', function() {
-    return redirect('/login');
-});
-
-Route::get('/python3-versions', [PackageController::class, 'getPython3Versions']);
-
-Route::get('/google-auth/redirect', function () {
-    return Socialite::driver('google')->redirect();
-});
- 
-Route::get('/google-auth/callback', function () {
-    $user = Socialite::driver('google')->user();
- 
-    // $user->token
-});
-
+Route::get('/', function() {return redirect('/login');});
+Route::get('/google-auth/redirect', function () { return Socialite::driver('google')->redirect();});
+Route::get('/google-auth/callback', function () { $user = Socialite::driver('google')->user();});
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');
-
 Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
-
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/billing', Billing::class)->name('billing');
-    Route::get('/profile', Profile::class)->name('profile');
-    Route::get('/tables', Tables::class)->name('tables');
-    Route::get('/static-sign-in', StaticSignIn::class)->name('sign-in');
-    Route::get('/static-sign-up', StaticSignUp::class)->name('static-sign-up');
-    Route::get('/rtl', Rtl::class)->name('rtl');
-    Route::get('/laravel-user-profile', UserProfile::class)->name('perfil-usuario');
+    /* Rutas de inicio */ 
+    Route::get('/Inicio', Dashboard::class)->name('dashboard');
+
+    /* Rutas de perfil */
+    Route::get('/Perfil', UserProfile::class)->name('perfil-usuario');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
 
     /* Rutas de facultad */
@@ -82,6 +58,7 @@ Route::middleware('auth')->group(function () {
      /* Rutas de Carrera */
      Route::get('/Pensu', PensumTable::class)->name('tabla-pensum');
 
+     /* RUtas de reportes */
      Route::get('/Reportes', [Asistencia::class, 'index'])->name('reporte');
 });
 
