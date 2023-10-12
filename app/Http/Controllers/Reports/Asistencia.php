@@ -11,7 +11,7 @@ class Asistencia extends Controller
     public function index()
     {
         $pdf = PDF::loadView('livewire.reports.asistencia')
-            ->setPaper("letter", 'portrait')->stream('Reporte.pdf');
+            ->setPaper("letter", 'landscape')->stream('Reporte.pdf');
         
         return $pdf;
     }
