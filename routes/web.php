@@ -14,6 +14,7 @@ use App\Http\Livewire\Semester\Table as SemestreTable;/* Semestre */
 use App\Http\Livewire\Section\Table as SectionTable;/* Secciones */
 use App\Http\Livewire\Course\Table as CourseTable;/* Course */
 use App\Http\Livewire\Profesor\Table as ProfesorTable;/* Proferor */
+use App\Http\Livewire\Assignment\Table as AssignmentTable;/* Proferor */
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
@@ -57,6 +58,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/curso', CourseTable::class)->name('tabla-curso');
     /* Rutas de Catedratico */
     Route::get('/catedratico', ProfesorTable::class)->name('tabla-catedratico');
+    /* Rutas de Asignatura */
+    Route::get('/asignación', AssignmentTable::class)->name('tabla-asignatura');
     /* Rutas de Usuarios */
      Route::get('/usuario', UserTable::class)->name('tabla-usuario');
     /* RUtas de Reportes */
