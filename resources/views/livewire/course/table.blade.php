@@ -4,10 +4,10 @@
             <div class="card-header pb-0">
                 <div class="d-flex flex-row justify-content-between">
                     <div>
-                        <h6 class="mb-0">Listado de sección</h6>
+                        <h6 class="mb-0">Listado de curso</h6>
                     </div>
                     <a href="#" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nueva
-                        sección</a>
+                        curso</a>
                 </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">

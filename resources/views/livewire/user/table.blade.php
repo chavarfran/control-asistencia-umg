@@ -4,10 +4,10 @@
             <div class="card-header pb-0">
                 <div class="d-flex flex-row justify-content-between">
                     <div>
-                        <h6 class="mb-0">Listado de catedraticos</h6>
+                        <h6 class="mb-0">Listado de usuario</h6>
                     </div>
                     <a href="#" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nuevo
-                        catedratico</a>
+                        usuario</a>
                 </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
@@ -16,13 +16,13 @@
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre
+                                    Usuario
                                 </th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">DPI
-                                </th>
+
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                     Correo Electrónico</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Facultad y Carrera</th>
+                                    Role</th>
                                 <th
                                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Estado</th>
@@ -46,22 +46,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">2710 13200 1601
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
                                     <p class="text-xs font-weight-bold mb-0">Pperezc@miumg.edu.gt</p>
                                 </td>
                                 <td>
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">Ingenieria en Sistemas de la Información y Ciencia
-                                        </h6>
-                                        <p class="text-xs text-secondary mb-0">Ingenieria</p>
-                                    </div>
+                                    <p class="text-xs font-weight-bold mb-0">Catedratico</p>
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     <span class="badge badge-sm bg-gradient-secondary">Activo</span>
@@ -91,22 +79,10 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">8520 53201 0101
-                                            </h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
                                     <p class="text-xs font-weight-bold mb-0">mmegial@miumg.edu.gt</p>
                                 </td>
                                 <td>
-                                    <div class="d-flex flex-column justify-content-center">
-                                        <h6 class="mb-0 text-sm">Ingenieria en Sistemas de la Información y Ciencia
-                                        </h6>
-                                        <p class="text-xs text-secondary mb-0">Ingenieria</p>
-                                    </div>
+                                    <p class="text-xs font-weight-bold mb-0">Catedratico</p>
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     <span class="badge badge-sm bg-gradient-secondary">Activo</span>
