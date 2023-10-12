@@ -15,6 +15,8 @@
                     <table class="table align-items-center mb-0">
                         <thead>
                             <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Curso
+                                </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Facultad
                                     y Carrera
                                 </th>
@@ -33,6 +35,14 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td>
+                                    <div class="d-flex px-2 py-1">
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h5 class="mb-0 text-md">Precálculo
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>
                                     <div class="d-flex px-2 py-1">
                                         <div class="d-flex flex-column justify-content-center">
@@ -65,6 +75,14 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>
+                                    <div class="d-flex px-2 py-1">
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h5 class="mb-0 text-md">Algebra Lineal
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </td>
                                 <td>
                                     <div class="d-flex px-2 py-1">
                                         <div class="d-flex flex-column justify-content-center">
