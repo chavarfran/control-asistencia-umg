@@ -6,7 +6,8 @@
                     <div>
                         <h6 class="mb-0">Listado de pensum</h6>
                     </div>
-                    <a href="#" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nuevo pensum</a>
+                    <a href="#" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nuevo
+                        pensum</a>
                 </div>
             </div>
             <div class="card-body pt-4 p-3">
@@ -22,9 +23,9 @@
                                     class="text-dark ms-2 font-weight-bold">Inactivo</span></span>
                         </div>
                         <div class="ms-auto">
-                            <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
+                            <a class="btn bg-gradient-danger px-3 mb-2" href="javascript:;"><i
                                     class="far fa-trash-alt me-2"></i>Eliminar</a>
-                            <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
+                            <a class="btn bg-gradient-dark px-3 mb-2" href="javascript:;"><i
                                     class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
                         </div>
                     </li>
@@ -39,9 +40,9 @@
                                     class="text-dark ms-2 font-weight-bold">Activo</span></span>
                         </div>
                         <div class="ms-auto">
-                            <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
+                            <a class="btn bg-gradient-danger px-3 mb-2" href="javascript:;"><i
                                     class="far fa-trash-alt me-2"></i>Eliminar</a>
-                            <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
+                            <a class="btn bg-gradient-dark px-3 mb-2" href="javascript:;"><i
                                     class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
                         </div>
                     </li>
@@ -56,9 +57,9 @@
                                     class="text-dark ms-2 font-weight-bold">Activo</span></span>
                         </div>
                         <div class="ms-auto">
-                            <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
+                            <a class="btn bg-gradient-danger px-3 mb-2" href="javascript:;"><i
                                     class="far fa-trash-alt me-2"></i>Eliminar</a>
-                            <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
+                            <a class="btn bg-gradient-dark px-3 mb-2" href="javascript:;"><i
                                     class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
                         </div>
                     </li>
@@ -73,9 +74,9 @@
                                     class="text-dark ms-2 font-weight-bold">Activo</span></span>
                         </div>
                         <div class="ms-auto">
-                            <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
+                            <a class="btn bg-gradient-danger px-3 mb-2" href="javascript:;"><i
                                     class="far fa-trash-alt me-2"></i>Eliminar</a>
-                            <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
+                            <a class="btn bg-gradient-dark px-3 mb-2" href="javascript:;"><i
                                     class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
                         </div>
                     </li>
