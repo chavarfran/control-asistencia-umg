@@ -12,7 +12,8 @@ use App\Http\Livewire\Career\Table as CarrerTable;/* Carrera */
 use App\Http\Livewire\Pensum\Table as PensumTable;/* Pensum */
 use App\Http\Livewire\Semester\Table as SemestreTable;/* Semestre */
 use App\Http\Livewire\Section\Table as SectionTable;/* Secciones */
-use App\Http\Livewire\Course\Table as CourseTable;/* Secciones */
+use App\Http\Livewire\Course\Table as CourseTable;/* Course */
+use App\Http\Livewire\Profesor\Table as ProfesorTable;/* Proferor */
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\PackageController;
@@ -53,6 +54,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/sección', SectionTable::class)->name('tabla-sección');
     /* Rutas de Semestre */
     Route::get('/curso', CourseTable::class)->name('tabla-curso');
+    /* Rutas de Semestre */
+    Route::get('/catedratico', ProfesorTable::class)->name('tabla-catedratico');
     /* RUtas de Reportes */
     Route::get('/reportes', [Asistencia::class, 'index'])->name('reporte');
 });

@@ -15,13 +15,14 @@
                     <table class="table align-items-center mb-0">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Facultad
-                                    y Pensum
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">DPI
                                 </th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Semestre y Ciclo</th>
+                                    Correo Electrónico</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                    Sección</th>
+                                    Facultad y Carrera</th>
                                 <th
                                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Estado</th>
@@ -35,19 +36,32 @@
                             <tr>
                                 <td>
                                     <div class="d-flex px-2 py-1">
+                                        <div>
+                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3">
+                                        </div>
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Ingenieria en Sistemas de la Información y Ciencia
+                                            <h6 class="mb-0 text-md">Pedro Ricardo Perez Cardona
                                             </h6>
-                                            <p class="text-xs text-secondary mb-0">Pensum 2014</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="text-xs font-weight-bold mb-0">Tercer Semestre</p>
-                                    <p class="text-xs text-secondary mb-0">2023</p>
+                                    <div class="d-flex px-2 py-1">
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">2710 13200 1601
+                                            </h6>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>
-                                    <p class="text-xs text-secondary mb-0">A</p>
+                                    <p class="text-xs font-weight-bold mb-0">Pperezc@miumg.edu.gt</p>
+                                </td>
+                                <td>
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-sm">Ingenieria en Sistemas de la Información y Ciencia
+                                        </h6>
+                                        <p class="text-xs text-secondary mb-0">Ingenieria</p>
+                                    </div>
                                 </td>
                                 <td class="align-middle text-center text-sm">
                                     <span class="badge badge-sm bg-gradient-secondary">Activo</span>
@@ -67,22 +81,35 @@
                             <tr>
                                 <td>
                                     <div class="d-flex px-2 py-1">
+                                        <div>
+                                            <img src="../assets/img/team-1.jpg" class="avatar avatar-sm me-3">
+                                        </div>
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Ingenieria en Sistemas de la Información y Ciencia
+                                            <h6 class="mb-0 text-md">Maria Alejandra Megia Lopez
                                             </h6>
-                                            <p class="text-xs text-secondary mb-0">Pensum 2014</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="text-xs font-weight-bold mb-0">Segundo Semestre</p>
-                                    <p class="text-xs text-secondary mb-0">2022</p>
+                                    <div class="d-flex px-2 py-1">
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">8520 53201 0101
+                                            </h6>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>
-                                    <p class="text-xs text-secondary mb-0">A</p>
+                                    <p class="text-xs font-weight-bold mb-0">mmegial@miumg.edu.gt</p>
+                                </td>
+                                <td>
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h6 class="mb-0 text-sm">Ingenieria en Sistemas de la Información y Ciencia
+                                        </h6>
+                                        <p class="text-xs text-secondary mb-0">Ingenieria</p>
+                                    </div>
                                 </td>
                                 <td class="align-middle text-center text-sm">
-                                    <span class="badge badge-sm bg-gradient-dark">Inactivo</span>
+                                    <span class="badge badge-sm bg-gradient-secondary">Activo</span>
                                 </td>
                                 <td class="align-middle text-center">
                                     <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
@@ -96,7 +123,6 @@
                                     </div>
                                 </td>
                             </tr>
-
                         </tbody>
 
                     </table>
