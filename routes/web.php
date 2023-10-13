@@ -12,7 +12,10 @@ use App\Http\Livewire\Career\Table as CarrerTable;/* Carrera */
 use App\Http\Livewire\Pensum\Table as PensumTable;/* Pensum */
 use App\Http\Livewire\Semester\Table as SemestreTable;/* Semestre */
 use App\Http\Livewire\Section\Table as SectionTable;/* Secciones */
+
+use App\Http\Livewire\Course\Create as CourseCreate;/* Course */
 use App\Http\Livewire\Course\Table as CourseTable;/* Course */
+
 use App\Http\Livewire\Profesor\Table as ProfesorTable;/* Proferor */
 use App\Http\Livewire\Assignment\Table as AssignmentTable;/* Proferor */
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
@@ -56,6 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/sección', SectionTable::class)->name('tabla-sección');
     /* Rutas de Semestre */
     Route::get('/curso', CourseTable::class)->name('tabla-curso');
+    Route::get('/curso/crear', CourseCreate::class)->name('formulario-curso');
     /* Rutas de Catedratico */
     Route::get('/catedratico', ProfesorTable::class)->name('tabla-catedratico');
     /* Rutas de Asignatura */

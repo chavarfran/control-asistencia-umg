@@ -6,7 +6,7 @@
                     <div>
                         <h6 class="mb-0">Listado de curso</h6>
                     </div>
-                    <a href="#" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nueva
+                    <a href="{{ route('formulario-curso') }}" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nueva
                         curso</a>
                 </div>
             </div>
