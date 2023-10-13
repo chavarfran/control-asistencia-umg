@@ -6,7 +6,7 @@
                     <div>
                         <h6 class="mb-0">Listado de catedraticos</h6>
                     </div>
-                    <a href="#" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nuevo
+                    <a href="{{ route('formulario-catedratico') }}" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nuevo
                         catedratico</a>
                 </div>
             </div>

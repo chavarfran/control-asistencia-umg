@@ -36,7 +36,7 @@
                                 <label for="course-nombre" class="form-control-label">{{ __('Nombre') }}</label>
                                 <div class="@error('course.nombre')border border-danger rounded-3 @enderror">
                                     <input wire:model="course.nombre" class="form-control" type="text"
-                                        placeholder="Agregar un nombre del curso" id="course-nombre">
+                                        placeholder="Agregar un nombre del curso" id="nombre">
                                 </div>
                                 @error('course.nombre')
                                     <div class="text-danger">{{ $message }}</div>
@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <label for="about">{{ 'Descripcion' }}</label>
                         <div class="@error('course.about')border border-danger rounded-3 @enderror">
-                            <textarea wire:model="course.about" class="form-control" id="about" rows="3"
+                            <textarea wire:model="course.about" class="form-control" id="descripcion" rows="3"
                                 placeholder="Agregar una descripción del curso"></textarea>
                         </div>
                         @error('course.about')
@@ -121,6 +121,31 @@
                                     </select>
                                 </div>
                                 @error('course.id_section')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="course-dia" class="form-control-label">{{ __('Dia') }}</label>
+                                <div class="@error('course.nombre')border border-danger rounded-3 @enderror">
+                                    <input wire:model="course.dia" class="form-control" type="text"
+                                        placeholder="Agregar dia de curso" id="dia">
+                                </div>
+                                @error('course.dia')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="course-horario" class="form-control-label">{{ __('Horario') }}</label>
+                                <div class="@error('course.horario')border border-danger rounded-3 @enderror">
+                                    <input wire:model="course.horario" class="form-control" type="time" id="horario">
+                                </div>
+                                @error('course.horario')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
