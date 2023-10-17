@@ -80,7 +80,7 @@
                                     <form role="form text-left">
                                         <label>Nombre</label>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control"  id="nombre"
                                                 placeholder="nombre de la carrera">
                                         </div>
                                         <label>Descripción</label>
