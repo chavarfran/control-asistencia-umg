@@ -25,7 +25,7 @@
                                 <p class="mb-4 text-sm">
                                     Breve descripcion de la facultad y de las carreras que abarca.
                                 </p>
-                                <div class="d-flex align-items-center justify-content-between">
+                                {{--<div class="d-flex align-items-center justify-content-between">
                                     <div class="d-flex justify-content-center align-items-center p-4">
                                         <div class="ms-auto">
                                             <a class="btn bg-gradient-danger px-3 mb-0"
@@ -35,7 +35,7 @@
                                                     aria-hidden="true"></i>Editar</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                                 <p class="mb-4 text-sm">
                                     Breve descripcion de la facultad y de las carreras que abarca.
                                 </p>
-                                <div class="d-flex align-items-center justify-content-between">
+                                {{--<div class="d-flex align-items-center justify-content-between">
                                     <div class="d-flex justify-content-center align-items-center p-4">
                                         <div class="ms-auto">
                                             <a class="btn bg-gradient-danger px-3 mb-0"
@@ -67,11 +67,11 @@
                                                     aria-hidden="true"></i>Editar</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
+                    {{--<div class="col-xl-3 col-md-6 mb-xl-0 mb-4">
                         <div class="card h-100 card-plain border">
                             <div class="card-body d-flex flex-column justify-content-center text-center">
                                 <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal-form">
@@ -80,7 +80,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
                     <div class="col-md-4">
                         <div class="modal fade" id="modal-form" tabindex="-1" role="dialog"
                             aria-labelledby="modal-form" aria-hidden="true">
