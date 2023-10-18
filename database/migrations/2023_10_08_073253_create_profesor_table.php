@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('direccion')->nullable();
             $table->string('codigo_catedratico');
             $table->unsignedBigInteger('id_municipio');
+            $table->binary('foto')->nullable();
             $table->boolean('activo')->default(true);
             $table->unsignedBigInteger('id_usuario')->nullable();
 

@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('tb_career', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre',255);
             $table->text('descripcion')->nullable();
-            $table->unsignedBigInteger('id_pensum');
+            $table->unsignedBigInteger('id_carrera');
             $table->boolean('activo')->default(true);
             $table->unsignedBigInteger('id_usuario')->nullable();
 
-            $table->foreign('id_pensum')
+            $table->foreign('id_carrear')
                   ->references('id')
                   ->on('tb_pensum')
                   ->onDelete('cascade');
