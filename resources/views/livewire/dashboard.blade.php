@@ -21,11 +21,11 @@
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink">
                                                 <title>document</title>
-                                                <g id="Basic-Elements" stroke="none" stroke-width="1"
-                                                    fill="none" fill-rule="evenodd">
+                                                <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
                                                     <g id="Rounded-Icons"
-                                                        transform="translate(-1870.000000, -591.000000)"
-                                                        fill="#FFFFFF" fill-rule="nonzero">
+                                                        transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF"
+                                                        fill-rule="nonzero">
                                                         <g id="Icons-with-opacity"
                                                             transform="translate(1716.000000, 291.000000)">
                                                             <g id="document"
@@ -58,11 +58,11 @@
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink">
                                                 <title>spaceship</title>
-                                                <g id="Basic-Elements" stroke="none" stroke-width="1"
-                                                    fill="none" fill-rule="evenodd">
+                                                <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
                                                     <g id="Rounded-Icons"
-                                                        transform="translate(-1720.000000, -592.000000)"
-                                                        fill="#FFFFFF" fill-rule="nonzero">
+                                                        transform="translate(-1720.000000, -592.000000)" fill="#FFFFFF"
+                                                        fill-rule="nonzero">
                                                         <g id="Icons-with-opacity"
                                                             transform="translate(1716.000000, 291.000000)">
                                                             <g id="spaceship"
