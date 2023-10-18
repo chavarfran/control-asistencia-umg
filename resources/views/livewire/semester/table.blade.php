@@ -131,23 +131,24 @@
                             </div>
                             <div class="card-body">
                                 <form role="form text-left">
-                                    <label>Pensum</label>
-                                    <div class="input-group mb-3">
-                                            <input type="text" class="form-control"
-                                                placeholder="Ingrese el año del pensum">
-                                    </div>                                  
-                                    <label>Facultad</label>
-                                    <select class="form-control">
-                                        <option>Seleccione una facultad</option>
-                                      </select>
                                     <label>Carrera</label>
                                     <select class="form-control">
                                         <option>Seleccione la carrera</option>
+                                      </select>                                
+                                    <label>Pensum</label>
+                                    <select class="form-control">
+                                        <option>Seleccione el pensum</option>
                                       </select>
-                                      <label>Vigencia</label>
-                                      <select class="form-control">
-                                          <option>Seleccione el estado</option>
-                                        </select>
+                                    <label>Semestre</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control"
+                                            placeholder="Ingrese el nombre del semestre">
+                                    </div> 
+                                      <label>Ciclo</label>
+                                      <div class="input-group mb-3">
+                                        <input type="text" class="form-control"
+                                            placeholder="Ingrese el ciclo">
+                                    </div> 
                                     <div class="text-center">
                                         <button type="button"
                                             class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Guardar</button>

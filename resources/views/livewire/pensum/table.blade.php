@@ -111,10 +111,7 @@
                                     <select class="form-control">
                                         <option>Seleccione la carrera</option>
                                       </select>
-                                      <label>Vigencia</label>
-                                      <select class="form-control">
-                                          <option>Seleccione el estado</option>
-                                        </select>
+                                
 
 
 
