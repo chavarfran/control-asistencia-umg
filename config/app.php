@@ -145,6 +145,8 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        MongoDB\Laravel\MongoDBServiceProvider::class,
+        MongoDB\Laravel\Auth\PasswordResetServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,

@@ -1,5 +1,5 @@
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
-    id="sidenav-main">
+    id="sidenav-main" data-color="dark"> 
     <div class="sidenav-header d-flex align-items-center justify-content-center elevated-border-radius">
         <a class="d-flex align-items-center justify-content-center h-100 w-50 m-0" href="{{ route('dashboard') }}">
             <img src="../assets/img/Imagen2.png" class="full-width-height" alt="...">
@@ -15,7 +15,7 @@
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
                             class="fas fa-lg fa-home ps-2 pe-2 text-center
-                        {{ in_array(request()->route()->getName(),['dashboard'])? 'text-white': 'text-dark' }}"></i>
+                        {{ in_array(request()->route()->getName(),['dashboard'])? 'text-white ': 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Inicio</span>
                 </a>
@@ -41,7 +41,7 @@
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
-                            class="fas fa-lg fa-box-open ps-2 pe-2 text-center
+                            class="fas fa-lg fa-briefcase ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['proyectos'])? 'text-white': 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Marcos de trabajo</span>
@@ -53,7 +53,7 @@
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
-                            class="fas fa-lg fa-box-open ps-2 pe-2 text-center
+                            class="fas fa-lg fa-window-restore ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['proyectos'])? 'text-white': 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Aplicaciones</span>
@@ -77,7 +77,7 @@
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
-                            class="fas fa-lg fa-box-open ps-2 pe-2 text-center
+                            class="fas fa-lg fa-desktop ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['proyectos'])? 'text-white': 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Mi dispositivo</span>
@@ -89,7 +89,7 @@
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
-                            class="fas fa-lg fa-box-open ps-2 pe-2 text-center
+                            class="fas fa-lg fa-book ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['proyectos'])? 'text-white': 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Documentación</span>
@@ -101,7 +101,7 @@
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
-                            class="fas fa-lg fa-box-open ps-2 pe-2 text-center
+                            class="fi fi-brands-visual-basic ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['proyectos'])? 'text-white': 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Visual Studio Code</span>
@@ -113,7 +113,7 @@
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
-                            class="fas fa-lg fa-box-open ps-2 pe-2 text-center
+                            class="fas fa-lg fa-users ps-2 pe-2 text-center
                         {{ in_array(request()->route()->getName(),['proyectos'])? 'text-white': 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Reunir Equipo</span>
