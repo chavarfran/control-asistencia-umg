@@ -1,8 +1,8 @@
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3"
-    id="sidenav-main" data-color="dark"> 
+    id="sidenav-main" data-color="dark">
     <div class="sidenav-header d-flex align-items-center justify-content-center elevated-border-radius">
         <a class="d-flex align-items-center justify-content-center h-100 w-50 m-0" href="{{ route('dashboard') }}">
-            <img src="../assets/img/Imagen2.png" class="full-width-height" alt="...">
+            <img src="../assets/img/logoElula.png" class="full-width-height" alt="...">
         </a>
     </div>
     <hr class="horizontal dark mt-0">
@@ -96,13 +96,13 @@
                 </a>
             </li>
             <li class="nav-item pb-2">
-                <a class="nav-link {{ Route::currentRouteName() == 'proyectos' ? 'active' : '' }}"
-                    href="{{ route('proyectos') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'vscode' ? 'active' : '' }}"
+                    href="https://vscode.dev" target="_blank">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
                             class="fi fi-brands-visual-basic ps-2 pe-2 text-center
-                        {{ in_array(request()->route()->getName(),['proyectos'])? 'text-white': 'text-dark' }}"></i>
+                        {{ in_array(request()->route()->getName(),['vscode'])? 'text-white': 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Visual Studio Code</span>
                 </a>
