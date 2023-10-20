@@ -6,7 +6,8 @@
                     <div>
                         <h6 class="mb-0">Listado de semestres</h6>
                     </div>
-                    <a href="#" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nuevo semestre</a>
+                    <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal-form" 
+                    class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nuevo semestre</a>
                 </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
@@ -116,4 +117,51 @@
             </div>
         </div>
     </div>
+
+    <div class="col-md-4">
+        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog"
+            aria-labelledby="modal-form" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-body p-0">
+                        <div class="card card-plain">
+                            <div class="card-header pb-0 text-left">
+                                <h3 class="font-weight-bolder text-info text-gradient">Agregar un nuevo semestre</h3>
+                                <p class="mb-0">Ingresar los campos requeridos</p>
+                            </div>
+                            <div class="card-body">
+                                <form role="form text-left">
+                                    <label>Carrera</label>
+                                    <select class="form-control">
+                                        <option>Seleccione la carrera</option>
+                                      </select>                                
+                                    <label>Pensum</label>
+                                    <select class="form-control">
+                                        <option>Seleccione el pensum</option>
+                                      </select>
+                                    <label>Semestre</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control"
+                                            placeholder="Ingrese el nombre del semestre">
+                                    </div> 
+                                      <label>Ciclo</label>
+                                      <div class="input-group mb-3">
+                                        <input type="text" class="form-control"
+                                            placeholder="Ingrese el ciclo">
+                                    </div> 
+                                    <div class="text-center">
+                                        <button type="button"
+                                            class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </div>
