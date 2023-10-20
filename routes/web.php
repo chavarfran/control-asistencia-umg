@@ -8,7 +8,10 @@ use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\User\UserProfile;/* Usuarios */
 use App\Http\Livewire\Faculty\Table as FacultyTable;/* Facultad */
+
 use App\Http\Livewire\Career\Table as CarrerTable;/* Carrera */
+use App\Http\Controllers\CareerController;
+
 use App\Http\Livewire\Pensum\Table as PensumTable;/* Pensum */
 use App\Http\Livewire\Semester\Table as SemestreTable;/* Semestre */
 use App\Http\Livewire\Section\Table as SectionTable;/* Secciones */
@@ -53,6 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/facultad', FacultyTable::class)->name('tabla-facultad');
     /* Rutas de Carrera */
     Route::get('/carrera', CarrerTable::class)->name('tabla-carrera');
+    Route::post('/carrera/store', [CareerController::class, 'store'])->name('career-store');
     /* Rutas de Carrera */
     Route::get('/pensum', PensumTable::class)->name('tabla-pensum');
     /* Rutas de Semestre */

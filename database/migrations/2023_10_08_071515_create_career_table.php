@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('descripcion')->nullable();
-            $table->unsignedBigInteger('id_pensum');
+            $table->unsignedBigInteger('id_faculty');
             $table->boolean('activo')->default(true);
             $table->unsignedBigInteger('id_usuario')->nullable();
 
-            $table->foreign('id_pensum')
+            $table->foreign('id_faculty')
                   ->references('id')
-                  ->on('tb_pensum')
+                  ->on('tb_faculty')
                   ->onDelete('cascade');
             $table->timestamps();
         });
