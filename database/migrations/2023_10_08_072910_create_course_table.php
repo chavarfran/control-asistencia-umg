@@ -18,12 +18,18 @@ return new class extends Migration
             $table->unsignedBigInteger('id_pensum');
             $table->string('horario')->nullable();
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
+            $table->unsignedBigInteger('id_seccion')->nullable();
 
             $table->foreign('id_pensum')
                   ->references('id')
                   ->on('tb_pensum')
                   ->onDelete('cascade');
+
+                  $table->foreign('id_seccion')
+                  ->references('id')
+                  ->on('tb_seccion')
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
