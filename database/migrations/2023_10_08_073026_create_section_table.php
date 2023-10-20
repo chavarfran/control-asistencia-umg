@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_section', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre');
             $table->unsignedBigInteger('id_carrera');
             $table->unsignedBigInteger('id_semestre');

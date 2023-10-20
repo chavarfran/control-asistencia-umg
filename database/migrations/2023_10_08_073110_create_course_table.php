@@ -19,16 +19,14 @@ return new class extends Migration
             $table->string('horario')->nullable();
             $table->boolean('activo')->default(true);
             $table->unsignedBigInteger('id_seccion')->nullable();
-
             $table->foreign('id_pensum')
-                  ->references('id')
-                  ->on('tb_pensum')
-                  ->onDelete('cascade');
-
-                  $table->foreign('id_seccion')
-                  ->references('id')
-                  ->on('tb_seccion')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_pensum')
+                ->onDelete('cascade');
+            $table->foreign('id_seccion')
+                ->references('id')
+                ->on('tb_section')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });
