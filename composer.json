@@ -12,7 +12,8 @@
         "laravel/socialite": "^5.9",
         "laravel/tinker": "^2.6",
         "livewire/livewire": "^2.8",
-        "mongodb/laravel-mongodb": "dev-feat-dirty"
+        "mongodb/laravel-mongodb": "^4.0",
+        "unisharp/laravel-filemanager": "^2.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.17",

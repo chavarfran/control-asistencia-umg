@@ -72,13 +72,13 @@
                 </a>
             </li>
             <li class="nav-item pb-2">
-                <a class="nav-link {{ Route::currentRouteName() == 'proyectos' ? 'active' : '' }}"
-                    href="{{ route('proyectos') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'filemanager' ? 'active' : '' }}"
+                    href="{{ route('filemanager') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
                             class="fas fa-lg fa-desktop ps-2 pe-2 text-center
-                        {{ in_array(request()->route()->getName(),['proyectos'])? 'text-white': 'text-dark' }}"></i>
+                        {{ in_array(request()->route()->getName(),['filemanager'])? 'text-white': 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Mi dispositivo</span>
                 </a>

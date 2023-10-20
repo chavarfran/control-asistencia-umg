@@ -145,8 +145,6 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-        MongoDB\Laravel\MongoDBServiceProvider::class,
-        MongoDB\Laravel\Auth\PasswordResetServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -184,8 +182,13 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        MongoDB\Laravel\MongoDBServiceProvider::class,
+        UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
-        
+
+
+
 
     ],
 
@@ -240,6 +243,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Image' => Intervention\Image\Facades\Image::class,
         
        
 

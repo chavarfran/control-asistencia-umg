@@ -8,7 +8,7 @@ use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\User\UserProfile;/* Usuarios */
 use App\Http\Livewire\Projects\Table as ProjectsTable;/* Usuarios */
-use App\Http\Livewire\VSCode\View as VSCodeView;/* Usuarios */
+use App\Http\Livewire\FileManager\View;/* Usuarios */
 
 use App\Http\Livewire\Assignment\Table as AssignmentTable;/* Proferor */
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
@@ -39,6 +39,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/inicio', Dashboard::class)->name('dashboard');
     Route::get('/perfil', UserProfile::class)->name('perfil-usuario');
     Route::get('/proyectos', ProjectsTable::class)->name('proyectos');
-    Route::get('/vscode', VSCodeView::class)->name('vscode');
+    Route::get('/filemanager', View::class)->name('filemanager');
+    Route::group(
+        [
+            'prefix' => 'laravel-filemanager', 
+            'middleware' => ['web', 'auth']
+        ], function () { 
+            
+            \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
+    
+    
 });
 

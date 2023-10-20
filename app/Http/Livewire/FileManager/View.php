@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\VSCode;
+namespace App\Http\Livewire\FileManager;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class View extends Component
 {
     public function render()
     {
-        return view('livewire.v-s-code.view');
+        return view('livewire.file-manager.view');
     }
 }
