@@ -23,7 +23,8 @@ class Table extends Component
     public function render()
     {
         return view('livewire.career.table', [
-            'careers' => $this->career, 'faculties' => $this->faculties  // Pasa los datos a la vista
+            'careers' => $this->career, 
+            'faculties' => $this->faculties  // Pasa los datos a la vista
         ]);
     }
 }
