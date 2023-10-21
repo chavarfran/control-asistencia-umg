@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',255);
             $table->text('descripcion')->nullable();
-            $table->unsignedBigInteger('id_faculty');
             $table->boolean('activo')->default(true);
 
             $table->foreign('id_faculty')
