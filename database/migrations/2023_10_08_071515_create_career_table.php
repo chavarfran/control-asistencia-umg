@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',255);
             $table->text('descripcion')->nullable();
-
             $table->boolean('activo')->default(true);
 
             $table->foreignId('id_faculty')
