@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',255);
             $table->text('descripcion')->nullable();
+<<<<<<< HEAD
 
+=======
+            $table->unsignedBigInteger('id_faculty');
+>>>>>>> origin/ballardo
             $table->boolean('activo')->default(true);
 
             $table->foreignId('id_faculty')
