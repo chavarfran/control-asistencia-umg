@@ -24,6 +24,7 @@ use App\Http\Livewire\Course\Table as CourseTable;/* Course */
 
 use App\Http\Livewire\Profesor\Create as ProfesorCreate;/* Proferor */
 use App\Http\Livewire\Profesor\Table as ProfesorTable;/* Proferor */
+use App\Http\Livewire\Profesor\Dashboard as ProfesorDashboard;/* Proferor */
 
 use App\Http\Livewire\Assignment\Table as AssignmentTable;/* Proferor */
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
@@ -74,6 +75,7 @@ Route::middleware('auth')->group(function () {
     /* Rutas de Catedratico */
     Route::get('/catedratico', ProfesorTable::class)->name('tabla-catedratico');
     Route::get('/catedratico/formulario', ProfesorCreate::class)->name('formulario-catedratico');
+    Route::get('/catedratico/inicio/', ProfesorDashboard::class)->name('inicio-catedratico');
     /* Rutas de Asignatura */
     Route::get('/asignación', AssignmentTable::class)->name('tabla-asignatura');
     /* Rutas de Usuarios */
