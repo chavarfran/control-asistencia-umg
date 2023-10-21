@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('tb_pensum', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_carrera');
+            $table->integer('id_carrera');
             $table->string('nombre_pensum');
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
+            $table->integer('id_usuario')->nullable();
 
             $table->foreign('id_carrera')
                   ->references('id')
