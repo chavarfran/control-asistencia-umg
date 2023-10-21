@@ -13,6 +13,9 @@ use App\Http\Livewire\Career\Table as CarrerTable;/* Carrera */
 use App\Http\Controllers\CareerController;
 
 use App\Http\Livewire\Pensum\Table as PensumTable;/* Pensum */
+use App\Http\Livewire\Pensum\Create as PensumCreate;/* Pensum */
+use App\Http\Controllers\PensumController;
+
 use App\Http\Livewire\Semester\Table as SemestreTable;/* Semestre */
 use App\Http\Livewire\Section\Table as SectionTable;/* Secciones */
 
@@ -59,6 +62,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/carrera/store', [CareerController::class, 'store'])->name('career-store');
     /* Rutas de Carrera */
     Route::get('/pensum', PensumTable::class)->name('tabla-pensum');
+    Route::get('/pensum/formulario', PensumCreate::class)->name('formulario-pensum');
+    Route::post('/pensum/store', [PensumController::class, 'store'])->name('pensum-store');
     /* Rutas de Semestre */
     Route::get('/semestre', SemestreTable::class)->name('tabla-semestre');
     /* Rutas de Semestre */

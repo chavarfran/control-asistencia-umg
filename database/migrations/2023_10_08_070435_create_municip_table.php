@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('tb_municipio', function (Blueprint $table) {
             $table->id('id_municipio');
             $table->string('nombre');
-            $table->unsignedBigInteger('id_depto');
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
 
-            $table->foreign('id_depto')
+            $table->integer('id_usuario')->nullable();
+
+            
+            $table->foreignId('id_depto')
                   ->references('id_Depto')
                   ->on('tb_departament')
                   ->onDelete('cascade');

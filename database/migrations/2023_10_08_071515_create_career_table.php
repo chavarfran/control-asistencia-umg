@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('descripcion')->nullable();
             $table->unsignedBigInteger('id_faculty');
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
 
             $table->foreign('id_faculty')
                   ->references('id')

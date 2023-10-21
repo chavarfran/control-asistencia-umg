@@ -12,18 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_section', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre');
-            $table->unsignedBigInteger('id_carrera');
-            $table->unsignedBigInteger('id_semestre');
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
+            $table->integer('id_usuario')->nullable();
 
-            $table->foreign('id_carrera')
+            $table->foreignId('id_carrera')
                   ->references('id')
                   ->on('tb_career')
                   ->onDelete('cascade');
 
-            $table->foreign('id_semestre')
+            $table->foreignId('id_semestre')
                   ->references('id')
                   ->on('tb_semester')
                   ->onDelete('cascade');

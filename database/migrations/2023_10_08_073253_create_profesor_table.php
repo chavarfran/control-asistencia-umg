@@ -22,12 +22,11 @@ return new class extends Migration
             $table->string('telefono', 20);
             $table->string('direccion')->nullable();
             $table->string('codigo_catedratico');
-            $table->unsignedBigInteger('id_municipio');
             $table->binary('foto')->nullable();
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
+            $table->integer('id_usuario')->nullable();
 
-            $table->foreign('id_municipio')
+            $table->foreignId('id_municipio')
                   ->references('id_municipio')
                   ->on('tb_municipio')
                   ->onDelete('cascade');

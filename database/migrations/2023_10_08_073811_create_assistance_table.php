@@ -13,26 +13,23 @@ return new class extends Migration
     {
         Schema::create('tb_assistance', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_catedratico');
-            $table->unsignedBigInteger('id_curso');
-            $table->unsignedBigInteger('id_tema');
             $table->boolean('activo')->default(true);
             $table->time('hora_entrada')->nullable();
             $table->time('hora_salida')->nullable();
             $table->string('ubicacion', 255)->nullable();
-            $table->unsignedBigInteger('id_usuario')->nullable();
+            $table->integer('id_usuario')->nullable();
 
-            $table->foreign('id_catedratico')
+            $table->foreignId('id_catedratico')
                   ->references('id')
                   ->on('tb_profesor')
                   ->onDelete('cascade');
 
-            $table->foreign('id_curso')
+            $table->foreignId('id_curso')
                   ->references('id')
                   ->on('tb_course')
                   ->onDelete('cascade');
 
-            $table->foreign('id_tema')
+            $table->foreignId('id_tema')
                   ->references('id')
                   ->on('tb_topics')
                   ->onDelete('cascade');

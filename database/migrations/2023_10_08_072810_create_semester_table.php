@@ -17,9 +17,8 @@ return new class extends Migration
             $table->string('ciclo')->nullable();
             $table->text('descripcion')->nullable();
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_pensum')->nullable();
 
-            $table->foreign('id_pensum')
+            $table->foreignId('id_pensum')
                   ->references('id')
                   ->on('tb_pensum')
                   ->onDelete('cascade');
