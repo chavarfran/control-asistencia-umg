@@ -131,6 +131,10 @@
                             </div>
                             <div class="card-body">
                                 <form role="form text-left">
+                                    <label>Facultad</label>
+                                    <select class="form-control">
+                                        <option>Seleccione la facultad</option>
+                                      </select>   
                                     <label>Carrera</label>
                                     <select class="form-control">
                                         <option>Seleccione la carrera</option>
