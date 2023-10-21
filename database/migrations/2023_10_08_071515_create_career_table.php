@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('descripcion')->nullable();
             $table->boolean('activo')->default(true);
 
-            $table->foreign('id_faculty')
+            $table->foreignId('id_faculty')
                   ->references('id')
                   ->on('tb_faculty')
                   ->onDelete('cascade');
