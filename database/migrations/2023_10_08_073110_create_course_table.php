@@ -15,15 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->text('descripcion')->nullable();
-            $table->unsignedBigInteger('id_pensum');
             $table->string('horario')->nullable();
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_seccion')->nullable();
-            $table->foreign('id_pensum')
+            $table->foreignId('id_pensum')
                 ->references('id')
                 ->on('tb_pensum')
                 ->onDelete('cascade');
-            $table->foreign('id_seccion')
+            $table->foreignId('id_seccion')
                 ->references('id')
                 ->on('tb_section')
                 ->onDelete('cascade');

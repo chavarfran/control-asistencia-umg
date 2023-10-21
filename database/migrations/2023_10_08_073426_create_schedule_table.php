@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('tb_schedule', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_curso');
             $table->time('hora');
             $table->string('dia', 255);
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
+            $table->integer('id_usuario')->nullable();
 
-            $table->foreign('id_curso')
+            $table->foreignId('id_curso')
                   ->references('id')
                   ->on('tb_course')
                   ->onDelete('cascade');

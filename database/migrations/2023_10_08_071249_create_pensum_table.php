@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('tb_pensum', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_carrera');
             $table->string('nombre_pensum');
             $table->boolean('activo')->default(true);
             $table->integer('id_usuario')->nullable();
 
-            $table->foreign('id_carrera')
+            $table->foreignId('id_carrera')
                   ->references('id')
                   ->on('tb_faculty')
                   ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

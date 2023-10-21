@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->text('descripcion')->nullable();
             $table->boolean('activo')->default(true);
-            $table->int('id_usuario')->nullable();
+            $table->integer('id_usuario')->nullable();
             $table->timestamps();
         });
     }

@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::create('tb_topics', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_tema');
-            $table->unsignedBigInteger('id_horario');
             $table->date('Fecha');
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
+            $table->integer('id_usuario')->nullable();
 
-            $table->foreign('id_horario')
+            $table->foreignId('id_horario')
                   ->references('id')
                   ->on('tb_schedule')
                   ->onDelete('cascade');

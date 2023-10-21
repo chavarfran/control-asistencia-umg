@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('nombre',255);
             $table->text('descripcion')->nullable();
-            $table->unsignedBigInteger('id_faculty');
-            $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
 
-            $table->foreign('id_faculty')
+            $table->boolean('activo')->default(true);
+
+            $table->foreignId('id_faculty')
                   ->references('id')
                   ->on('tb_faculty')
                   ->onDelete('cascade');
