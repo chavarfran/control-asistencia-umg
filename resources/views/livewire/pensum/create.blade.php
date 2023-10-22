@@ -29,7 +29,7 @@
                                             <option value="">Seleccione una facultad</option>
                                             @foreach ($faculties as $faculty)
                                                 <option value="{{ $faculty->id }}">
-                                                    {{ $faculty->nombre }}</option>
+                                                    {{ $faculty->nombre_facultad }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -43,7 +43,7 @@
                                     <div class="@error('pensum.id_career') border border-danger rounded-3 @enderror">
                                         <select class="form-control" name="id_carrera">
                                             @foreach ($careers as $career)
-                                                <option value="{{ $career->id }}">{{ $career->nombre }}
+                                                <option value="{{ $career->id }}">{{ $career->nombre_carrera }}
                                                 </option>
                                             @endforeach
                                         </select>

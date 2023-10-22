@@ -9,8 +9,8 @@
                         </div>
                     </div>
                     <div class="card-body pt-0 p-3 text-center">
-                        <h6 class="text-center mb-0">{{ $career->nombre }}</h6>
-                        <span class="text-xs">Facultad de Ingenieria</span>
+                        <h6 class="text-center mb-0">{{ $career->nombre_carrera }}</h6>
+                        <span class="text-xs">Facultad de {{ $career->nombre_facultad}}</span>
                         <hr class="horizontal dark my-3">
                         <h5 class="mb-0">Descripción</h5>
                         <span class="text-xs">{{ $career->descripcion }}</span>
@@ -63,7 +63,7 @@
                                         <label>Facultad</label>
                                         <select class="form-control" name="id_faculty">
                                             @foreach ($faculties as $facultie)
-                                                <option value="{{ $facultie->id }}">{{ $facultie->nombre }}</option>
+                                                <option value="{{ $facultie->id }}">{{ $facultie->nombre_facultad }}</option>
                                             @endforeach
                                         </select>
                                         <div class="text-center">

@@ -20,7 +20,7 @@
                                     <p class="text-gradient text-dark mb-2 text-sm">Facultad de</p>
                                     <a href="javascript:;">
                                         <h5>
-                                            {{ $faculty->nombre }}
+                                            {{ $faculty->nombre_facultad }}
                                         </h5>
                                     </a>
                                     <p class="mb-4 text-sm">
