@@ -15,7 +15,7 @@ class PensumController extends Controller
         // Validar los datos del request si es necesario
         $request->validate([
             'nombre_pensum' => 'required',
-            'id_carrera' => 'required',
+            'id_carrera' => 'required|integer',
         ]);
 
         // Insertar en la base de datos

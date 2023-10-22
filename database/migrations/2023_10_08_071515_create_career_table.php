@@ -17,10 +17,16 @@ return new class extends Migration
             $table->text('descripcion')->nullable();
             $table->boolean('activo')->default(true);
 
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
             $table->foreignId('id_faculty')
-                  ->references('id')
-                  ->on('tb_faculty')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_faculty')
+                ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

@@ -14,13 +14,6 @@ class Create extends Component
     public $faculties=[]; 
     public $id_faculty;
 
-    public $nombre_pensum;
-    public $id_carrera;
-    public $id_usuariol;
-
-    public $showSuccesNotification  = false;
-    public $showDemoNotification = false;
-
     public function mount()  // Método que se ejecuta cuando se crea el componente
     {
         $this->faculties = Faculty::all();

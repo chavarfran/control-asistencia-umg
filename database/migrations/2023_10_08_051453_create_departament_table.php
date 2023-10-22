@@ -16,7 +16,11 @@ return new class extends Migration
             $table->id('id_Depto');
             $table->string('nombre_depto');
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
+            
+            $table->foreignId('id_usuario')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
             
             $table->timestamps();
         });

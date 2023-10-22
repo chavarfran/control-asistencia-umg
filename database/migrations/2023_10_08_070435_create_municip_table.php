@@ -16,13 +16,15 @@ return new class extends Migration
             $table->string('nombre');
             $table->boolean('activo')->default(true);
 
-            $table->integer('id_usuario')->nullable();
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
 
-            
             $table->foreignId('id_depto')
-                  ->references('id_Depto')
-                  ->on('tb_departament')
-                  ->onDelete('cascade');
+                ->references('id_Depto')
+                ->on('tb_departament')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });
