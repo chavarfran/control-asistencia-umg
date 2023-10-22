@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_municipio', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre_municipio');
             $table->boolean('activo')->default(true);
 
             $table->foreignId('id_usuario')

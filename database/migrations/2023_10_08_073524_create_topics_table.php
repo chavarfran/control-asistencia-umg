@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_topics', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre_tema');
             $table->date('Fecha');
             $table->boolean('activo')->default(true);
             

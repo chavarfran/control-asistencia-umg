@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_career', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',255);
+            $table->string('nombre_carrera',255);
             $table->text('descripcion')->nullable();
             $table->boolean('activo')->default(true);
 

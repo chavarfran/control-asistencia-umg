@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_pensum', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre_pensum');
             $table->boolean('activo')->default(true);
 
             $table->foreignId('id_usuario')

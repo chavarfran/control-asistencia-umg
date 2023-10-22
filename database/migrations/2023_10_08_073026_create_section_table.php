@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_section', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre_seccion');
             $table->boolean('activo')->default(true);
             
             $table->foreignId('id_usuario')
