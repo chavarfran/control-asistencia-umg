@@ -6,35 +6,35 @@
                 <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                     <div class="card card-plain mt-8">
                         <div class="card-header pb-0 text-left bg-transparent">
-                            <p class="mb-0">{{ __('Forgot your password? Enter your email and new password here') }}
+                            <p class="mb-0">{{ __('¿Olvidaste tu contraseña? Ingresa tu correo electrónico aquí') }}
                             <p>
                         </div>
                         <div class="card-body">
 
                             <form wire:submit.prevent="resetPassword" action="#" method="POST" role="form text-left">
                                 <div>
-                                    <label for="email">{{ __('Email') }}</label>
+                                    <label for="email">{{ __('Correo') }}</label>
                                     <div class="@error('email')border border-danger rounded-3 @enderror mb-3">
                                         <input wire:model="email" id="email" type="email" class="form-control"
-                                            placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                                            placeholder="Correo" aria-label="Correo" aria-describedby="email-addon">
                                     </div>
                                     @error('email') <div class="text-danger">{{ $message }}</div> @enderror
                                 </div>
                                 <div>
-                                    <label for="password">{{ __('Password') }}</label>
+                                    <label for="password">{{ __('Contraseña') }}</label>
                                     <div class="@error('password')border border-danger rounded-3 @enderror mb-3">
                                         <input wire:model="password" id="password" type="password" class="form-control"
-                                            placeholder="Password" aria-label="Password"
+                                            placeholder="Contraseña" aria-label="Contraseña"
                                             aria-describedby="password-addon">
                                     </div>
                                     @error('password') <div class="text-danger">{{ $message }}</div> @enderror
                                 </div>
                                 <div>
-                                    <label for="passwordConfirmation">{{ __('Password Confirmation') }}</label>
+                                    <label for="passwordConfirmation">{{ __('Confirmación de contraseña') }}</label>
                                     <div
                                         class="@error('passwordConfirmation')border border-danger rounded-3 @enderror mb-3">
                                         <input wire:model="passwordConfirmation" id="password" type="password"
-                                            class="form-control" placeholder="passwordConfirmation"
+                                            class="form-control" placeholder="Confirmación de contraseña"
                                             aria-label="Password" aria-describedby="password-addon">
                                     </div>
                                     @error('passwordConfirmation') <div class="text-danger">{{ $message }}</div>
@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="text-center">
                                     <button type="submit"
-                                        class="btn bg-gradient-info w-100 mt-4 mb-0">{{ __('Reset Password') }}</button>
+                                        class="btn bg-gradient-info w-100 mt-4 mb-0">{{ __('Restablecer la contraseña') }}</button>
                                 </div>
                             </form>
 
@@ -51,8 +51,7 @@
                                     class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
                                     <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
                                     <span class="alert-text text-white">
-                                        {{ __('Your password has been successfuly changed! You
-                                        can login now!') }}</a></span>
+                                        {{ __('¡Su contraseña ha sido cambiada exitosamente! ¡Puedes iniciar sesión ahora!') }}</a></span>
                                     <button wire:click="$set('showSuccesNotification', false)" type="button"
                                         class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                     </button>
@@ -62,7 +61,7 @@
                             @if ($showFailureNotification)
                                 <div wire:model="showFailureNotification"
                                     class="mt-3 alert alert-light alert-dismissible fade show" role="alert">
-                                    <span class="alert-text">{{ 'Please enter the correct email address!' }}</span>
+                                    <span class="alert-text">{{ '¡Por favor ingrese la dirección de correo electrónico correcta!' }}</span>
                                     <button wire:click="$set('showFailureNotification', false)" type="button"
                                         class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                     </button>
