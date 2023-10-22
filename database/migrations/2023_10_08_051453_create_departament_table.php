@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tb_departament', function (Blueprint $table) {
 
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre_departamento');
             $table->boolean('activo')->default(true);
             
             $table->foreignId('id_usuario')
