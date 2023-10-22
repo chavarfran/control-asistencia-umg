@@ -21,8 +21,8 @@ return new class extends Migration
                 ->on('users')
                 ->onDelete('cascade');
 
-            $table->foreignId('id_depto')
-                ->references('id_Depto')
+            $table->foreignId('id_departamento')
+                ->references('id')
                 ->on('tb_departament')
                 ->onDelete('cascade');
 

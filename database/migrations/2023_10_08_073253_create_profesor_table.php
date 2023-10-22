@@ -31,7 +31,7 @@ return new class extends Migration
                 ->onDelete('cascade');
 
             $table->foreignId('id_municipio')
-                ->references('id_municipio')
+                ->references('id')
                 ->on('tb_municipio')
                 ->onDelete('cascade');
             
