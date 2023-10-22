@@ -37,6 +37,7 @@
             text-align: center;
             margin-bottom: 5px;
             font-size: 25px;
+          
         }
 
         .header_2 {
@@ -56,15 +57,16 @@
             color: white;
         }
         .header-container {
-            display: flex;
+            display: block;
             align-items: center;
+            justify-content: flex-end;
         }
         .logo {
             margin-right: 10px;
         }
         img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
         }
 
     </style>
