@@ -23,7 +23,7 @@ return new class extends Migration
 
             $table->foreignId('id_carrera')
                 ->references('id')
-                ->on('tb_faculty')
+                ->on('tb_career')
                 ->onDelete('cascade');
 
             $table->timestamps();

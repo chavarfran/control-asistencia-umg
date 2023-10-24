@@ -10,6 +10,7 @@ class PensumController extends Controller
 {
     public function store(Request $request)
     {
+        dd( $request->toArray());
         $user = auth()->id();
         // Validar los datos del request si es necesario
         $request->validate([
