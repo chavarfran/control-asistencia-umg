@@ -42,15 +42,14 @@
 
                                     @case(1)
                                         @include('livewire.pensum.modal-inhabilitar')
+                                        <a class="btn bg-gradient-dark px-3 mb-2"
+                                            href="{{ route('editar-pensum') }}?id={{ $pensum->id }}">
+                                            <i class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar
+                                        </a>
                                     @break
 
                                     @default
                                 @endswitch
-
-                                <a class="btn bg-gradient-dark px-3 mb-2"
-                                    href="{{ route('editar-pensum') }}?id={{ $pensum->id }}">
-                                    <i class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar
-                                </a>
                             </div>
                         </li>
                     @endforeach
