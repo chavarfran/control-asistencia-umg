@@ -59,4 +59,17 @@ class PensumController extends Controller
             return redirect()->back()->with('error', 'Pensum no encontrado.');
         }
     }
+
+    public function habilitar($id)
+    {
+        $pensum = \App\Models\Pensum::find($id);
+        if ($pensum) {
+            $pensum->activo = 1;
+            $pensum->save();
+
+            return redirect()->back()->with('success', 'Pensum inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Pensum no encontrado.');
+        }
+    }
 }
