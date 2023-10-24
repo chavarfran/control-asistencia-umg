@@ -30,6 +30,7 @@ class PensumController extends Controller
 
     public function update(Request $request, $id)
     {
+        $user = auth()->id();
         $request->validate([
             'nombre_pensum' => 'required',
             'id_carrera' => 'required|integer',
@@ -40,7 +41,7 @@ class PensumController extends Controller
             ->update([
                 'nombre_pensum' => $request->nombre_pensum,
                 'id_carrera' => $request->id_carrera,
-                // Otros campos que quieras actualizar
+                'id_usuario' => $user
             ]);
 
         return redirect('/pensum')->with('success', 'Pensum actualizado con éxito');

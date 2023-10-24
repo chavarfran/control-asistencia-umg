@@ -6,8 +6,9 @@
                     <h5 class="mb-0">{{ __('Formulario de pensum') }}</h5>
                 </div>
                 <div class="card-body pt-4 p-3">
-                    <form action="{{ route('pensum-store') }}" method="POST">
+                    <form action="{{ route('pensum-update', ['id' => $pensums->id]) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="column">
                             <div class="form-group">
                                 <label for="pensums-nombre_pensum"
