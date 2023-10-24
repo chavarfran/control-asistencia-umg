@@ -27,4 +27,22 @@ class PensumController extends Controller
         // Redireccionar o responder según lo que necesites
         return redirect('/pensum')->with('success', 'Operación completada con éxito');
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nombre_pensum' => 'required',
+            'id_carrera' => 'required|integer',
+        ]);
+
+        DB::table('tb_pensum')
+            ->where('id', $id)
+            ->update([
+                'nombre_pensum' => $request->nombre_pensum,
+                'id_carrera' => $request->id_carrera,
+                // Otros campos que quieras actualizar
+            ]);
+
+        return redirect('/pensum')->with('success', 'Pensum actualizado con éxito');
+    }
 }

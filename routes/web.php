@@ -14,6 +14,7 @@ use App\Http\Controllers\CareerController;
 
 use App\Http\Livewire\Pensum\Table as PensumTable;/* Pensum */
 use App\Http\Livewire\Pensum\Create as PensumCreate;/* Pensum */
+use App\Http\Livewire\Pensum\Edit as PensumEdit;/* Pensum */
 use App\Http\Controllers\PensumController;
 
 use App\Http\Livewire\Semester\Table as SemestreTable;/* Semestre */
@@ -64,7 +65,9 @@ Route::middleware('auth')->group(function () {
     /* Rutas de Carrera */
     Route::get('/pensum', PensumTable::class)->name('tabla-pensum');
     Route::get('/pensum/formulario', PensumCreate::class)->name('formulario-pensum');
+    Route::get('/pensum/editar', PensumEdit::class)->name('editar-pensum');
     Route::post('/pensum/store', [PensumController::class, 'store'])->name('pensum-store');
+    Route::post('/pensum/update/{id}', [PensumController::class, 'update'])->name('pensum-update');
     /* Rutas de Semestre */
     Route::get('/semestre', SemestreTable::class)->name('tabla-semestre');
     /* Rutas de Semestre */

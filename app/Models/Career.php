@@ -16,4 +16,9 @@ class Career extends Model
     {
         return $this->belongsTo(Faculty::class, 'id_faculty');
     }
+
+    public function pensums()
+    {
+        return $this->hasMany(Pensum::class, 'id_carrera');
+    }
 }

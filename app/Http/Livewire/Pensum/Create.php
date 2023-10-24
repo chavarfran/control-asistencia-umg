@@ -6,7 +6,6 @@ use Livewire\Component;
 use App\Models\Career;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 
 class Create extends Component
 {
