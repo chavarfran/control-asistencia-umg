@@ -51,14 +51,20 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <p>¿Está seguro de querer inhabilitar este pensum {{ $pensum->nombre_pensum }} para la carrera de {{ $pensum->nombre_carrera }}?</p>
+                                                <p>¿Está seguro de querer inhabilitar el pensum
+                                                    {{ $pensum->nombre_pensum }} para la carrera de
+                                                    {{ $pensum->nombre_carrera }}?</p>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button"
-                                                    class="btn bg-gradient-danger">Inhabilitar</button>
-                                                <button type="button" class="btn btn-link  ml-auto"
-                                                    data-bs-dismiss="modal">Cancelar</button>
-                                            </div>
+                                            <form action="{{ route('pensum-inhabilitar', $pensum->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                <div class="modal-footer">
+                                                    <button type="submit"
+                                                        class="btn bg-gradient-danger">Inhabilitar</button>
+                                                    <button type="button" class="btn btn-link  ml-auto"
+                                                        data-bs-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

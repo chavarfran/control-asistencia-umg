@@ -66,8 +66,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/pensum', PensumTable::class)->name('tabla-pensum');
     Route::get('/pensum/formulario', PensumCreate::class)->name('formulario-pensum');
     Route::get('/pensum/editar', PensumEdit::class)->name('editar-pensum');
-    Route::post('/pensum/store', [PensumController::class, 'store'])->name('pensum-store');
     Route::put('/pensum/update/{id}', [PensumController::class, 'update'])->name('pensum-update');
+    Route::post('/pensum/store', [PensumController::class, 'store'])->name('pensum-store');
+    Route::post('/pensum/inhabilitar/{id}', [PensumController::class, 'inhabilitar'])->name('pensum-inhabilitar');
+    Route::post('/pensum/habilitar/{id}', [PensumController::class, 'habilitar'])->name('pensum-habilitar');
     /* Rutas de Semestre */
     Route::get('/semestre', SemestreTable::class)->name('tabla-semestre');
     /* Rutas de Semestre */

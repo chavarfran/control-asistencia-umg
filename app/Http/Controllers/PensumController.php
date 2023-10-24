@@ -10,7 +10,6 @@ class PensumController extends Controller
 {
     public function store(Request $request)
     {
-        dd( $request->toArray());
         $user = auth()->id();
         // Validar los datos del request si es necesario
         $request->validate([
@@ -46,5 +45,18 @@ class PensumController extends Controller
             ]);
 
         return redirect('/pensum')->with('success', 'Pensum actualizado con éxito');
+    }
+
+    public function inhabilitar($id)
+    {
+        $pensum = \App\Models\Pensum::find($id);
+        if ($pensum) {
+            $pensum->activo = 0;
+            $pensum->save();
+
+            return redirect()->back()->with('success', 'Pensum inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Pensum no encontrado.');
+        }
     }
 }
