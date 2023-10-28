@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CareerController extends Controller
 {
     public function store(Request $request)
     {
+        $user = auth()->id();
         // Validar los datos del request si es necesario
         $request->validate([
             'nombre' => 'required',
@@ -21,6 +23,7 @@ class CareerController extends Controller
             'nombre' => $request->nombre,
             'descripcion' => $request->descripcion,
             'id_faculty' => $request->id_faculty,
+            'id_usuario' => $user,
         ]);
 
         // Redireccionar o responder según lo que necesites

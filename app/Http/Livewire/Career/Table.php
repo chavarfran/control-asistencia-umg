@@ -16,7 +16,11 @@ class Table extends Component
 
     public function mount()  // Método que se ejecuta cuando se crea el componente
     {
-        $this->career = DB::table('tb_career')->get();  // Obtiene todos los registros de la tabla faculty
+        $this->career = DB::table('tb_career')
+            ->join('tb_faculty', 'tb_career.id_faculty', '=', 'tb_faculty.id')
+            ->select('tb_career.*', 'tb_faculty.nombre_facultad')
+            ->get();  // Obtiene todos los registros de la tabla faculty
+        
         $this->faculties = DB::table('tb_faculty')->get(); 
     }
 

@@ -13,19 +13,24 @@ return new class extends Migration
     {
         Schema::create('tb_section', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre_seccion');
             $table->boolean('activo')->default(true);
-            $table->integer('id_usuario')->nullable();
+            
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
 
             $table->foreignId('id_carrera')
-                  ->references('id')
-                  ->on('tb_career')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_career')
+                ->onDelete('cascade');
 
             $table->foreignId('id_semestre')
-                  ->references('id')
-                  ->on('tb_semester')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_semester')
+                ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

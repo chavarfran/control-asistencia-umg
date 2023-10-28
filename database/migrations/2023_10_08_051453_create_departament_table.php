@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('tb_departament', function (Blueprint $table) {
 
-            $table->id('id_Depto');
-            $table->string('nombre_depto');
+            $table->id();
+            $table->string('nombre_departamento');
             $table->boolean('activo')->default(true);
-            $table->unsignedBigInteger('id_usuario')->nullable();
+            
+            $table->foreignId('id_usuario')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('cascade');
             
             $table->timestamps();
         });

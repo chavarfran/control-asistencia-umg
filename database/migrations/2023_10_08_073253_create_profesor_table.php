@@ -24,12 +24,17 @@ return new class extends Migration
             $table->string('codigo_catedratico');
             $table->binary('foto')->nullable();
             $table->boolean('activo')->default(true);
-            $table->integer('id_usuario')->nullable();
+           
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
 
             $table->foreignId('id_municipio')
-                  ->references('id_municipio')
-                  ->on('tb_municipio')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_municipio')
+                ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

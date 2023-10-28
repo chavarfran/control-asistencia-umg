@@ -19,9 +19,10 @@ return new class extends Migration
             $table->integer('id_usuario')->nullable();
 
             $table->foreignId('id_curso')
-                  ->references('id')
-                  ->on('tb_course')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_course')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

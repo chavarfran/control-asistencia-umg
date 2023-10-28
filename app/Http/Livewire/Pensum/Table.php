@@ -14,7 +14,7 @@ class Table extends Component
         $this->pensum = DB::table('tb_pensum')
             ->join('tb_career', 'tb_pensum.id_carrera', '=', 'tb_career.id')
             ->join('tb_faculty', 'tb_career.id_faculty', '=', 'tb_faculty.id')
-            ->select('tb_pensum.*', 'tb_career.nombre as nombre_carrera', 'tb_faculty.nombre as nombre_facultad')
+            ->select('tb_pensum.*', 'tb_career.nombre_carrera', 'tb_faculty.nombre_facultad')
             ->get();
     }
 

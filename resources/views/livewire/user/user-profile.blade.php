@@ -43,9 +43,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="d-inline-block">
-                            <input type="file" wire:model="profile_photo">
-                        </div>
+                            <input wire:model="profile_photo" class="form-control" type="file"
+                                        placeholder="Agrege una fotografia de usuario">
                         @error('profile_photo')
                             <span class="error">{{ $message }}</span>
                         @enderror

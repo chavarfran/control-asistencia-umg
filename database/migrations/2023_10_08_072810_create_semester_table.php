@@ -13,15 +13,20 @@ return new class extends Migration
     {
         Schema::create('tb_semester', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre_semestre');
             $table->string('ciclo')->nullable();
             $table->text('descripcion')->nullable();
             $table->boolean('activo')->default(true);
 
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
             $table->foreignId('id_pensum')
-                  ->references('id')
-                  ->on('tb_pensum')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_pensum')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });

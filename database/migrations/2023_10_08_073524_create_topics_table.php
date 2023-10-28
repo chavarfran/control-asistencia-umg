@@ -16,12 +16,17 @@ return new class extends Migration
             $table->string('nombre_tema');
             $table->date('Fecha');
             $table->boolean('activo')->default(true);
-            $table->integer('id_usuario')->nullable();
+            
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
 
             $table->foreignId('id_horario')
-                  ->references('id')
-                  ->on('tb_schedule')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_schedule')
+                ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

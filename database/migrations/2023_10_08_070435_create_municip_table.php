@@ -12,17 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_municipio', function (Blueprint $table) {
-            $table->id('id_municipio');
-            $table->string('nombre');
+            $table->id();
+            $table->string('nombre_municipio');
             $table->boolean('activo')->default(true);
 
-            $table->integer('id_usuario')->nullable();
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
 
-            
-            $table->foreignId('id_depto')
-                  ->references('id_Depto')
-                  ->on('tb_departament')
-                  ->onDelete('cascade');
+            $table->foreignId('id_departamento')
+                ->references('id')
+                ->on('tb_departament')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });

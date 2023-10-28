@@ -14,17 +14,22 @@ return new class extends Migration
         Schema::create('tb_assignment', function (Blueprint $table) {
             $table->id();
             $table->boolean('activo')->default(true);
-            $table->integer('id_usuario')->nullable();
+            
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
 
             $table->foreignId('id_curso')
-                  ->references('id')
-                  ->on('tb_course')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_course')
+                ->onDelete('cascade');
             
             $table->foreignId('id_catedratico')
-                  ->references('id')
-                  ->on('tb_profesor')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_profesor')
+                ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

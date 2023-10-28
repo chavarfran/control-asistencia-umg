@@ -17,22 +17,27 @@ return new class extends Migration
             $table->time('hora_entrada')->nullable();
             $table->time('hora_salida')->nullable();
             $table->string('ubicacion', 255)->nullable();
-            $table->integer('id_usuario')->nullable();
+            
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
 
             $table->foreignId('id_catedratico')
-                  ->references('id')
-                  ->on('tb_profesor')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_profesor')
+                ->onDelete('cascade');
 
             $table->foreignId('id_curso')
-                  ->references('id')
-                  ->on('tb_course')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_course')
+                ->onDelete('cascade');
 
             $table->foreignId('id_tema')
-                  ->references('id')
-                  ->on('tb_topics')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_topics')
+                ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

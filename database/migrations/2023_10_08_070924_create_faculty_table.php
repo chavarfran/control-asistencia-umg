@@ -13,10 +13,15 @@ return new class extends Migration
     {
         Schema::create('tb_faculty', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre_facultad');
             $table->text('descripcion')->nullable();
             $table->boolean('activo')->default(true);
-            $table->integer('id_usuario')->nullable();
+
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

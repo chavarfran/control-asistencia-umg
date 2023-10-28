@@ -6,20 +6,12 @@ use Livewire\Component;
 use App\Models\Career;
 use App\Models\Faculty;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 
 class Create extends Component
 {
     public $career=[];  // Propiedad para almacenar los datos de la tabla carrera
     public $faculties=[]; 
     public $id_faculty;
-
-    public $nombre_pensum;
-    public $id_carrera;
-    public $id_usuariol;
-
-    public $showSuccesNotification  = false;
-    public $showDemoNotification = false;
 
     public function mount()  // Método que se ejecuta cuando se crea el componente
     {

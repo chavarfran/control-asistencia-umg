@@ -13,14 +13,20 @@ return new class extends Migration
     {
         Schema::create('tb_career', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',255);
+            $table->string('nombre_carrera',255);
             $table->text('descripcion')->nullable();
             $table->boolean('activo')->default(true);
 
+            $table->foreignId('id_usuario')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
             $table->foreignId('id_faculty')
-                  ->references('id')
-                  ->on('tb_faculty')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('tb_faculty')
+                ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

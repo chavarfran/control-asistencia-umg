@@ -1,14 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SemesterController extends Controller
 {
-    //
-
     public function store(Request $request)
     {
         $user = auth()->id();
@@ -28,9 +26,4 @@ class SemesterController extends Controller
         // Redireccionar o responder según lo que necesites
         return redirect('/pensum')->with('success', 'Operación completada con éxito');
     }
-
-
-
-
-
 }
