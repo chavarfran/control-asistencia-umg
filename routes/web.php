@@ -11,6 +11,7 @@ use App\Http\Livewire\Faculty\Table as FacultyTable;/* Facultad */
 
 use App\Http\Livewire\Career\Table as CareerTable;/* Carrera */
 use App\Http\Livewire\Career\Create as CareerCreate;/* Carrera */
+use App\Http\Livewire\Career\Edit as CareerEdit;/* Carrera */
 use App\Http\Controllers\CareerController;
 
 use App\Http\Livewire\Pensum\Table as PensumTable;/* Pensum */
@@ -63,6 +64,7 @@ Route::middleware('auth')->group(function () {
     /* Rutas de Carrera */
     Route::get('/carrera', CareerTable::class)->name('tabla-carrera');
     Route::get('/carrera/formulario', CareerCreate::class)->name('formulario-carrera');
+    Route::get('/carrera/editar', CareerEdit::class)->name('editar-carrera');
     Route::post('/carrera/store', [CareerController::class, 'store'])->name('career-store');
     /* Rutas de Carrera */
     Route::get('/pensum', PensumTable::class)->name('tabla-pensum');

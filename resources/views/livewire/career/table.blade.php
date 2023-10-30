@@ -19,8 +19,10 @@
                         <div class="ms-auto">
                             <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
                                     class="far fa-trash-alt me-2"></i>Eliminar</a>
-                            <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
-                                    class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
+                            <a class="btn bg-gradient-dark px-3 mb-0"
+                                href="{{ route('editar-carrera') }}?career_id={{ $career->id }}">
+                                <i class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar
+                            </a>
                         </div>
                     </div>
                 </div>
