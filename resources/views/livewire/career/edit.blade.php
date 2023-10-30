@@ -7,8 +7,9 @@
                         <h5 class="mb-0">{{ __('Formulario de carrera') }}</h5>
                     </div>
                     <div class="card-body pt-4 p-3">
-                        <form action="{{ route('career-store') }}" method="POST">
+                        <form action="{{ route('career-update', ['id' => $careerData['id'] ?? '']) }}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div class="column">
                                 <div class="form-group">
                                     <label for="carrera-nombre_carrera"
@@ -58,7 +59,7 @@
                             </div>
                             <div class="d-flex justify-content-end">
                                 <button type="submit"
-                                    class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'GUARDAR CAMBIOS' }}</button>
+                                    class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'ACTUALIZAR CAMBIOS' }}</button>
                             </div>
                         </form>
                     </div>

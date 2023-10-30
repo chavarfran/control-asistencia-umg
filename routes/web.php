@@ -65,7 +65,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/carrera', CareerTable::class)->name('tabla-carrera');
     Route::get('/carrera/formulario', CareerCreate::class)->name('formulario-carrera');
     Route::get('/carrera/editar', CareerEdit::class)->name('editar-carrera');
+    Route::put('/carrera/update/{id}', [CareerController::class, 'update'])->name('career-update');
     Route::post('/carrera/store', [CareerController::class, 'store'])->name('career-store');
+    Route::post('/carrera/inhabilitar/{id}', [CareerController::class, 'inhabilitar'])->name('career-inhabilitar');
+    Route::post('/carrera/habilitar/{id}', [CareerController::class, 'habilitar'])->name('career-habilitar');
     /* Rutas de Carrera */
     Route::get('/pensum', PensumTable::class)->name('tabla-pensum');
     Route::get('/pensum/formulario', PensumCreate::class)->name('formulario-pensum');

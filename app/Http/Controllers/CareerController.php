@@ -32,28 +32,23 @@ class CareerController extends Controller
             return redirect('/carrera')->with('success', 'Operación completada con éxito');
         
         } catch (\Illuminate\Validation\ValidationException $e) {
-            // Captura errores de validación
             return back()->withErrors($e->validator)->withInput();
         } catch (\Exception $e) {
-            // Captura cualquier otra excepción
             return back()->with('error', 'Hubo un error al añadir la registro: ' . $e->getMessage());
         }
     }
     
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         try {
             $user = auth()->id();
-        
-            // Validar los datos del request si es necesario
             $request->validate([
                 'nombre_carrera' => 'required',
                 'descripcion' => 'required',
                 'id_facultad' => 'required|integer',
             ]);
-        
-            // Insertar en la base de datos
-            DB::table('tb_pensum')
+
+            DB::table('tb_career')
                 ->where('id', $id)
                 ->update([
                     'nombre_carrera' => $request->nombre_carrera,
@@ -66,11 +61,34 @@ class CareerController extends Controller
             return redirect('/carrera')->with('success', 'Operación completada con éxito');
         
         } catch (\Illuminate\Validation\ValidationException $e) {
-            // Captura errores de validación
             return back()->withErrors($e->validator)->withInput();
         } catch (\Exception $e) {
-            // Captura cualquier otra excepción
             return back()->with('error', 'Hubo un error al añadir la registro: ' . $e->getMessage());
+        }
+    }
+
+    public function inhabilitar($id)
+    {
+        $career = \App\Models\Career::find($id);
+        if ($career) {
+            $career->activo = 0;
+            $career->save();
+
+            return redirect()->back()->with('success', 'Carrera inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Carrera no encontrado.');
+        }
+    }
+
+    public function habilitar($id)
+    {
+        $career = \App\Models\Career::find($id);
+        if ($career) {
+            $career->activo = 1;
+            $career->save();
+            return redirect()->back()->with('success', 'Carrera inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Carrera no encontrado.');
         }
     }
 }
