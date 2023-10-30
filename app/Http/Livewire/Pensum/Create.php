@@ -20,7 +20,7 @@ class Create extends Component
 
     public function updatedIdFaculty()
     {
-        $this->career = Career::where('id_faculty', $this->id_faculty)->get();
+        $this->career = Career::where('id_facultad', $this->id_faculty)->get();
     }
 
     public function render()
