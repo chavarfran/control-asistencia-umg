@@ -9,38 +9,56 @@ use Illuminate\Support\Facades\DB;
 
 class Edit extends Component
 {
-    protected $pensum;  // Almacena el pensum actual para edición
-    public $career=[];      // Propiedad para almacenar los datos de las carreras
-    public $faculties=[];   // Propiedad para almacenar los datos de las facultades
-    public $id_facultad;     // Propiedad para almacenar el id de la facultad seleccionada
-    public $id_pensum;
+    public $career = [];      
+    public $faculties = [];   
+    public $id_facultad;
+    public $pensum_id;  // Esto almacenará el ID del pensum obtenido de la URL.
 
-    public function mount()  // Aceptamos el ID del pensum como parámetro
+    // Especificamos que queremos mantener 'pensum_id' en la cadena de consulta.
+    public $pensumData = [];
+    protected $queryString = ['pensum_id'];
+    
+    public function mount()
     {
-        $this->id_pensum = intval(request()->query('id'));
-
-        $this->faculties = Faculty::all();
-
-        $this->pensum = DB::table('tb_pensum')
-            ->where('tb_pensum.id', '=', $this->id_pensum)
+        $pensum = DB::table('tb_pensum')
+            ->where('tb_pensum.id', '=', $this->pensum_id)
             ->join('tb_career', 'tb_pensum.id_carrera', '=', 'tb_career.id')
             ->join('tb_faculty', 'tb_career.id_facultad', '=', 'tb_faculty.id')
             ->select('tb_pensum.*', 'tb_career.id as id_carrera', 'tb_career.nombre_carrera', 'tb_faculty.id as id_facultad', 'tb_faculty.nombre_facultad')
             ->first();
 
-        $this->updatedIdFaculty($this->pensum->id_facultad);
+        $this->pensumData = [
+            'id' => $pensum->id,
+            'nombre_pensum' => $pensum->nombre_pensum,
+            'id_carrera' => $pensum->id_carrera,
+            'nombre_carrera' => $pensum->nombre_carrera,
+            'id_facultad' => $pensum->id_facultad,
+            'nombre_facultad' => $pensum->nombre_facultad,
+        ];
+
+        $this->faculties = Faculty::all();
+        //$this->updatedIdFaculty($this->pensum->id_facultad);
+        $this->updateCareers();
     }
+    
 
     public function updatedIdFaculty($id)
     {
+        // Aquí, si lo necesitas, podrías volver a buscar el $pensum, pero considero que no es necesario en este caso.
         $this->career = Career::where('id_facultad', $id)->get();
+    }
+
+    public function updateCareers()
+    {
+        $this->career = Career::where('id_facultad', $this->id_facultad)->get();
+        $this->pensumData['id_carrera'] = ''; // Esto resetea el valor seleccionado previamente
     }
 
     public function render()
     {
         return view('livewire.pensum.edit', [
-            'pensum' => $this->pensum,  // Pasamos el pensum actual a la vista
-            'careers' => $this->career,         // Pasamos las carreras a la vista
+            'pensum' => $this->pensumData,  // Pasamos el pensum actual a la vista
+            'careers' => $this->career,     // Pasamos las carreras a la vista
             'faculties' => $this->faculties,    // Pasamos las facultades a la vista
         ]);
     }

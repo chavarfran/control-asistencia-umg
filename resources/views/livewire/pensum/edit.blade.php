@@ -6,7 +6,7 @@
                     <h5 class="mb-0">{{ __('Formulario de pensum') }}</h5>
                 </div>
                 <div class="card-body pt-4 p-3">
-                    <form action="{{ route('pensum-update', ['id' => $pensum->id]) }}" method="POST">
+                    <form action="{{ route('pensum-update', ['id' => $pensumData['id'] ?? '']) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="column">
@@ -15,7 +15,7 @@
                                     class="form-control-label">{{ __('Nombre de pensum') }}</label>
                                 <div class="@error('nombre_pensum')border border-danger rounded-3 @enderror">
                                     <input class="form-control" type="text" placeholder="Nombre de pensum"
-                                        name="nombre_pensum" value="{{ $pensum->nombre_pensum ?? '' }}">
+                                        name="nombre_pensum" value="{{ $pensumData['nombre_pensum'] ?? '' }}">
                                 </div>
                                 @error('nombre_pensum')
                                     <div class="text-danger">{{ $message }}</div>
@@ -25,13 +25,14 @@
                             <div class="form-group">
                                 <label for="pensum.id_facultad" class="form-control-label">{{ __('Facultad') }}</label>
                                 <div class="@error('id_facultad')border border-danger rounded-3 @enderror">
-                                    <select wire:model="id_facultad" class="form-control" name="id_facultad" id="id_facultad">
-                                        <option value="{{ $pensum->id_facultad ?? '' }}">
-                                            {{ $pensum ? 'ORIGINAL - ' . $pensum->nombre_facultad : '' }}
+                                    <select wire:model="id_facultad" wire:change="updateCareers" class="form-control" name="id_facultad"
+                                        id="id_facultad">
+                                        <option value="{{ $pensumData['id_facultad'] ?? '' }}">
+                                            {{ isset($pensumData['nombre_facultad']) ? 'ORIGINAL - ' . $pensumData['nombre_facultad'] : '' }}
                                         </option>
                                         @foreach ($faculties as $faculty)
                                             <!-- Evita mostrar la opción duplicada para la facultad original -->
-                                            @if ($pensum && $faculty->id !== $pensum->id_facultad)
+                                            @if (isset($pensumData['id_facultad']) && $faculty->id !== $pensumData['id_facultad'])
                                                 <option value="{{ $faculty->id }}">
                                                     {{ $faculty->nombre_facultad }}
                                                 </option>
@@ -47,9 +48,9 @@
                             <div class="form-group">
                                 <label for="pensum.id_carrera" class="form-control-label">{{ __('Carrera') }}</label>
                                 <div class="@error('id_carrera') border border-danger rounded-3 @enderror">
-                                    <select class="form-control" name="id_carrera" id="id_facultad">
-                                        <option value="{{ $pensum->id_carrera ?? '' }}">
-                                            {{ $pensum ? 'ORIGINAL - ' . $pensum->nombre_carrera : '' }}
+                                    <select class="form-control" name="id_carrera" id="id_carrera">
+                                        <option value="{{ $pensumData['id_carrera'] ?? '' }}">
+                                            {{ isset($pensumData['nombre_carrera']) ? 'ORIGINAL - ' . $pensumData['nombre_carrera'] : '' }}
                                         </option>
                                         @foreach ($careers as $career)
                                             <option value="{{ $career->id }}">
