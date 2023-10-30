@@ -10,23 +10,33 @@ class CareerController extends Controller
 {
     public function store(Request $request)
     {
-        $user = auth()->id();
-        // Validar los datos del request si es necesario
-        $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'id_faculty' => 'required|integer',
-        ]);
-
-        // Insertar en la base de datos
-        DB::table('tb_career')->insert([
-            'nombre' => $request->nombre,
-            'descripcion' => $request->descripcion,
-            'id_faculty' => $request->id_faculty,
-            'id_usuario' => $user,
-        ]);
-
-        // Redireccionar o responder según lo que necesites
-        return back()->with('success', 'Carrera añadida con éxito');
+        try {
+            $user = auth()->id();
+        
+            // Validar los datos del request si es necesario
+            $request->validate([
+                'nombre_carrera' => 'required',
+                'descripcion' => 'required',
+                'id_facultad' => 'required|integer',
+            ]);
+        
+            // Insertar en la base de datos
+            DB::table('tb_career')->insert([
+                'nombre_carrera' => $request->nombre_carrera,
+                'descripcion' => $request->descripcion,
+                'id_facultad' => $request->id_facultad,
+                'id_usuario' => $user,
+            ]);
+        
+            // Redireccionar o responder según lo que necesites
+            return redirect('/carrera')->with('success', 'Operación completada con éxito');
+        
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Captura errores de validación
+            return back()->withErrors($e->validator)->withInput();
+        } catch (\Exception $e) {
+            // Captura cualquier otra excepción
+            return back()->with('error', 'Hubo un error al añadir la registro: ' . $e->getMessage());
+        }
     }
 }
