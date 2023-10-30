@@ -17,12 +17,21 @@
                     </div>
                     <div class="py-3 justify-content-center align-items-center text-center">
                         <div class="ms-auto">
-                            <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
-                                    class="far fa-trash-alt me-2"></i>Eliminar</a>
-                            <a class="btn bg-gradient-dark px-3 mb-0"
-                                href="{{ route('editar-carrera') }}?career_id={{ $career->id }}">
-                                <i class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar
-                            </a>
+                            @switch($career->activo)
+                                @case(0)
+                                    @include('livewire.career.modal-habilitar')
+                                @break
+
+                                @case(1)
+                                    @include('livewire.career.modal-inhabilitar')
+                                    <a class="btn bg-gradient-dark px-3 mb-0"
+                                        href="{{ route('editar-carrera') }}?career_id={{ $career->id }}">
+                                        <i class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar
+                                    </a>
+                                @break
+
+                                @default
+                            @endswitch
                         </div>
                     </div>
                 </div>
