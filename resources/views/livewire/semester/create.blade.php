@@ -62,7 +62,8 @@
                                     <label for="semestre.id_career"
                                         class="form-control-label">{{ __('Carrera') }}</label>
                                     <div class="@error('semestre.id_career') border border-danger rounded-3 @enderror">
-                                        <select class="form-control" name="id_carrera">
+                                        <select wire:model="id_career" class="form-control" name="id_carrera">
+                                            <option value="">Seleccione una carrera</option>
                                             @foreach ($careers as $career)
                                                 <option value="{{ $career->id }}">{{ $career->nombre_carrera }}
                                                 </option>
@@ -74,17 +75,18 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="semestre.id_career"
-                                        class="form-control-label">{{ __('semestre') }}</label>
-                                    <div class="@error('semestre.id_career') border border-danger rounded-3 @enderror">
-                                        <select class="form-control" name="id_carrera">
-                                            @foreach ($careers as $career)
-                                                <option value="{{ $career->id }}">{{ $career->nombre_carrera }}
+                                    <label for="semestre.id_pensum"
+                                        class="form-control-label">{{ __('Pensum') }}</label>
+                                    <div class="@error('semestre.id_pensum') border border-danger rounded-3 @enderror">
+                                        <select class="form-control" name="id_pensum">
+                                            <option value="">Seleccione un pensum</option>
+                                            @foreach ($pensums as $pensum)
+                                                <option value="{{ $pensum->id }}">{{ $pensum->nombre_pensum }}
                                                 </option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    @error('id_career')
+                                    @error('id_pensum')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

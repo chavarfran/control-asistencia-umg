@@ -15,4 +15,9 @@ class Pensum extends Model
     {
         return $this->belongsTo(Career::class, 'id_carrera');
     }
+
+    public function semesters()
+    {
+        return $this->hasMany(Semester::class, 'id_semestre');
+    }
 }
