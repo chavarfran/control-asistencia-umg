@@ -37,15 +37,7 @@ class Edit extends Component
         ];
 
         $this->faculties = Faculty::all();
-        //$this->updatedIdFaculty($this->pensum->id_facultad);
         $this->updateCareers();
-    }
-    
-
-    public function updatedIdFaculty($id)
-    {
-        // Aquí, si lo necesitas, podrías volver a buscar el $pensum, pero considero que no es necesario en este caso.
-        $this->career = Career::where('id_facultad', $id)->get();
     }
 
     public function updateCareers()
