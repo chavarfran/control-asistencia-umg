@@ -7,7 +7,7 @@
                         <h5 class="mb-0">{{ __('Formulario de semestre') }}</h5>
                     </div>
                     <div class="card-body pt-4 p-3">
-                        <form action="#" method="POST">
+                        <form action="{{ route('semestre-store') }}" method="POST">
                             @csrf
                             <div class="column">
                                 <div class="form-group">
