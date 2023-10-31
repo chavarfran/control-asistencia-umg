@@ -20,6 +20,8 @@ use App\Http\Livewire\Pensum\Edit as PensumEdit;/* Pensum */
 use App\Http\Controllers\PensumController;
 
 use App\Http\Livewire\Semester\Table as SemestreTable;/* Semestre */
+use App\Http\Livewire\Semester\Create as SemestreCreate;/* Semestre */
+
 use App\Http\Livewire\Section\Table as SectionTable;/* Secciones */
 
 use App\Http\Livewire\Course\Create as CourseCreate;/* Course */
@@ -79,6 +81,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/pensum/habilitar/{id}', [PensumController::class, 'habilitar'])->name('pensum-habilitar');
     /* Rutas de Semestre */
     Route::get('/semestre', SemestreTable::class)->name('tabla-semestre');
+    Route::get('/semestre/formulario', SemestreCreate::class)->name('formulario-semestre');
     /* Rutas de Semestre */
     Route::get('/sección', SectionTable::class)->name('tabla-sección');
     /* Rutas de Semestre */

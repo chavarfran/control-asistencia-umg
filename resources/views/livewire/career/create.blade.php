@@ -28,7 +28,7 @@
                                     <div class="@error('carrera.descripcion')border border-danger rounded-3 @enderror">
                                         <textarea class="form-control" name="descripcion" placeholder="Descripción de la carrera"></textarea>
                                     </div>
-                                    @error('nombre_carrera')
+                                    @error('descripcion')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

@@ -6,8 +6,8 @@
                     <div>
                         <h6 class="mb-0">Listado de semestres</h6>
                     </div>
-                    <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal-form" 
-                    class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nuevo semestre</a>
+                    <a href="{{ route('formulario-semestre') }}" class="btn bg-gradient-info btn-sm mb-0"
+                        type="button">+&nbsp; Agregar nuevo semestre</a>
                 </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
@@ -52,11 +52,10 @@
                                 </td>
                                 <td class="align-middle">
                                     <div class="ms-auto">
-                                        <a class="btn bg-gradient-danger px-3 mb-0"
-                                            href="javascript:;"><i class="far fa-trash-alt me-2"></i>Eliminar</a>
+                                        <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
+                                                class="far fa-trash-alt me-2"></i>Eliminar</a>
                                         <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
-                                                class="fas fa-pencil-alt me-2"
-                                                aria-hidden="true"></i>Editar</a>
+                                                class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
                                     </div>
                                 </td>
                             </tr>
@@ -82,17 +81,16 @@
                                 </td>
                                 <td class="align-middle">
                                     <div class="ms-auto">
-                                        <a class="btn bg-gradient-danger px-3 mb-0"
-                                            href="javascript:;"><i class="far fa-trash-alt me-2"></i>Eliminar</a>
+                                        <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
+                                                class="far fa-trash-alt me-2"></i>Eliminar</a>
                                         <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
-                                                class="fas fa-pencil-alt me-2"
-                                                aria-hidden="true"></i>Editar</a>
+                                                class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
                                     </div>
                                 </td>
                             </tr>
-                            
+
                         </tbody>
-                       
+
                     </table>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-dark justify-content-center">
@@ -119,8 +117,8 @@
     </div>
 
     <div class="col-md-4">
-        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog"
-            aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-body p-0">
@@ -134,25 +132,24 @@
                                     <label>Facultad</label>
                                     <select class="form-control">
                                         <option>Seleccione la facultad</option>
-                                      </select>   
+                                    </select>
                                     <label>Carrera</label>
                                     <select class="form-control">
                                         <option>Seleccione la carrera</option>
-                                      </select>                                
+                                    </select>
                                     <label>Pensum</label>
                                     <select class="form-control">
                                         <option>Seleccione el pensum</option>
-                                      </select>
+                                    </select>
                                     <label>Semestre</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control"
                                             placeholder="Ingrese el nombre del semestre">
-                                    </div> 
-                                      <label>Ciclo</label>
-                                      <div class="input-group mb-3">
-                                        <input type="text" class="form-control"
-                                            placeholder="Ingrese el ciclo">
-                                    </div> 
+                                    </div>
+                                    <label>Ciclo</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Ingrese el ciclo">
+                                    </div>
                                     <div class="text-center">
                                         <button type="button"
                                             class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Guardar</button>
