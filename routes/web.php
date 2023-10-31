@@ -21,6 +21,7 @@ use App\Http\Controllers\PensumController;
 
 use App\Http\Livewire\Semester\Table as SemestreTable;/* Semestre */
 use App\Http\Livewire\Semester\Create as SemestreCreate;/* Semestre */
+use App\Http\Livewire\Semester\Edit as SemestreEdit;/* Semestre */
 use App\Http\Controllers\SemesterController;
 
 use App\Http\Livewire\Section\Table as SectionTable;/* Secciones */
@@ -83,6 +84,8 @@ Route::middleware('auth')->group(function () {
     /* Rutas de Semestre */
     Route::get('/semestre', SemestreTable::class)->name('tabla-semestre');
     Route::get('/semestre/formulario', SemestreCreate::class)->name('formulario-semestre');
+    Route::get('/semestre/editar', SemestreEdit::class)->name('editar-semestre');
+    Route::put('/pensum/update/{id}', [SemesterController::class, 'update'])->name('semestre-update');
     Route::post('/semestre/store', [SemesterController::class, 'store'])->name('semestre-store');
     /* Rutas de Semestre */
     Route::get('/sección', SectionTable::class)->name('tabla-sección');

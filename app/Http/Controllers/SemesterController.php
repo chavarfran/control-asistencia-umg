@@ -31,4 +31,23 @@ class SemesterController extends Controller
         // Redireccionar o responder según lo que necesites
         return redirect('/semestre')->with('success', 'Operación completada con éxito');
     }
+
+    public function update(Request $request, $id)
+    {
+        $user = auth()->id();
+        $request->validate([
+            'nombre_pensum' => 'required',
+            'id_carrera' => 'required|integer',
+        ]);
+
+        DB::table('tb_pensum')
+            ->where('id', $id)
+            ->update([
+                'nombre_pensum' => $request->nombre_pensum,
+                'id_carrera' => $request->id_carrera,
+                'id_usuario' => $user
+            ]);
+
+        return redirect('/pensum')->with('success', 'Pensum actualizado con éxito');
+    }
 }

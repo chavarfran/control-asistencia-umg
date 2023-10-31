@@ -13,8 +13,8 @@ class Edit extends Component
     public $pensum=[];
     public $career=[];  // Propiedad para almacenar los datos de la tabla carrera
     public $faculties=[]; 
-    public $id_faculty;
-    public $id_career;
+    public $id_facultad;
+    public $id_carrera;
     public $semester_id;
 
     public $semesterData = [];
@@ -23,7 +23,7 @@ class Edit extends Component
     public function mount()
     {
         $semester = DB::table('tb_semester')
-            ->where('tb_pensum.id', '=', $this->semester_id)
+            ->where('tb_semester.id', '=', $this->semester_id)
             ->join('tb_pensum', 'tb_semester.id_pensum', '=', 'tb_pensum.id')
             ->join('tb_career', 'tb_pensum.id_carrera', '=', 'tb_career.id')
             ->join('tb_faculty', 'tb_career.id_facultad', '=', 'tb_faculty.id')
@@ -56,12 +56,18 @@ class Edit extends Component
 
     public function updatePensus()
     {
-        $this->pensum = Pensum::where('id_carrera', $this->id_career)->get();
+        $this->pensum = Pensum::where('id_carrera', $this->id_carrera)->get();
         $this->semesterData['id_pensum'] = '';
     }
 
     public function render()
     {
-        return view('livewire.semester.edit');
+        dd($this->pensumData);
+        return view('livewire.semester.edit', [
+            'semester' => $this->pensumData,
+            'pensums' => $this->pensum,  // Pasamos el pensum actual a la vista
+            'careers' => $this->career,     // Pasamos las carreras a la vista
+            'faculties' => $this->faculties,    // Pasamos las facultades a la vista
+        ]);
     }
 }

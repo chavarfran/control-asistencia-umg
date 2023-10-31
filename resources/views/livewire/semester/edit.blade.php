@@ -6,7 +6,7 @@
                     <h5 class="mb-0">{{ __('Formulario de semestre') }}</h5>
                 </div>
                 <div class="card-body pt-4 p-3">
-                    <form action="{{ route('semestre-update', ['id' => $semestreData['id'] ?? '']) }}" method="POST">
+                    <form action="{{ route('semestre-update', ['id' => $semesterData['id'] ?? '']) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="column">
@@ -15,7 +15,7 @@
                                     class="form-control-label">{{ __('Nombre de semestre') }}</label>
                                 <div class="@error('nombre_semestre')border border-danger rounded-3 @enderror">
                                     <input class="form-control" type="text" placeholder="Nombre de semestre"
-                                        name="nombre_semestre" value="{{ $semestreData['nombre_semestre'] ?? '' }}">
+                                        name="nombre_semestre" value="{{ $semesterData['nombre_semestre'] ?? '' }}">
                                 </div>
                                 @error('nombre_semestre')
                                     <div class="text-danger">{{ $message }}</div>
@@ -27,12 +27,12 @@
                                 <div class="@error('id_facultad')border border-danger rounded-3 @enderror">
                                     <select wire:model="id_facultad" wire:change="updateCareers" class="form-control" name="id_facultad"
                                         id="id_facultad">
-                                        <option value="{{ $semestreData['id_facultad'] ?? '' }}">
-                                            {{ isset($semestreData['nombre_facultad']) ? 'ORIGINAL - ' . $semestreData['nombre_facultad'] : '' }}
+                                        <option value="{{ $semesterData['id_facultad'] ?? '' }}">
+                                            {{ isset($semesterData['nombre_facultad']) ? 'ORIGINAL - ' . $semesterData['nombre_facultad'] : '' }}
                                         </option>
                                         @foreach ($faculties as $faculty)
                                             <!-- Evita mostrar la opción duplicada para la facultad original -->
-                                            @if (isset($semestreData['id_facultad']) && $faculty->id !== $semestreData['id_facultad'])
+                                            @if (isset($semesterData['id_facultad']) && $faculty->id !== $semesterData['id_facultad'])
                                                 <option value="{{ $faculty->id }}">
                                                     {{ $faculty->nombre_facultad }}
                                                 </option>
@@ -49,8 +49,8 @@
                                 <label for="semestre.id_carrera" class="form-control-label">{{ __('Carrera') }}</label>
                                 <div class="@error('id_carrera') border border-danger rounded-3 @enderror">
                                     <select class="form-control" name="id_carrera" id="id_carrera">
-                                        <option value="{{ $semestreData['id_carrera'] ?? '' }}">
-                                            {{ isset($semestreData['nombre_carrera']) ? 'ORIGINAL - ' . $semestreData['nombre_carrera'] : '' }}
+                                        <option value="{{ $semesterData['id_carrera'] ?? '' }}">
+                                            {{ isset($semesterData['nombre_carrera']) ? 'ORIGINAL - ' . $semesterData['nombre_carrera'] : '' }}
                                         </option>
                                         @foreach ($careers as $career)
                                             <option value="{{ $career->id }}">
