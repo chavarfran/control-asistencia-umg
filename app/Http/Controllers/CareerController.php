@@ -26,6 +26,7 @@ class CareerController extends Controller
                 'descripcion' => $request->descripcion,
                 'id_facultad' => $request->id_facultad,
                 'id_usuario' => $user,
+                'created_at' => Carbon::now(),
             ]);
         
             // Redireccionar o responder según lo que necesites

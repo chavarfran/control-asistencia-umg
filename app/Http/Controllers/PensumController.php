@@ -21,7 +21,8 @@ class PensumController extends Controller
         DB::table('tb_pensum')->insert([
             'nombre_pensum' => $request->nombre_pensum,
             'id_carrera' => $request->id_carrera,
-            'id_usuario' => $user
+            'id_usuario' => $user,
+            'created_at' => Carbon::now(),
         ]);
 
         // Redireccionar o responder según lo que necesites

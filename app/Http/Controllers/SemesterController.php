@@ -24,7 +24,8 @@ class SemesterController extends Controller
             'ciclo' => $request->ciclo,
             'descripcion' => $request->descripcion,
             'id_pensum' => $request->id_pensum,
-            'id_usuario' => $user
+            'id_usuario' => $user,
+            'created_at' => Carbon::now(),
         ]);
 
         // Redireccionar o responder según lo que necesites
