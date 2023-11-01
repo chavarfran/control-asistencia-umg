@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -36,18 +37,22 @@ class SemesterController extends Controller
     {
         $user = auth()->id();
         $request->validate([
-            'nombre_pensum' => 'required',
-            'id_carrera' => 'required|integer',
+            'nombre_semestre' => 'required',
+            'ciclo' => 'required',
+            'id_pensum' => 'required|integer',
         ]);
 
-        DB::table('tb_pensum')
+        DB::table('tb_semester')
             ->where('id', $id)
             ->update([
-                'nombre_pensum' => $request->nombre_pensum,
-                'id_carrera' => $request->id_carrera,
-                'id_usuario' => $user
+                'nombre_semestre' => $request->nombre_semestre,
+                'ciclo' => $request->ciclo,
+                'descripcion' => $request->descripcion,
+                'id_pensum' => $request->id_pensum,
+                'id_usuario' => $user,
+                'created_at' => Carbon::now(),
             ]);
 
-        return redirect('/pensum')->with('success', 'Pensum actualizado con éxito');
+        return redirect('/semestre')->with('success', 'Pensum actualizado con éxito');
     }
 }

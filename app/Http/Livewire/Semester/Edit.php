@@ -30,7 +30,7 @@ class Edit extends Component
             ->select('tb_semester.*', 'tb_pensum.id as id_pensum', 'tb_pensum.nombre_pensum', 'tb_career.id as id_carrera', 'tb_career.nombre_carrera', 'tb_faculty.id as id_facultad', 'tb_faculty.nombre_facultad')
             ->first();
 
-        $this->pensumData = [
+        $this->semesterData = [
             'id' => $semester->id,
             'nombre_semestre' => $semester->nombre_semestre,
             'ciclo' => $semester->ciclo,
@@ -43,28 +43,28 @@ class Edit extends Component
             'nombre_facultad' => $semester->nombre_facultad,
         ];
 
+        $this->id_facultad = $semester->id_facultad;
+        $this->id_carrera = $semester->id_carrera;
+
         $this->faculties = Faculty::all();
+        $this->updatePensums();
         $this->updateCareers();
-        $this->updatePensus();
     }
 
     public function updateCareers()
     {
         $this->career = Career::where('id_facultad', $this->id_facultad)->get();
-        $this->pensumData['id_carrera'] = '';
     }
 
-    public function updatePensus()
+    public function updatePensums()
     {
         $this->pensum = Pensum::where('id_carrera', $this->id_carrera)->get();
-        $this->semesterData['id_pensum'] = '';
     }
 
     public function render()
     {
-        dd($this->pensumData);
         return view('livewire.semester.edit', [
-            'semester' => $this->pensumData,
+            'semester' => $this->semesterData,
             'pensums' => $this->pensum,  // Pasamos el pensum actual a la vista
             'careers' => $this->career,     // Pasamos las carreras a la vista
             'faculties' => $this->faculties,    // Pasamos las facultades a la vista
