@@ -53,6 +53,31 @@ class SemesterController extends Controller
                 'created_at' => Carbon::now(),
             ]);
 
-        return redirect('/semestre')->with('success', 'Pensum actualizado con éxito');
+        return redirect('/semestre')->with('success', 'Semestre actualizado con éxito');
+    }
+
+    public function inhabilitar($id)
+    {
+        $semester = \App\Models\Semester::find($id);
+        if ($semester) {
+            $semester->activo = 0;
+            $semester->save();
+
+            return redirect()->back()->with('success', 'Semestre inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Semestre no encontrado.');
+        }
+    }
+
+    public function habilitar($id)
+    {
+        $semester = \App\Models\Semester::find($id);
+        if ($semester) {
+            $semester->activo = 1;
+            $semester->save();
+            return redirect()->back()->with('success', 'Semestre inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Semestre no encontrado.');
+        }
     }
 }
