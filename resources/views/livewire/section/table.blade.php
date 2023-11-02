@@ -6,8 +6,8 @@
                     <div>
                         <h6 class="mb-0">Listado de sección</h6>
                     </div>
-                    <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal-form"
-                        class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nueva seccion</a>
+                    <a href="{{ route('formulario-seccion') }}" class="btn bg-gradient-info btn-sm mb-0"
+                        type="button">+&nbsp; Agregar nueva seccion</a>
                 </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
