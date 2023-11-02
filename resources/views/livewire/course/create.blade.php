@@ -4,52 +4,29 @@
             <h5 class="mb-0">{{ __('Formulario de curso') }}</h5>
         </div>
         <div class="card-body pt-4 p-3">
-
-            {{-- @if ($showDemoNotification)
-                    <div wire:model="showDemoNotification" class="mt-3  alert alert-primary alert-dismissible fade show"
-                        role="alert">
-                        <span class="alert-text text-white">
-                            {{ __('You are in a demo version, you can\'t update the profile.') }}</span>
-                        <button wire:click="$set('showDemoNotification', false)" type="button" class="btn-close"
-                            data-bs-dismiss="alert" aria-label="Close">
-                        </button>
-                    </div>
-                @endif
-
-                @if ($showSuccesNotification)
-                    <div wire:model="showSuccesNotification"
-                        class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
-                        <span class="alert-icon text-white"><i class="ni ni-like-2"></i></span>
-                        <span
-                            class="alert-text text-white">{{ __('¡La información de tu perfil se ha guardado correctamente!') }}</span>
-                        <button wire:click="$set('showSuccesNotification', false)" type="button" class="btn-close"
-                            data-bs-dismiss="alert" aria-label="Close">
-                        </button>
-                    </div>
-                @endif --}}
-
-            <form wire:submit.prevent="save" action="#" method="POST" role="form text-left">
+            <form action="{{ route('curso-store') }}" method="POST">
+                @csrf
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="course-nombre" class="form-control-label">{{ __('Nombre') }}</label>
-                            <div class="@error('course.nombre')border border-danger rounded-3 @enderror">
-                                <input wire:model="course.nombre" class="form-control" type="text"
-                                    placeholder="Agregar un nombre del curso" id="nombre">
+                            <label for="course-nombre_curso"
+                                class="form-control-label">{{ __('Nombre de curso') }}</label>
+                            <div class="@error('course.nombre_curso')border border-danger rounded-3 @enderror">
+                                <input class="form-control" type="text" placeholder="Nombre de curso"
+                                    id="nombre_curso" name="nombre_curso">
                             </div>
-                            @error('course.nombre')
+                            @error('nombre_curso')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="about">{{ 'Descripcion' }}</label>
-                    <div class="@error('course.about')border border-danger rounded-3 @enderror">
-                        <textarea wire:model="course.about" class="form-control" id="descripcion" rows="3"
-                            placeholder="Agregar una descripción del curso"></textarea>
+                    <label for="course-descripcion" class="form-control-label">{{ __('Descripción') }}</label>
+                    <div class="@error('course.descripcion')border border-danger rounded-3 @enderror">
+                        <textarea class="form-control" name="descripcion" placeholder="Descripción de la carrera"></textarea>
                     </div>
-                    @error('course.about')
+                    @error('descripcion')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -145,7 +122,7 @@
                         <div class="form-group">
                             <label for="course-dia" class="form-control-label">{{ __('Dia') }}</label>
                             <div class="@error('course.dia')border border-danger rounded-3 @enderror">
-                                <select class="form-control" id="dia">
+                                <select class="form-control" id="dia" name="dia">
                                     <option selected="selected" hidden="hidden">Seleccione un día</option>
                                     <option value="Lunes">Lunes</option>
                                     <option value="Martes">Martes</option>
@@ -165,8 +142,7 @@
                         <div class="form-group">
                             <label for="course-horario" class="form-control-label">{{ __('Horario') }}</label>
                             <div class="@error('course.horario')border border-danger rounded-3 @enderror">
-                                <input wire:model="course.horario" class="form-control" type="time"
-                                    id="horario">
+                                <input class="form-control" type="time" id="horario" name="horario">
                             </div>
                             @error('course.horario')
                                 <div class="text-danger">{{ $message }}</div>

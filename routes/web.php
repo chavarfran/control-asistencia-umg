@@ -29,8 +29,10 @@ use App\Http\Livewire\Section\Create as SectionCreate;/* Secciones */
 use App\Http\Livewire\Section\Edit as SectionEdit;/* Secciones */
 use App\Http\Controllers\SectionController;
 
-use App\Http\Livewire\Course\Create as CourseCreate;/* Course */
 use App\Http\Livewire\Course\Table as CourseTable;/* Course */
+use App\Http\Livewire\Course\Create as CourseCreate;/* Course */
+use App\Http\Livewire\Course\Edit as CourseEdit;/* Course */
+use App\Http\Controllers\CourseController;
 
 use App\Http\Livewire\Profesor\Create as ProfesorCreate;/* Proferor */
 use App\Http\Livewire\Profesor\Table as ProfesorTable;/* Proferor */
@@ -103,6 +105,11 @@ Route::middleware('auth')->group(function () {
     /* Rutas de Semestre */
     Route::get('/curso', CourseTable::class)->name('tabla-curso');
     Route::get('/curso/formulario', CourseCreate::class)->name('formulario-curso');
+    Route::get('/curso/editar', CourseEdit::class)->name('editar-curso');
+    Route::put('/curso/update/{id}', [CourseController::class, 'update'])->name('curso-update');
+    Route::post('/curso/store', [CourseController::class, 'store'])->name('curso-store');
+    Route::post('/curso/inhabilitar/{id}', [CourseController::class, 'inhabilitar'])->name('curso-inhabilitar');
+    Route::post('/curso/habilitar/{id}', [CourseController::class, 'habilitar'])->name('curso-habilitar');
     /* Rutas de Catedratico */
     Route::get('/catedratico', ProfesorTable::class)->name('tabla-catedratico');
     Route::get('/catedratico/formulario', ProfesorCreate::class)->name('formulario-catedratico');
