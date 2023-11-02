@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Section;
 
 use Livewire\Component;
+use Livewire\WithPagination; 
+use Illuminate\Support\Facades\DB;
 
 class Table extends Component
 {
