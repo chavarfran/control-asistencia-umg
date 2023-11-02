@@ -36,6 +36,8 @@ class Edit extends Component
             'nombre_facultad' => $pensum->nombre_facultad,
         ];
 
+        $this->id_facultad = $pensum->id_facultad;
+
         $this->faculties = Faculty::all();
         $this->updateCareers();
     }
@@ -43,11 +45,11 @@ class Edit extends Component
     public function updateCareers()
     {
         $this->career = Career::where('id_facultad', $this->id_facultad)->get();
-        $this->pensumData['id_carrera'] = ''; // Esto resetea el valor seleccionado previamente
     }
 
     public function render()
     {
+        //dd($this->pensumData);
         return view('livewire.pensum.edit', [
             'pensum' => $this->pensumData,  // Pasamos el pensum actual a la vista
             'careers' => $this->career,     // Pasamos las carreras a la vista

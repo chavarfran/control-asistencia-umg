@@ -85,8 +85,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/semestre', SemestreTable::class)->name('tabla-semestre');
     Route::get('/semestre/formulario', SemestreCreate::class)->name('formulario-semestre');
     Route::get('/semestre/editar', SemestreEdit::class)->name('editar-semestre');
-    Route::put('/pensum/update/{id}', [SemesterController::class, 'update'])->name('semestre-update');
+    Route::put('/semestre/update/{id}', [SemesterController::class, 'update'])->name('semestre-update');
     Route::post('/semestre/store', [SemesterController::class, 'store'])->name('semestre-store');
+    Route::post('/semestre/inhabilitar/{id}', [SemesterController::class, 'inhabilitar'])->name('semestre-inhabilitar');
+    Route::post('/semestre/habilitar/{id}', [SemesterController::class, 'habilitar'])->name('semestre-habilitar');
     /* Rutas de Semestre */
     Route::get('/sección', SectionTable::class)->name('tabla-sección');
     /* Rutas de Semestre */
