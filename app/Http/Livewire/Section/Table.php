@@ -12,7 +12,7 @@ class Table extends Component
 
     protected $section;
 
-    public function mount()  // Método que se ejecuta cuando se crea el componente
+    public function mount()
     {
         $this->section = DB::table('tb_section')
             ->join('tb_semester', 'tb_section.id_semestre', '=', 'tb_semester.id')
@@ -26,7 +26,7 @@ class Table extends Component
     public function render()
     {
         return view('livewire.section.table', [
-            'sections' => $this->section  // Pasa los datos a la vista
+            'sections' => $this->section  
         ]);
     }
 }
