@@ -4,7 +4,7 @@
             <div class="col-lg-6 col-md-8 col-sm-12">
                 <div class="card">
                     <div class="card-header pb-0 px-3">
-                        <h5 class="mb-0">{{ __('Formulario de section') }}</h5>
+                        <h5 class="mb-0">{{ __('Formulario de sección') }}</h5>
                     </div>
                     <div class="card-body pt-4 p-3">
                         <form action="{{ route('seccion-store') }}" method="POST">
@@ -73,7 +73,7 @@
                                     <label for="section.id_semester"
                                         class="form-control-label">{{ __('Semestre') }}</label>
                                     <div class="@error('section.id_semester') border border-danger rounded-3 @enderror">
-                                        <select class="form-control" name="id_semester">
+                                        <select class="form-control" name="id_semestre">
                                             <option value="">Seleccione un semestre</option>
                                             @foreach ($semesters as $semester)
                                                 <option value="{{ $semester->id }}">{{ $semester->nombre_semestre }}

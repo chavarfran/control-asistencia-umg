@@ -51,9 +51,8 @@
                                     <td>
                                         <p class="text-xs text-secondary mb-0">{{ $section->nombre_seccion }}</p>
                                     </td>
-                                    <td class="align-middle text-center text-sm">
-                                        @switch($semester->activo)
-                                            @case(1)
+                                    @switch($section->activo)
+                                        @case(1)
                                             <td class="align-middle text-center text-sm">
                                                 <span class="badge badge-sm bg-gradient-secondary">Activo</span>
                                             </td>
@@ -67,7 +66,6 @@
 
                                         @default
                                     @endswitch
-                                    </td>
                                     <td class="align-middle text-center">
                                         <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                                     </td>

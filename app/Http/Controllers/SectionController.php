@@ -2,9 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class SectionController extends Controller
 {
-    //
+    public function store(Request $request)
+    {
+        $user = auth()->id();
+        // Validar los datos del request si es necesario
+        $request->validate([
+            'nombre_seccion' => 'required',
+            'id_carrera' => 'required|integer',
+            'id_semestre' => 'required|integer',
+        ]);
+
+        // Insertar en la base de datos
+        DB::table('tb_section')->insert([
+            'nombre_seccion' => $request->nombre_seccion,
+            'id_carrera' => $request->id_carrera,
+            'id_semestre' => $request->id_semestre,
+            'id_usuario' => $user,
+            'created_at' => Carbon::now(),
+        ]);
+
+        // Redireccionar o responder según lo que necesites
+        return redirect('/seccion')->with('success', 'Operación completada con éxito');
+    }
 }

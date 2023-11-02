@@ -19,7 +19,7 @@ class Table extends Component
             ->join('tb_pensum', 'tb_semester.id_pensum', '=', 'tb_pensum.id')
             ->join('tb_career', 'tb_pensum.id_carrera', '=', 'tb_career.id')
             ->join('tb_faculty', 'tb_career.id_facultad', '=', 'tb_faculty.id')
-            ->select('tb_section.*', 'tb_semester.nombre_semestre', 'tb_pensum.nombre_pensum', 'tb_career.nombre_carrera', 'tb_faculty.nombre_facultad')
+            ->select('tb_section.*', 'tb_semester.nombre_semestre', 'tb_semester.ciclo', 'tb_pensum.nombre_pensum', 'tb_career.nombre_carrera', 'tb_faculty.nombre_facultad')
             ->paginate(10);
     }
 
