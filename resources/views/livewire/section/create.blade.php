@@ -4,27 +4,27 @@
             <div class="col-lg-6 col-md-8 col-sm-12">
                 <div class="card">
                     <div class="card-header pb-0 px-3">
-                        <h5 class="mb-0">{{ __('Formulario de pensum') }}</h5>
+                        <h5 class="mb-0">{{ __('Formulario de section') }}</h5>
                     </div>
                     <div class="card-body pt-4 p-3">
-                        <form action="{{ route('pensum-store') }}" method="POST">
+                        <form action="{{ route('seccion-store') }}" method="POST">
                             @csrf
                             <div class="column">
                                 <div class="form-group">
-                                    <label for="pensum-nombre_pensum"
-                                        class="form-control-label">{{ __('Nombre de pensum') }}</label>
-                                    <div class="@error('pensu.nombre_pensum')border border-danger rounded-3 @enderror">
-                                        <input class="form-control" type="text" placeholder="Nombre de pensum"
-                                            id="nombre_pensum" name="nombre_pensum">
+                                    <label for="section-nombre_seccion"
+                                        class="form-control-label">{{ __('Nombre de sección') }}</label>
+                                    <div class="@error('section.nombre_seccion')border border-danger rounded-3 @enderror">
+                                        <input class="form-control" type="text" placeholder="Nombre de sección"
+                                            id="nombre_seccion" name="nombre_seccion">
                                     </div>
-                                    @error('nombre_pensum')
+                                    @error('nombre_seccion')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="pensum.id_faculty"
+                                    <label for="section.id_faculty"
                                         class="form-control-label">{{ __('Facultad') }}</label>
-                                    <div class="@error('pensum.id_faculty')border border-danger rounded-3 @enderror">
+                                    <div class="@error('section.id_faculty')border border-danger rounded-3 @enderror">
                                         <select wire:model="id_faculty" class="form-control" name="id_facultad">
                                             <option value="">Seleccione una facultad</option>
                                             @foreach ($faculties as $faculty)
@@ -38,10 +38,11 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="pensum.id_career"
+                                    <label for="section.id_career"
                                         class="form-control-label">{{ __('Carrera') }}</label>
-                                    <div class="@error('pensum.id_career') border border-danger rounded-3 @enderror">
-                                        <select class="form-control" name="id_carrera">
+                                    <div class="@error('section.id_career') border border-danger rounded-3 @enderror">
+                                        <select wire:model="id_career" class="form-control" name="id_carrera">
+                                            <option value="">Seleccione una carrera</option>
                                             @foreach ($careers as $career)
                                                 <option value="{{ $career->id }}">{{ $career->nombre_carrera }}
                                                 </option>
@@ -49,6 +50,38 @@
                                         </select>
                                     </div>
                                     @error('id_career')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="section.id_pensum"
+                                        class="form-control-label">{{ __('Pensum') }}</label>
+                                    <div class="@error('section.id_pensum') border border-danger rounded-3 @enderror">
+                                        <select wire:model="id_pensum" class="form-control" name="id_pensum">
+                                            <option value="">Seleccione un pensum</option>
+                                            @foreach ($pensums as $pensum)
+                                                <option value="{{ $pensum->id }}">{{ $pensum->nombre_pensum }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @error('id_pensum')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="section.id_semester"
+                                        class="form-control-label">{{ __('Semestre') }}</label>
+                                    <div class="@error('section.id_semester') border border-danger rounded-3 @enderror">
+                                        <select class="form-control" name="id_semester">
+                                            <option value="">Seleccione un semestre</option>
+                                            @foreach ($semesters as $semester)
+                                                <option value="{{ $semester->id }}">{{ $semester->nombre_semestre }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @error('id_semester')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
