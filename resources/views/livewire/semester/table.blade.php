@@ -82,12 +82,7 @@
 
                                             @default
                                         @endswitch
-                                        <div class="ms-auto">
-
-
-                                        </div>
                                     </td>
-
                                 </tr>
                             @endforeach
                         </tbody>
