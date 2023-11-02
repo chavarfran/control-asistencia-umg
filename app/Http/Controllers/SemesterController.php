@@ -16,7 +16,7 @@ class SemesterController extends Controller
         $request->validate([
             'nombre_semestre' => 'required',
             'ciclo' => 'required',
-            'id_pensum' => 'required|integer',
+            'id_pensum' => 'required|integer'
         ]);
 
         // Insertar en la base de datos
@@ -26,7 +26,7 @@ class SemesterController extends Controller
             'descripcion' => $request->descripcion,
             'id_pensum' => $request->id_pensum,
             'id_usuario' => $user,
-            'created_at' => Carbon::now(),
+            'created_at' => Carbon::now()
         ]);
 
         // Redireccionar o responder según lo que necesites
@@ -49,8 +49,7 @@ class SemesterController extends Controller
                 'ciclo' => $request->ciclo,
                 'descripcion' => $request->descripcion,
                 'id_pensum' => $request->id_pensum,
-                'id_usuario' => $user,
-                'created_at' => Carbon::now(),
+                'id_usuario' => $user
             ]);
 
         return redirect('/semestre')->with('success', 'Semestre actualizado con éxito');

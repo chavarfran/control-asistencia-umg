@@ -16,7 +16,7 @@ class SectionController extends Controller
         $request->validate([
             'nombre_seccion' => 'required',
             'id_carrera' => 'required|integer',
-            'id_semestre' => 'required|integer',
+            'id_semestre' => 'required|integer'
         ]);
 
         // Insertar en la base de datos
@@ -25,10 +25,31 @@ class SectionController extends Controller
             'id_carrera' => $request->id_carrera,
             'id_semestre' => $request->id_semestre,
             'id_usuario' => $user,
-            'created_at' => Carbon::now(),
+            'created_at' => Carbon::now()
         ]);
 
         // Redireccionar o responder según lo que necesites
         return redirect('/seccion')->with('success', 'Operación completada con éxito');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = auth()->id();
+        $request->validate([
+            'nombre_seccion' => 'required',
+            'id_carrera' => 'required|integer',
+            'id_semestre' => 'required|integer',
+        ]);
+
+        DB::table('tb_section')
+            ->where('id', $id)
+            ->update([
+                'nombre_seccion' => $request->nombre_seccion,
+                'id_carrera' => $request->id_carrera,
+                'id_semestre' => $request->id_semestre,
+                'id_usuario' => $user
+            ]);
+
+        return redirect('/seccion')->with('success', 'Sección actualizado con éxito');
     }
 }

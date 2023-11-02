@@ -70,7 +70,7 @@
                                 <div class="@error('id_carrera') border border-danger rounded-3 @enderror">
                                     <select wire:model="id_carrera" wire:change="updatePensums" class="form-control"
                                         name="id_carrera" id="id_carrera">
-                                        <option value="{{ $semesterData['id_carrera'] ?? '' }}" selected="selected" hidden="hidden">
+                                        <option value="{{ $semesterData['id_carrera'] ?? '' }}">
                                             {{ isset($semesterData['nombre_carrera']) ? 'ORIGINAL - ' . $semesterData['nombre_carrera'] : '' }}
                                         </option>
                                         @foreach ($careers as $career)
@@ -88,7 +88,7 @@
                                 <label for="semestre.id_pensum" class="form-control-label">{{ __('Pensum') }}</label>
                                 <div class="@error('id_pensum') border border-danger rounded-3 @enderror">
                                     <select class="form-control" name="id_pensum" id="id_pensum">
-                                        <option value="{{ $semesterData['id_pensum'] ?? '' }}" selected="selected" hidden="hidden">
+                                        <option value="{{ $semesterData['id_pensum'] ?? '' }}">
                                             {{ isset($semesterData['nombre_pensum']) ? 'ORIGINAL - ' . $semesterData['nombre_pensum'] : '' }}
                                         </option>
                                         @foreach ($pensums as $pensum)
