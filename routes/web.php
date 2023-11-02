@@ -9,7 +9,9 @@ use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\User\UserProfile;/* Usuarios */
 use App\Http\Livewire\Faculty\Table as FacultyTable;/* Facultad */
 
-use App\Http\Livewire\Career\Table as CarrerTable;/* Carrera */
+use App\Http\Livewire\Career\Table as CareerTable;/* Carrera */
+use App\Http\Livewire\Career\Create as CareerCreate;/* Carrera */
+use App\Http\Livewire\Career\Edit as CareerEdit;/* Carrera */
 use App\Http\Controllers\CareerController;
 
 use App\Http\Livewire\Pensum\Table as PensumTable;/* Pensum */
@@ -18,6 +20,10 @@ use App\Http\Livewire\Pensum\Edit as PensumEdit;/* Pensum */
 use App\Http\Controllers\PensumController;
 
 use App\Http\Livewire\Semester\Table as SemestreTable;/* Semestre */
+use App\Http\Livewire\Semester\Create as SemestreCreate;/* Semestre */
+use App\Http\Livewire\Semester\Edit as SemestreEdit;/* Semestre */
+use App\Http\Controllers\SemesterController;
+
 use App\Http\Livewire\Section\Table as SectionTable;/* Secciones */
 
 use App\Http\Livewire\Course\Create as CourseCreate;/* Course */
@@ -60,8 +66,13 @@ Route::middleware('auth')->group(function () {
     /* Rutas de Facultad */
     Route::get('/facultad', FacultyTable::class)->name('tabla-facultad');
     /* Rutas de Carrera */
-    Route::get('/carrera', CarrerTable::class)->name('tabla-carrera');
+    Route::get('/carrera', CareerTable::class)->name('tabla-carrera');
+    Route::get('/carrera/formulario', CareerCreate::class)->name('formulario-carrera');
+    Route::get('/carrera/editar', CareerEdit::class)->name('editar-carrera');
+    Route::put('/carrera/update/{id}', [CareerController::class, 'update'])->name('career-update');
     Route::post('/carrera/store', [CareerController::class, 'store'])->name('career-store');
+    Route::post('/carrera/inhabilitar/{id}', [CareerController::class, 'inhabilitar'])->name('career-inhabilitar');
+    Route::post('/carrera/habilitar/{id}', [CareerController::class, 'habilitar'])->name('career-habilitar');
     /* Rutas de Carrera */
     Route::get('/pensum', PensumTable::class)->name('tabla-pensum');
     Route::get('/pensum/formulario', PensumCreate::class)->name('formulario-pensum');
@@ -72,6 +83,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/pensum/habilitar/{id}', [PensumController::class, 'habilitar'])->name('pensum-habilitar');
     /* Rutas de Semestre */
     Route::get('/semestre', SemestreTable::class)->name('tabla-semestre');
+    Route::get('/semestre/formulario', SemestreCreate::class)->name('formulario-semestre');
+    Route::get('/semestre/editar', SemestreEdit::class)->name('editar-semestre');
+    Route::put('/pensum/update/{id}', [SemesterController::class, 'update'])->name('semestre-update');
+    Route::post('/semestre/store', [SemesterController::class, 'store'])->name('semestre-store');
     /* Rutas de Semestre */
     Route::get('/sección', SectionTable::class)->name('tabla-sección');
     /* Rutas de Semestre */
