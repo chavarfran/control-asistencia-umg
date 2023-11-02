@@ -70,14 +70,21 @@
                                         <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                                     </td>
                                     <td class="align-middle">
-                                        <div class="ms-auto">
-                                            <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
-                                                    class="far fa-trash-alt me-2"></i>Eliminar</a>
-                                            <a class="btn bg-gradient-dark px-3 mb-0"
-                                                href="{{ route('editar-seccion') }}?section_id={{ $section->id }}">
-                                                <i class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar
-                                            </a>
-                                        </div>
+                                        @switch($section->activo)
+                                            @case(0)
+                                                @include('livewire.section.modal-habilitar')
+                                            @break
+
+                                            @case(1)
+                                                @include('livewire.section.modal-inhabilitar')
+                                                <a class="btn bg-gradient-dark px-3 mb-0"
+                                                    href="{{ route('editar-seccion') }}?section_id={{ $section->id }}">
+                                                    <i class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar
+                                                </a>
+                                            @break
+
+                                            @default
+                                        @endswitch
                                     </td>
                                 </tr>
                             @endforeach

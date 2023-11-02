@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     use HasFactory;
+
+    protected $table = 'tb_section'; // Especifica el nombre de la tabla si no sigue la convención de Laravel.
+
+    public function semester()
+    {
+        return $this->belongsTo(Semester::class, 'id_semestre');
+    }
 }

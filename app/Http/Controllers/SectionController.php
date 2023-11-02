@@ -52,4 +52,29 @@ class SectionController extends Controller
 
         return redirect('/seccion')->with('success', 'Sección actualizado con éxito');
     }
+
+    public function inhabilitar($id)
+    {
+        $section = \App\Models\Section::find($id);
+        if ($section) {
+            $section->activo = 0;
+            $section->save();
+
+            return redirect()->back()->with('success', 'Semestre inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Semestre no encontrado.');
+        }
+    }
+
+    public function habilitar($id)
+    {
+        $section = \App\Models\Section::find($id);
+        if ($section) {
+            $section->activo = 1;
+            $section->save();
+            return redirect()->back()->with('success', 'Semestre inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Semestre no encontrado.');
+        }
+    }
 }
