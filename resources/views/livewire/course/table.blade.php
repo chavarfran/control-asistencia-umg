@@ -6,7 +6,8 @@
                     <div>
                         <h6 class="mb-0">Listado de curso</h6>
                     </div>
-                    <a href="{{ route('formulario-curso') }}" class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Agregar nueva
+                    <a href="{{ route('formulario-curso') }}" class="btn bg-gradient-info btn-sm mb-0"
+                        type="button">+&nbsp; Agregar nueva
                         curso</a>
                 </div>
             </div>
@@ -34,33 +35,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($courses as $course )
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h5 class="mb-0 text-md">{{ $course->nombre_curso}}
-                                            </h5>
+                            @foreach ($courses as $course)
+                                <tr>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h5 class="mb-0 text-md">{{ $course->nombre_curso }}
+                                                </h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">{{ $course->nombre_carrera }}
-                                            </h6>
-                                            <p class="text-xs text-secondary mb-0">Pensum  {{ $course->nombre_pensum }}</p>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex px-2 py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="mb-0 text-sm">{{ $course->nombre_carrera }}
+                                                </h6>
+                                                <p class="text-xs text-secondary mb-0">Pensum
+                                                    {{ $course->nombre_pensum }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-xs font-weight-bold mb-0">{{ $course->nombre_semestre }}</p>
-                                    <p class="text-xs text-secondary mb-0">{{ $course->ciclo }}</p>
-                                </td>
-                                <td>
-                                    <p class="text-xs text-secondary mb-0">{{ $course->nombre_seccion }}</p>
-                                </td>
-                                @switch($course->activo)
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $course->nombre_semestre }}</p>
+                                        <p class="text-xs text-secondary mb-0">{{ $course->ciclo }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs text-secondary mb-0">{{ $course->nombre_seccion }}</p>
+                                    </td>
+                                    @switch($course->activo)
                                         @case(1)
                                             <td class="align-middle text-center text-sm">
                                                 <span class="badge badge-sm bg-gradient-secondary">Activo</span>
@@ -75,18 +77,20 @@
 
                                         @default
                                     @endswitch
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="ms-auto">
-                                        <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
-                                                class="far fa-trash-alt me-2"></i>Eliminar</a>
-                                        <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
-                                                class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
-                                    </div>
-                                </td>
-                            </tr>
+                                    <td class="align-middle text-center">
+                                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <div class="ms-auto">
+                                            <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
+                                                    class="far fa-trash-alt me-2"></i>Eliminar</a>
+                                            <a class="btn bg-gradient-dark px-3 mb-0"
+                                                href="{{ route('editar-curso') }}?course_id={{ $course->id }}">
+                                                <i class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

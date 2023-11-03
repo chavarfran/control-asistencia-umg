@@ -37,4 +37,31 @@ class CourseController extends Controller
         // Redireccionar o responder según lo que necesites
         return redirect('/curso')->with('success', 'Operación completada con éxito');
     }
+
+    public function update(Request $request, $id)
+    {
+        $user = auth()->id();
+        $request->validate([
+            'nombre_curso' => 'required',
+            'descripcion' => 'required',
+            'horario' => 'required',
+            'dia' => 'required',
+            'id_pensum' => 'required|integer',
+            'id_seccion' => 'required|integer'
+        ]);
+
+        DB::table('tb_course')
+            ->where('id', $id)
+            ->update([
+                'nombre_curso' => $request->nombre_curso,
+                'descripcion' => $request->descripcion,
+                'horario' => $request->horario,
+                'dia' => $request->dia,
+                'id_pensum' => $request->id_pensum,
+                'id_seccion' => $request->id_seccion,
+                'id_usuario' => $user,
+            ]);
+
+        return redirect('/curso')->with('success', 'Curso actualizado con éxito');
+    }
 }
