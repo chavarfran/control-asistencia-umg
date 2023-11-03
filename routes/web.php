@@ -25,9 +25,14 @@ use App\Http\Livewire\Semester\Edit as SemestreEdit;/* Semestre */
 use App\Http\Controllers\SemesterController;
 
 use App\Http\Livewire\Section\Table as SectionTable;/* Secciones */
+use App\Http\Livewire\Section\Create as SectionCreate;/* Secciones */
+use App\Http\Livewire\Section\Edit as SectionEdit;/* Secciones */
+use App\Http\Controllers\SectionController;
 
-use App\Http\Livewire\Course\Create as CourseCreate;/* Course */
 use App\Http\Livewire\Course\Table as CourseTable;/* Course */
+use App\Http\Livewire\Course\Create as CourseCreate;/* Course */
+use App\Http\Livewire\Course\Edit as CourseEdit;/* Course */
+use App\Http\Controllers\CourseController;
 
 use App\Http\Livewire\Profesor\Create as ProfesorCreate;/* Proferor */
 use App\Http\Livewire\Profesor\Table as ProfesorTable;/* Proferor */
@@ -85,13 +90,26 @@ Route::middleware('auth')->group(function () {
     Route::get('/semestre', SemestreTable::class)->name('tabla-semestre');
     Route::get('/semestre/formulario', SemestreCreate::class)->name('formulario-semestre');
     Route::get('/semestre/editar', SemestreEdit::class)->name('editar-semestre');
-    Route::put('/pensum/update/{id}', [SemesterController::class, 'update'])->name('semestre-update');
+    Route::put('/semestre/update/{id}', [SemesterController::class, 'update'])->name('semestre-update');
     Route::post('/semestre/store', [SemesterController::class, 'store'])->name('semestre-store');
+    Route::post('/semestre/inhabilitar/{id}', [SemesterController::class, 'inhabilitar'])->name('semestre-inhabilitar');
+    Route::post('/semestre/habilitar/{id}', [SemesterController::class, 'habilitar'])->name('semestre-habilitar');
     /* Rutas de Semestre */
-    Route::get('/sección', SectionTable::class)->name('tabla-sección');
+    Route::get('/seccion', SectionTable::class)->name('tabla-seccion');
+    Route::get('/seccion/formulario', SectionCreate::class)->name('formulario-seccion');
+    Route::get('/seccion/editar', SectionEdit::class)->name('editar-seccion');
+    Route::put('/seccion/update/{id}', [SectionController::class, 'update'])->name('seccion-update');
+    Route::post('/seccion/store', [SectionController::class, 'store'])->name('seccion-store');
+    Route::post('/seccion/inhabilitar/{id}', [SectionController::class, 'inhabilitar'])->name('seccion-inhabilitar');
+    Route::post('/seccion/habilitar/{id}', [SectionController::class, 'habilitar'])->name('seccion-habilitar');
     /* Rutas de Semestre */
     Route::get('/curso', CourseTable::class)->name('tabla-curso');
     Route::get('/curso/formulario', CourseCreate::class)->name('formulario-curso');
+    Route::get('/curso/editar', CourseEdit::class)->name('editar-curso');
+    Route::put('/curso/update/{id}', [CourseController::class, 'update'])->name('curso-update');
+    Route::post('/curso/store', [CourseController::class, 'store'])->name('curso-store');
+    Route::post('/curso/inhabilitar/{id}', [CourseController::class, 'inhabilitar'])->name('curso-inhabilitar');
+    Route::post('/curso/habilitar/{id}', [CourseController::class, 'habilitar'])->name('curso-habilitar');
     /* Rutas de Catedratico */
     Route::get('/catedratico', ProfesorTable::class)->name('tabla-catedratico');
     Route::get('/catedratico/formulario', ProfesorCreate::class)->name('formulario-catedratico');

@@ -34,11 +34,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($courses as $course )
                             <tr>
                                 <td>
                                     <div class="d-flex px-2 py-1">
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h5 class="mb-0 text-md">Precálculo
+                                            <h5 class="mb-0 text-md">{{ $course->nombre_curso}}
                                             </h5>
                                         </div>
                                     </div>
@@ -46,77 +47,48 @@
                                 <td>
                                     <div class="d-flex px-2 py-1">
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Ingenieria en Sistemas de la Información y Ciencia
+                                            <h6 class="mb-0 text-sm">{{ $course->nombre_carrera }}
                                             </h6>
-                                            <p class="text-xs text-secondary mb-0">Pensum 2014</p>
+                                            <p class="text-xs text-secondary mb-0">Pensum  {{ $course->nombre_pensum }}</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="text-xs font-weight-bold mb-0">Tercer Semestre</p>
-                                    <p class="text-xs text-secondary mb-0">2023</p>
+                                    <p class="text-xs font-weight-bold mb-0">{{ $course->nombre_semestre }}</p>
+                                    <p class="text-xs text-secondary mb-0">{{ $course->ciclo }}</p>
                                 </td>
                                 <td>
-                                    <p class="text-xs text-secondary mb-0">A</p>
+                                    <p class="text-xs text-secondary mb-0">{{ $course->nombre_seccion }}</p>
                                 </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="badge badge-sm bg-gradient-secondary">Activo</span>
-                                </td>
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="ms-auto">
-                                        <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
-                                                class="far fa-trash-alt me-2"></i>Eliminar</a>
-                                        <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
-                                                class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h5 class="mb-0 text-md">Algebra Lineal
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Ingenieria en Sistemas de la Información y Ciencia
-                                            </h6>
-                                            <p class="text-xs text-secondary mb-0">Pensum 2014</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <p class="text-xs font-weight-bold mb-0">Segundo Semestre</p>
-                                    <p class="text-xs text-secondary mb-0">2022</p>
-                                </td>
-                                <td>
-                                    <p class="text-xs text-secondary mb-0">A</p>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="badge badge-sm bg-gradient-dark">Inactivo</span>
-                                </td>
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="ms-auto">
-                                        <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
-                                                class="far fa-trash-alt me-2"></i>Eliminar</a>
-                                        <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
-                                                class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
-                                    </div>
-                                </td>
-                            </tr>
+                                @switch($course->activo)
+                                        @case(1)
+                                            <td class="align-middle text-center text-sm">
+                                                <span class="badge badge-sm bg-gradient-secondary">Activo</span>
+                                            </td>
+                                        @break
 
+                                        @case(0)
+                                            <td class="align-middle text-center text-sm">
+                                                <span class="badge badge-sm bg-gradient-dark">Inactivo</span>
+                                            </td>
+                                        @break
+
+                                        @default
+                                    @endswitch
+                                <td class="align-middle text-center">
+                                    <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                                </td>
+                                <td class="align-middle">
+                                    <div class="ms-auto">
+                                        <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
+                                                class="far fa-trash-alt me-2"></i>Eliminar</a>
+                                        <a class="btn bg-gradient-dark px-3 mb-0" href="javascript:;"><i
+                                                class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
                         </tbody>
-
                     </table>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-dark justify-content-center">

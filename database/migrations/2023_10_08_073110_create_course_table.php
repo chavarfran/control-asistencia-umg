@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nombre_curso');
             $table->text('descripcion')->nullable();
-            $table->string('horario')->nullable();
+            $table->time('horario')->nullable();
+            $table->string('dia')->nullable();
             $table->boolean('activo')->default(true);
             
             $table->foreignId('id_usuario')

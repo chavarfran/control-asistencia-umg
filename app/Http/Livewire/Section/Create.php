@@ -1,19 +1,17 @@
 <?php
 
-namespace App\Http\Livewire\Course;
+namespace App\Http\Livewire\Section;
 
 use Livewire\Component;
 use App\Models\Faculty;
 use App\Models\Career;
 use App\Models\Pensum;
 use App\Models\Semester;
-use App\Models\Section;
 use Illuminate\Support\Facades\DB;
 
 
 class Create extends Component
 {
-    public $section=[];
     public $semester=[];
     public $pensum=[];
     public $career=[];  
@@ -21,7 +19,6 @@ class Create extends Component
     public $id_faculty;
     public $id_career;
     public $id_pensum;
-    public $id_semester;
 
     public function mount()
     {
@@ -43,15 +40,9 @@ class Create extends Component
         $this->semester = Semester::where('id_pensum', $this->id_pensum)->get();
     }
 
-    public function updatedIdSemester()
-    {
-        $this->section = Section::where('id_semestre', $this->id_semester)->get();
-    }
-
     public function render()
     {
-        return view('livewire.course.create',[  
-            'sections' => $this->section,      
+        return view('livewire.section.create',[    
             'semesters' => $this->semester,    
             'pensums' => $this->pensum,
             'careers' => $this->career,  
