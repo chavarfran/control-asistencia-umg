@@ -206,4 +206,41 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const codigoCatedraticoInput = document.getElementById("codigo_catedratico");
+
+            codigoCatedraticoInput.addEventListener('input', function() {
+                let value = this.value.replace(/\D/g, '');  // Remover todo lo que no sea un dígito.
+
+                // Aplicar formato.
+                if (value.length > 4) {
+                    value = value.substring(0, 4) + " " + value.substring(4);
+                }
+                if (value.length > 7) {
+                    value = value.substring(0, 7) + " " + value.substring(7);
+                }
+
+                this.value = value.substring(0, 14);  // Solo tomar los primeros 14 caracteres.
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const codigoCatedraticoInput = document.getElementById("dpi");
+
+            codigoCatedraticoInput.addEventListener('input', function() {
+                let value = this.value.replace(/\D/g, '');  // Remover todo lo que no sea un dígito.
+
+                // Aplicar formato.
+                if (value.length > 4) {
+                    value = value.substring(0, 4) + " " + value.substring(4);
+                }
+                if (value.length > 10) {
+                    value = value.substring(0, 10) + " " + value.substring(10);
+                }
+
+                this.value = value.substring(0, 15);  // Solo tomar los primeros 16 caracteres, en caso de que el usuario pegue algo más largo.
+            });
+        });
+    </script>
 </div>
