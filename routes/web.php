@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Auth\ForgotPassword;/* Autenticacion */ 
+use App\Http\Livewire\Auth\ForgotPassword;/* Autenticacion */
 use App\Http\Livewire\Auth\ResetPassword;
 use App\Http\Livewire\Auth\SignUp;
 use App\Http\Livewire\Auth\Login;
@@ -34,9 +34,11 @@ use App\Http\Livewire\Course\Create as CourseCreate;/* Course */
 use App\Http\Livewire\Course\Edit as CourseEdit;/* Course */
 use App\Http\Controllers\CourseController;
 
-use App\Http\Livewire\Profesor\Create as ProfesorCreate;/* Proferor */
-use App\Http\Livewire\Profesor\Table as ProfesorTable;/* Proferor */
 use App\Http\Livewire\Profesor\Dashboard as ProfesorDashboard;/* Proferor */
+use App\Http\Livewire\Profesor\Table as ProfesorTable;/* Proferor */
+use App\Http\Livewire\Profesor\Create as ProfesorCreate;/* Proferor */
+use App\Http\Livewire\Profesor\Edit as ProfesorEdit;/* Proferor */
+use App\Http\Controllers\ProfesorController;
 
 use App\Http\Livewire\Assignment\Table as AssignmentTable;/* Proferor */
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
@@ -64,7 +66,7 @@ Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-passwo
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
 Route::middleware('auth')->group(function () {
-    /* Rutas de Inicio */ 
+    /* Rutas de Inicio */
     Route::get('/inicio', Dashboard::class)->name('dashboard');
     /* Rutas de Perfil */
     Route::get('/perfil', UserProfile::class)->name('perfil-usuario');
@@ -112,8 +114,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/curso/habilitar/{id}', [CourseController::class, 'habilitar'])->name('curso-habilitar');
     /* Rutas de Catedratico */
     Route::get('/catedratico', ProfesorTable::class)->name('tabla-catedratico');
-    Route::get('/catedratico/formulario', ProfesorCreate::class)->name('formulario-catedratico');
     Route::get('/catedratico/inicio/', ProfesorDashboard::class)->name('inicio-catedratico');
+    Route::get('/catedratico/formulario', ProfesorCreate::class)->name('formulario-catedratico');
+    Route::get('/catedratico/editar', CourseEdit::class)->name('editar-catedratico');
+    Route::put('/catedratico/update/{id}', [ProfesorController::class, 'update'])->name('catedratico-update');
+    Route::post('/catedratico/store', [ProfesorController::class, 'store'])->name('catedratico-store');
+    Route::post('/catedratico/inhabilitar/{id}', [ProfesorController::class, 'inhabilitar'])->name('catedratico-inhabilitar');
+    Route::post('/catedratico/habilitar/{id}', [ProfesorController::class, 'habilitar'])->name('catedratico-habilitar');
     /* Rutas de Asignatura */
     Route::get('/asignación', AssignmentTable::class)->name('tabla-asignatura');
     /* Rutas de Usuarios */
