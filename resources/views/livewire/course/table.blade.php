@@ -82,12 +82,21 @@
                                     </td>
                                     <td class="align-middle">
                                         <div class="ms-auto">
-                                            <a class="btn bg-gradient-danger px-3 mb-0" href="javascript:;"><i
-                                                    class="far fa-trash-alt me-2"></i>Eliminar</a>
-                                            <a class="btn bg-gradient-dark px-3 mb-0"
-                                                href="{{ route('editar-curso') }}?course_id={{ $course->id }}">
-                                                <i class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar
-                                            </a>
+                                            @switch($course->activo)
+                                                @case(0)
+                                                    @include('livewire.course.modal-habilitar')
+                                                @break
+
+                                                @case(1)
+                                                    @include('livewire.course.modal-inhabilitar')
+                                                    <a class="btn bg-gradient-dark px-3 mb-0"
+                                                        href="{{ route('editar-curso') }}?course_id={{ $course->id }}">
+                                                        <i class="fas fa-pencil-alt me-2" aria-hidden="true"></i>Editar
+                                                    </a>
+                                                @break
+
+                                                @default
+                                            @endswitch
                                         </div>
                                     </td>
                                 </tr>

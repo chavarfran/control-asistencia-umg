@@ -64,4 +64,29 @@ class CourseController extends Controller
 
         return redirect('/curso')->with('success', 'Curso actualizado con éxito');
     }
+
+    public function inhabilitar($id)
+    {
+        $course = \App\Models\Course::find($id);
+        if ($course) {
+            $course->activo = 0;
+            $course->save();
+
+            return redirect()->back()->with('success', 'Curso inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Curso no encontrado.');
+        }
+    }
+
+    public function habilitar($id)
+    {
+        $course = \App\Models\Course::find($id);
+        if ($course) {
+            $course->activo = 1;
+            $course->save();
+            return redirect()->back()->with('success', 'Curso inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Curso no encontrado.');
+        }
+    }
 }
