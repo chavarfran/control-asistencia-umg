@@ -21,7 +21,7 @@
                     {{ $profesor->primer_apellido }}
                     {{ $profesor->segundo_apellido }}?</p>
             </div>
-            <form action="{{ route('seccion-inhabilitar', $profesor->id) }}" method="POST">
+            <form action="{{ route('catedratico-inhabilitar', $profesor->id) }}" method="POST">
                 @csrf
                 <div class="modal-footer">
                     <button type="submit" class="btn bg-gradient-danger">Inhabilitar</button>

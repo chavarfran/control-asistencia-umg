@@ -105,4 +105,29 @@ class ProfesorController extends Controller
 
         return redirect('/catedratico')->with('success', 'Catedratico actualizado con éxito');
     }
+
+    public function inhabilitar($id)
+    {
+        $profesor = \App\Models\Profesor::find($id);
+        if ($profesor) {
+            $profesor->activo = 0;
+            $profesor->save();
+
+            return redirect()->back()->with('success', 'Catedratico inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Catedratico no encontrado.');
+        }
+    }
+
+    public function habilitar($id)
+    {
+        $profesor = \App\Models\Profesor::find($id);
+        if ($profesor) {
+            $profesor->activo = 1;
+            $profesor->save();
+            return redirect()->back()->with('success', 'Catedratico inhabilitado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Catedratico no encontrado.');
+        }
+    }
 }
