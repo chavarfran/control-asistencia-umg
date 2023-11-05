@@ -116,7 +116,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/catedratico', ProfesorTable::class)->name('tabla-catedratico');
     Route::get('/catedratico/inicio/', ProfesorDashboard::class)->name('inicio-catedratico');
     Route::get('/catedratico/formulario', ProfesorCreate::class)->name('formulario-catedratico');
-    Route::get('/catedratico/editar', CourseEdit::class)->name('editar-catedratico');
+    Route::get('/catedratico/editar', ProfesorEdit::class)->name('editar-catedratico');
     Route::put('/catedratico/update/{id}', [ProfesorController::class, 'update'])->name('catedratico-update');
     Route::post('/catedratico/store', [ProfesorController::class, 'store'])->name('catedratico-store');
     Route::post('/catedratico/inhabilitar/{id}', [ProfesorController::class, 'inhabilitar'])->name('catedratico-inhabilitar');

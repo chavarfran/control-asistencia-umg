@@ -162,7 +162,7 @@
                                         class="form-control-label">{{ __('Departamento') }}</label>
                                     <div
                                         class="@error('profesor.id_departamento') border border-danger rounded-3 @enderror">
-                                        <select wire:model="id_departamento" class="form-control"
+                                        <select wire:model="id_departament" class="form-control"
                                             name="id_departamento">
                                             <option value="">Seleccione un deparamento</option>
                                             @foreach ($departaments as $departament)
@@ -211,7 +211,7 @@
             const codigoCatedraticoInput = document.getElementById("codigo_catedratico");
 
             codigoCatedraticoInput.addEventListener('input', function() {
-                let value = this.value.replace(/\D/g, '');  // Remover todo lo que no sea un dígito.
+                let value = this.value.replace(/\D/g, ''); // Remover todo lo que no sea un dígito.
 
                 // Aplicar formato.
                 if (value.length > 4) {
@@ -221,15 +221,15 @@
                     value = value.substring(0, 7) + " " + value.substring(7);
                 }
 
-                this.value = value.substring(0, 14);  // Solo tomar los primeros 14 caracteres.
+                this.value = value.substring(0, 14); // Solo tomar los primeros 14 caracteres.
             });
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            const codigoCatedraticoInput = document.getElementById("dpi");
+            const codigoDPIInput = document.getElementById("dpi");
 
-            codigoCatedraticoInput.addEventListener('input', function() {
-                let value = this.value.replace(/\D/g, '');  // Remover todo lo que no sea un dígito.
+            codigoDPIInput.addEventListener('input', function() {
+                let value = this.value.replace(/\D/g, ''); // Remover todo lo que no sea un dígito.
 
                 // Aplicar formato.
                 if (value.length > 4) {
@@ -239,7 +239,46 @@
                     value = value.substring(0, 10) + " " + value.substring(10);
                 }
 
-                this.value = value.substring(0, 15);  // Solo tomar los primeros 16 caracteres, en caso de que el usuario pegue algo más largo.
+                this.value = value.substring(0,
+                    15
+                ); // Solo tomar los primeros 16 caracteres, en caso de que el usuario pegue algo más largo.
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const codigoTelefonoInput = document.getElementById("telefono");
+
+            // Establecer el valor inicial.
+            codigoTelefonoInput.value = '(+502) ';
+
+            codigoTelefonoInput.addEventListener('input', function() {
+                // Extraer sólo la parte numérica después de (+502)
+                let numericValue = this.value.substring(7).replace(/[^0-9]/g, '');
+                if (numericValue.length > 8) {
+                    numericValue = numericValue.substring(0, 8);
+                }
+
+                let format = '(+502) ';
+                for (let i = 0; i < 4; i++) {
+                    format += (i < numericValue.length) ? numericValue[i] : '';
+                }
+                if (numericValue.length > 4) {
+                    format += ' ';
+                    for (let i = 4; i < 8; i++) {
+                        format += (i < numericValue.length) ? numericValue[i] : '';
+                    }
+                }
+
+                this.value = format;
+                this.setSelectionRange(this.value.length, this.value.length); // Mover el cursor al final.
+            });
+
+            // Prevenir pegar o arrastrar texto al campo de entrada.
+            codigoTelefonoInput.addEventListener('paste', function(e) {
+                e.preventDefault();
+            });
+            codigoTelefonoInput.addEventListener('drop', function(e) {
+                e.preventDefault();
             });
         });
     </script>
