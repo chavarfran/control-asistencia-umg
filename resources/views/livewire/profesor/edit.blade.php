@@ -5,7 +5,8 @@
                 <h5 class="mb-0">{{ __('Formulario de catedratico') }}</h5>
             </div>
             <div class="card-body pt-4 p-3">
-                <form action="{{ route('catedratico-update', ['id' => $profesorData['id'] ?? '']) }}" method="POST">
+                <form action="{{ route('catedratico-update', ['id' => $profesorData['id'] ?? '']) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">

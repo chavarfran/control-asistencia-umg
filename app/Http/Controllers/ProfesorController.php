@@ -82,7 +82,7 @@ class ProfesorController extends Controller
             $extension = $request->file('foto_edit')->getClientOriginalExtension();
             $filenamephoto = $filename.'_'.time().'.'.$extension;
             $path = $request->file('foto_edit')->storeAs('public/fotos', $filenamephoto);
-        }else {
+        }else if(!$request->hasFile('foto_edit')){
             $filenamephoto = $request->foto;
         }
 
