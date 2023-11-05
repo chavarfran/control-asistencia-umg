@@ -14,8 +14,8 @@ class Create extends Component
 {
     public $semester=[];
     public $pensum=[];
-    public $career=[];  
-    public $faculties=[]; 
+    public $career=[];
+    public $faculties=[];
     public $id_faculty;
     public $id_career;
     public $id_pensum;
@@ -42,10 +42,10 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.section.create',[    
-            'semesters' => $this->semester,    
+        return view('livewire.section.create',[
+            'semesters' => $this->semester,
             'pensums' => $this->pensum,
-            'careers' => $this->career,  
+            'careers' => $this->career,
             'faculties' => $this->faculties,
         ]);
     }
