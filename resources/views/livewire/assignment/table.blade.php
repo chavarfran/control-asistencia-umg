@@ -6,8 +6,8 @@
                     <div>
                         <h6 class="mb-0">Listado de catedraticos</h6>
                     </div>
-                    <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal-form" 
-                    class="btn bg-gradient-info btn-sm mb-0" type="button">+&nbsp; Asignar curso</a>
+                    <a href="{{ route('formulario-asignatura') }}" class="btn bg-gradient-info btn-sm mb-0"
+                        type="button">+&nbsp; Asignar curso</a>
                 </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
@@ -166,8 +166,8 @@
     </div>
 
     <div class="col-md-4">
-        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog"
-            aria-labelledby="modal-form" aria-hidden="true">
+        <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-body p-0">
@@ -181,35 +181,35 @@
                                     <label>Catedratico</label>
                                     <select class="form-control">
                                         <option>Seleccione el catedratico</option>
-                                      </select> 
-                                      <label>Curso</label>
+                                    </select>
+                                    <label>Curso</label>
                                     <select class="form-control">
                                         <option>Seleccione el catedratico</option>
-                                      </select> 
+                                    </select>
                                     <label>Carrera</label>
                                     <select class="form-control">
                                         <option>Seleccione la carrera</option>
-                                      </select>                                
+                                    </select>
                                     <label>Pensum</label>
                                     <select class="form-control">
                                         <option>Seleccione el pensum</option>
-                                      </select>
+                                    </select>
                                     <label>Semestre</label>
                                     <select class="form-control">
                                         <option>Seleccione el semestre</option>
-                                      </selec t>
-                                      <label>Ciclo</label>
-                                      <select class="form-control">
-                                        <option>Seleccione el ciclo</option>
-                                      </select>
-                                    <label>Seccion</label>
-                                    <select class="form-control">
-                                        <option>Seleccione la sección</option>
-                                      </select> 
-                                    <div class="text-center">
-                                        <button type="button"
-                                            class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Guardar</button>
-                                    </div>
+                                        </selec t>
+                                        <label>Ciclo</label>
+                                        <select class="form-control">
+                                            <option>Seleccione el ciclo</option>
+                                        </select>
+                                        <label>Seccion</label>
+                                        <select class="form-control">
+                                            <option>Seleccione la sección</option>
+                                        </select>
+                                        <div class="text-center">
+                                            <button type="button"
+                                                class="btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0">Guardar</button>
+                                        </div>
                                 </form>
                             </div>
                         </div>

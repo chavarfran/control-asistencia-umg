@@ -40,7 +40,11 @@ use App\Http\Livewire\Profesor\Create as ProfesorCreate;/* Proferor */
 use App\Http\Livewire\Profesor\Edit as ProfesorEdit;/* Proferor */
 use App\Http\Controllers\ProfesorController;
 
-use App\Http\Livewire\Assignment\Table as AssignmentTable;/* Proferor */
+use App\Http\Livewire\Assignment\Table as AssignmentTable;/* asignatura */
+use App\Http\Livewire\Assignment\Create as AssignmentCreate;/* asignatura */
+use App\Http\Livewire\Assignment\Edit as AssignmentEdit;/* asignatura */
+use App\Http\Controllers\AssignmentController;
+
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
@@ -122,7 +126,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/catedratico/inhabilitar/{id}', [ProfesorController::class, 'inhabilitar'])->name('catedratico-inhabilitar');
     Route::post('/catedratico/habilitar/{id}', [ProfesorController::class, 'habilitar'])->name('catedratico-habilitar');
     /* Rutas de Asignatura */
-    Route::get('/asignación', AssignmentTable::class)->name('tabla-asignatura');
+    Route::get('/asignacion', AssignmentTable::class)->name('tabla-asignatura');
+    Route::get('/asignacion/formulario', AssignmentCreate::class)->name('formulario-asignatura');
+    Route::get('/asignacion/editar', AssignmentEdit::class)->name('editar-asignatura');
+    Route::put('/asignacion/update/{id}', [AssignmentController::class, 'update'])->name('asignatura-update');
+    Route::post('/asignacion/store', [AssignmentController::class, 'store'])->name('asignatura-store');
+    Route::post('/asignacion/inhabilitar/{id}', [AssignmentController::class, 'inhabilitar'])->name('asignatura-inhabilitar');
+    Route::post('/asignacion/habilitar/{id}', [AssignmentController::class, 'habilitar'])->name('asignatura-habilitar');
     /* Rutas de Usuarios */
      Route::get('/usuario', UserTable::class)->name('tabla-usuario');
     /* RUtas de Reportes */

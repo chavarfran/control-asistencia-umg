@@ -15,4 +15,9 @@ class Section extends Model
     {
         return $this->belongsTo(Semester::class, 'id_semestre');
     }
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class, 'id_section');
+    }
 }
