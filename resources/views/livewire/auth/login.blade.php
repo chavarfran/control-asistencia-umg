@@ -4,7 +4,10 @@
             <div class="row">
                 <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                     <div class="card card-plain mt-8">
-                        <div class="card-header pb-0 text-left bg-transparent">
+                        <a class="d-flex align-items-center justify-content-center w-100 m-0" href="{{ route('dashboard') }}">
+                            <img src="../assets/img/logo_white.png" class="w-60" alt="...">
+                        </a>
+                        <div class="card-header pb-0 text-center bg-transparent">
                             <h3 class="font-weight-bolder text-info text-gradient">{{ __('Bienvenido') }}</h3>
                         </div>
                         <div class="card-body">
@@ -13,9 +16,12 @@
                                     <label for="email">{{ __('Email') }}</label>
                                     <div class="@error('email')border border-danger rounded-3 @enderror">
                                         <input wire:model="email" id="email" type="email" class="form-control"
-                                            placeholder="Correo Electronico" aria-label="Email" aria-describedby="email-addon">
+                                            placeholder="Correo Electronico" aria-label="Email"
+                                            aria-describedby="email-addon">
                                     </div>
-                                    @error('email') <div class="text-danger">{{ $message }}</div> @enderror
+                                    @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="password">{{ __('Password') }}</label>
@@ -24,12 +30,15 @@
                                             placeholder="Contraseña" aria-label="Password"
                                             aria-describedby="password-addon">
                                     </div>
-                                    @error('password') <div class="text-danger">{{ $message }}</div> @enderror
+                                    @error('password')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-check form-switch">
                                     <input wire:model="remember_me" class="form-check-input" type="checkbox"
                                         id="rememberMe">
-                                    <label class="form-check-label" for="rememberMe">{{ __('Recordar en este equipo') }}</label>
+                                    <label class="form-check-label"
+                                        for="rememberMe">{{ __('Recordar en este equipo') }}</label>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit"
@@ -47,12 +56,6 @@
                                     class="text-info text-gradient font-weight-bold">{{ __('Inscribirse') }}</a>
                             </p>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                        <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6"
-                            style="background-image:url('../assets/img/curved-images/curved6.jpg')"></div>
                     </div>
                 </div>
             </div>
