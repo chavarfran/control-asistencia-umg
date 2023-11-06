@@ -38,6 +38,11 @@ class Create extends Component
             ->join('tb_semester', 'tb_pensum.id', '=', 'tb_semester.id_pensum')
             ->join('tb_section', 'tb_semester.id', '=', 'tb_section.id_semestre')
             ->join('tb_course', 'tb_section.id', '=', 'tb_course.id_seccion')
+            ->whereNotExists(function ($query) {
+                $query->select(DB::raw(1))
+                    ->from('tb_assignment')
+                    ->whereRaw('tb_assignment.id_curso = tb_course.id');
+            })
             ->select(
                 'tb_course.*',
                 'tb_section.nombre_seccion',

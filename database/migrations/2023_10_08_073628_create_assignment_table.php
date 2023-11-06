@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tb_assignment', function (Blueprint $table) {
             $table->id();
             $table->boolean('activo')->default(true);
-            
+
             $table->foreignId('id_usuario')
                 ->references('id')
                 ->on('users')
@@ -23,13 +23,14 @@ return new class extends Migration
             $table->foreignId('id_curso')
                 ->references('id')
                 ->on('tb_course')
-                ->onDelete('cascade');
-            
+                ->onDelete('cascade')
+                ->unique();
+
             $table->foreignId('id_catedratico')
                 ->references('id')
                 ->on('tb_profesor')
                 ->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }

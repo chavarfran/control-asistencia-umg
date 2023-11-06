@@ -25,7 +25,11 @@ class Table extends Component
 
             ->select(
                 'tb_assignment.*',
+                'tb_profesor.foto',
                 'tb_profesor.primer_nombre',
+                'tb_profesor.segundo_nombre',
+                'tb_profesor.primer_apellido',
+                'tb_profesor.segundo_apellido',
                 'tb_course.nombre_curso',
                 'tb_section.nombre_seccion',
                 'tb_semester.nombre_semestre',
@@ -39,7 +43,8 @@ class Table extends Component
 
     public function render()
     {
-        dd($this->assignment);
-        return view('livewire.assignment.table');
+        return view('livewire.assignment.table', [
+            'assignments' => $this->assignment
+        ]);
     }
 }
