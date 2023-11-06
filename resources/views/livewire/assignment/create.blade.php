@@ -1,21 +1,23 @@
 <div class="container py-4">
     <div class="card">
         <div class="card-header pb-0 px-3">
-            <h5 class="mb-0">{{ __('Formulario de curso') }}</h5>
+            <h5 class="mb-0">{{ __('Formulario de asignación') }}</h5>
         </div>
         <div class="card-body pt-4 p-3">
-            <form action="{{ route('curso-store') }}" method="POST">
+            <form action="{{ route('asignatura-store') }}" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="assignment.id_profesor" class="form-control-label">{{ __('Catedratico') }}</label>
+                            <label for="assignment.id_profesor"
+                                class="form-control-label">{{ __('Catedratico') }}</label>
                             <div class="@error('assignment.id_profesor')border border-danger rounded-3 @enderror">
-                                <select class="form-control" name="id_profesor">
+                                <select class="form-control" name="id_catedratico">
                                     <option value="">Seleccione un catedratico</option>
                                     @foreach ($profesors as $profesor)
                                         <option value="{{ $profesor->id }}">
-                                            {{ $profesor->primer_nombre }} {{ $profesor->segundo_nombre }} {{ $profesor->primer_apellido }} {{ $profesor->segundo_apellido }}</option>
+                                            {{ $profesor->primer_nombre }} {{ $profesor->segundo_nombre }}
+                                            {{ $profesor->primer_apellido }} {{ $profesor->segundo_apellido }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -65,15 +67,12 @@
                                                 <thead>
                                                     <tr>
                                                         <th class="text-secondary opacity-7"></th>
-                                                        <th
-                                                            class="text-uppercase text-dark text-xxs">
+                                                        <th class="text-uppercase text-dark text-xxs">
                                                             Curso
                                                         </th>
-                                                        <th
-                                                            class="text-uppercase text-dark text-xxs ps-2">
+                                                        <th class="text-uppercase text-dark text-xxs ps-2">
                                                             Semestre, Ciclo Y Pensum</th>
-                                                        <th
-                                                            class="text-uppercase text-dark text-xxs ps-2">
+                                                        <th class="text-uppercase text-dark text-xxs ps-2">
                                                             Sección</th>
 
                                                     </tr>
@@ -83,9 +82,8 @@
                                                         <tr>
                                                             <td>
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox"
-                                                                        value="" id="{{ $course->id }}"
-                                                                        checked="false">
+                                                                    <input class="form-check-input" type="checkbox" name="selected_courses[]" value="{{ $course->id }}" id="{{ $course->id }}">
+
                                                                 </div>
                                                             </td>
                                                             <td>
@@ -97,7 +95,8 @@
                                                                         </h6>
                                                                         <p class="text-xs text-secondary mb-0">
                                                                             Día: {{ $course->dia }},
-                                                                            Hora: {{ \Carbon\Carbon::createFromFormat('H:i:s', $course->horario)->format('H:i') }}
+                                                                            Hora:
+                                                                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $course->horario)->format('H:i') }}
                                                                         </p>
                                                                     </div>
                                                                 </div>
