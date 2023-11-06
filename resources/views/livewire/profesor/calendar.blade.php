@@ -9,7 +9,7 @@
         </div>
         <div class="card-body px-0 pb-2">
             <div class="table-responsive">
-                <table class="table align-items-center mb-0 p-2">
+                <table class="table align-items-center mb-0 p-2 w-100">
                     <thead>
                         <tr>
                             <th>Domingo</th>
@@ -22,19 +22,34 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $today = now()->format('Y-m-d');
+                            $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $currentMonth, $currentYear);
+                            $startDayOfWeek = (int) Carbon\Carbon::create($currentYear, $currentMonth, 1)->format('w');
+                            $days = array_merge(array_fill(0, $startDayOfWeek, null), range(1, $daysInMonth));
+                            while (count($days) % 7 !== 0) {
+                                $days[] = null;
+                            }
+                        @endphp
                         @foreach (array_chunk($days, 7) as $week)
                             <tr>
                                 @foreach ($week as $day)
-                                    <td>
-
-                                        @if ($day->isSaturday())
-                                            <span class="badge badge-sm bg-gradient-dark"> {{ $day->format('d') }} -
-                                                curso</span>
+                                    <td
+                                        class="{{ $day && $today == Carbon\Carbon::create($currentYear, $currentMonth, $day)->format('Y-m-d') ? 'bg-gradient-info text-white' : '' }}">
+                                        @if ($day)
+                                            @if (Carbon\Carbon::create($currentYear, $currentMonth, $day)->dayOfWeek == Carbon\Carbon::SATURDAY)
+                                                <span class="badge badge-sm bg-gradient-dark"> {{ $day }} -
+                                                    curso</span>
+                                            @else
+                                                {{ $day }}
+                                            @endif
                                         @else
-                                            {{ $day->format('d') }}
+                                            &nbsp; <!-- Espacio para los días vacíos -->
                                         @endif
                                     </td>
                                 @endforeach
+
+
                             </tr>
                         @endforeach
                     </tbody>
