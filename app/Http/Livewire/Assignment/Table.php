@@ -12,7 +12,7 @@ class Table extends Component
 
     protected $assignment;
 
-    public function mount()  // Método que se ejecuta cuando se crea el componente
+    public function mount()
     {
         $this->assignment = DB::table('tb_assignment')
             ->join('tb_profesor', 'tb_assignment.id_catedratico', '=', 'tb_profesor.id')
