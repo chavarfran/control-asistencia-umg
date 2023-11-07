@@ -50,16 +50,18 @@ use App\Http\Livewire\Assistance\Create as AssistanceCreate;/* asignatura */
 use App\Http\Livewire\Assistance\Edit as AssistanceEdit;/* asignatura */
 use App\Http\Controllers\AssistanceController;
 
+use App\Http\Controllers\Reports\Asistencia;
+
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
 
 use App\Models\User;/* autenticacionGoogle */
 use Illuminate\Support\Facades\Hash; /* autenticacionGoogle */
 use Laravel\Socialite\Facades\Socialite;/* autenticacionGoogle */
 
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PackageController;
-use App\Http\Controllers\Reports\Asistencia;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,19 +81,20 @@ Route::get('/google-auth/redirect', function () {
 });
 Route::get('/google-auth/callback', function () {
     $user_google = Socialite::driver('google')->stateless()->user();
-
+    //dd($user_google);
     // Verifica si el email existe en la tabla tb_profesor
     $profesorExists = DB::table('tb_profesor')->where('email', $user_google->email)->exists();
 
     if ($profesorExists) {
         // Si el email existe, entonces verifica si el usuario ya está creado
         $user = User::updateOrCreate([
-            'email' => $userGoogle->email,
+            'google_id' => $user_google->id,
         ], [
-            'google_id' => $userGoogle->id,
-            'name' => $userGoogle->name,
+            'name' => $user_google->name,
+            'email' => $user_google->email,
         ]);
 
+        $user->assignRole('profesor');
         // Inicia sesión con el usuario
         auth()->login($user);
 

@@ -61,15 +61,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-6 mb-md-0 mb-4 pt-4">
-                <div class="card">
+            <div class="col-lg-9 col-md-6 mb-md-0 mb-4">
+                <div class="card h-100">
                     <div class="card-header pb-0">
                         <div class="row">
                             <div class="col-lg-6 col-7">
-                                <h6>Projects</h6>
+                                <h6>Lista de temas</h6>
                                 <p class="text-sm mb-0">
                                     <i class="fa fa-check text-info" aria-hidden="true"></i>
-                                    <span class="font-weight-bold ms-1">30 done</span> this month
+                                    <span class="font-weight-bold ms-1">jueves 7</span> de noviembre
                                 </p>
                             </div>
                             <div class="col-lg-6 col-5 my-auto text-end">
