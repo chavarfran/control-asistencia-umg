@@ -51,7 +51,12 @@ use App\Http\Livewire\Assistance\Edit as AssistanceEdit;/* asignatura */
 use App\Http\Controllers\AssistanceController;
 
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
-use Laravel\Socialite\Facades\Socialite;
+
+use App\Models\User;/* autenticacionGoogle */
+use Illuminate\Support\Facades\Hash; /* autenticacionGoogle */
+use Laravel\Socialite\Facades\Socialite;/* autenticacionGoogle */
+
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\Reports\Asistencia;
@@ -73,7 +78,18 @@ Route::get('/google-auth/redirect', function () {
     return Socialite::driver('google')->redirect();
 });
 Route::get('/google-auth/callback', function () {
-    $user = Socialite::driver('google')->user();
+    $user_google = Socialite::driver('google')->stateless()->user();
+
+    $user = User::updateOrCreate([
+        'google_id' => $user_google->id,
+    ],[
+        'name' => $user_google->name,
+        'email' => $user_google->email,
+    ]);
+
+    auth()->login($user);
+
+    return redirect('/inicio');
 });
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');

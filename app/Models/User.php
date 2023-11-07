@@ -14,6 +14,9 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $fillable = [
+        'google_id'
+    ];
     /**
      * The attributes that are mass assignable.
      *
