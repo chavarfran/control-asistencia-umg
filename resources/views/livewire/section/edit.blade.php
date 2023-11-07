@@ -101,6 +101,8 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-end">
+                            <a href="{{ url()->previous() }}" type="button" class="btn bg-gradient btn-md mt-4 mb-4"">Cancelar</a>
+                                    <div class="mx-2"></div>
                             <button type="submit"
                                 class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'ACTUALIZAR CAMBIOS' }}</button>
                         </div>
