@@ -163,13 +163,24 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="form-group">
-                            <label for="course-horario" class="form-control-label">{{ __('Horario') }}</label>
-                            <div class="@error('course.horario')border border-danger rounded-3 @enderror">
-                                <input class="form-control" type="time" id="horario" name="horario"value="{{ $courseData['horario'] ?? '' }}">
+                            <label for="course-horario_inicio" class="form-control-label">{{ __('Horario de inicio') }}</label>
+                            <div class="@error('course.horario_inicio')border border-danger rounded-3 @enderror">
+                                <input class="form-control" type="time" id="horario_inicio" name="horario_inicio"value="{{ $courseData['horario_inicio'] ?? '' }}">
                             </div>
-                            @error('course.horario')
+                            @error('course.horario_inicio')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="course-horario_final" class="form-control-label">{{ __('Horario de finalización') }}</label>
+                            <div class="@error('course.horario_final')border border-danger rounded-3 @enderror">
+                                <input class="form-control" type="time" id="horario_final" name="horario_final"value="{{ $courseData['horario_final'] ?? '' }}">
+                            </div>
+                            @error('course.horario_final')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>

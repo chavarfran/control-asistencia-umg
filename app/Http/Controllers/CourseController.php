@@ -15,8 +15,8 @@ class CourseController extends Controller
         // Validar los datos del request si es necesario
         $request->validate([
             'nombre_curso' => 'required',
-            'descripcion' => 'required',
-            'horario' => 'required',
+            'horario_inicio' => 'required',
+            'horario_final' => 'required',
             'dia' => 'required',
             'id_pensum' => 'required|integer',
             'id_seccion' => 'required|integer'
@@ -26,7 +26,8 @@ class CourseController extends Controller
         DB::table('tb_course')->insert([
             'nombre_curso' => $request->nombre_curso,
             'descripcion' => $request->descripcion,
-            'horario' => $request->horario,
+            'horario_inicio' => $request->horario_inicio,
+            'horario_final' => $request->horario_final,
             'dia' => $request->dia,
             'id_pensum' => $request->id_pensum,
             'id_seccion' => $request->id_seccion,
@@ -43,8 +44,8 @@ class CourseController extends Controller
         $user = auth()->id();
         $request->validate([
             'nombre_curso' => 'required',
-            'descripcion' => 'required',
-            'horario' => 'required',
+            'horario_inicio' => 'required',
+            'horario_final' => 'required',
             'dia' => 'required',
             'id_pensum' => 'required|integer',
             'id_seccion' => 'required|integer'
@@ -55,7 +56,8 @@ class CourseController extends Controller
             ->update([
                 'nombre_curso' => $request->nombre_curso,
                 'descripcion' => $request->descripcion,
-                'horario' => $request->horario,
+                'horario_inicio' => $request->horario_inicio,
+                'horario_final' => $request->horario_final,
                 'dia' => $request->dia,
                 'id_pensum' => $request->id_pensum,
                 'id_seccion' => $request->id_seccion,

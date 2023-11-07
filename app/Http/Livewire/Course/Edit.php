@@ -16,7 +16,7 @@ class Edit extends Component
     public $semester=[];
     public $pensum=[];
     public $career=[];
-    public $faculties=[]; 
+    public $faculties=[];
     public $id_facultad;
     public $id_carrera;
     public $id_pensum;
@@ -36,25 +36,26 @@ class Edit extends Component
             ->join('tb_career', 'tb_pensum.id_carrera', '=', 'tb_career.id')
             ->join('tb_faculty', 'tb_career.id_facultad', '=', 'tb_faculty.id')
             ->select(
-                'tb_course.*', 
-                'tb_section.id as id_seccion', 
-                'tb_section.nombre_seccion', 
-                'tb_semester.id as id_semestre', 
-                'tb_semester.nombre_semestre', 
-                'tb_pensum.id as id_pensum', 
-                'tb_pensum.nombre_pensum', 
-                'tb_career.id as id_carrera', 
-                'tb_career.nombre_carrera', 
-                'tb_faculty.id as id_facultad', 
+                'tb_course.*',
+                'tb_section.id as id_seccion',
+                'tb_section.nombre_seccion',
+                'tb_semester.id as id_semestre',
+                'tb_semester.nombre_semestre',
+                'tb_pensum.id as id_pensum',
+                'tb_pensum.nombre_pensum',
+                'tb_career.id as id_carrera',
+                'tb_career.nombre_carrera',
+                'tb_faculty.id as id_facultad',
                 'tb_faculty.nombre_facultad')
             ->first();
-            
+
         $this->courseData = [
             'id' => $course->id,
             'nombre_curso' => $course->nombre_curso,
             'descripcion' => $course->descripcion,
             'dia' => $course->dia,
-            'horario' => $course->horario,
+            'horario_inicio' => $course->horario_inicio,
+            'horario_final' => $course->horario_final,
             'id_seccion' => $course->id_seccion,
             'nombre_seccion' => $course->nombre_seccion,
             'id_semestre' => $course->id_semestre,
@@ -73,7 +74,7 @@ class Edit extends Component
         $this->id_semestre = $course->id_semestre;
 
         $this->faculties = Faculty::all();
-        
+
         $this->updateCareers();
         $this->updatePensums();
         $this->updateSemesters();
