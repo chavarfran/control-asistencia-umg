@@ -80,16 +80,29 @@ Route::get('/google-auth/redirect', function () {
 Route::get('/google-auth/callback', function () {
     $user_google = Socialite::driver('google')->stateless()->user();
 
-    $user = User::updateOrCreate([
-        'google_id' => $user_google->id,
-    ],[
-        'name' => $user_google->name,
-        'email' => $user_google->email,
-    ]);
+    // Verifica si el email existe en la tabla tb_profesor
+    $profesorExists = DB::table('tb_profesor')->where('email', $user_google->email)->exists();
 
-    auth()->login($user);
+    if ($profesorExists) {
+        // Si el email existe, entonces verifica si el usuario ya está creado
+        $user = User::updateOrCreate([
+            'email' => $userGoogle->email,
+        ], [
+            'google_id' => $userGoogle->id,
+            'name' => $userGoogle->name,
+        ]);
 
-    return redirect('/inicio');
+        // Inicia sesión con el usuario
+        auth()->login($user);
+
+        // Redirecciona a la página de inicio
+        return redirect('/inicio');
+    } else {
+        // Si el email no existe en tb_profesor, redirige al login con un mensaje de error
+        return redirect('/login')->withErrors([
+            'email' => 'No tiene permisos para acceder con este email.'
+        ]);
+    }
 });
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');
