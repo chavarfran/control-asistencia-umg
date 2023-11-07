@@ -100,12 +100,12 @@
                 </a>
             </li>
             <li class="nav-item pb-2">
-                <a class="nav-link {{ Route::currentRouteName() == 'tabla-facultad' ? 'active' : '' }}"
-                    href="{{ route('tabla-facultad') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'formulario-asistencia' ? 'active' : '' }}"
+                    href="{{ route('formulario-asistencia') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-chalkboard-teacher ps-2 pe-2 text-center
-                        {{ in_array(request()->route()->getName(),['tabla-facultad']) ? 'text-white' : 'text-dark' }}"></i>
+                        {{ in_array(request()->route()->getName(),['formulario-asistencia']) ? 'text-white' : 'text-dark' }}"></i>
                     </div>
                     <span class="nav-link-text ms-1">Asistencia</span>
                 </a>

@@ -45,6 +45,11 @@ use App\Http\Livewire\Assignment\Create as AssignmentCreate;/* asignatura */
 use App\Http\Livewire\Assignment\Edit as AssignmentEdit;/* asignatura */
 use App\Http\Controllers\AssignmentController;
 
+use App\Http\Livewire\Assistance\Table as AssistanceTable;/* asignatura */
+use App\Http\Livewire\Assistance\Create as AssistanceCreate;/* asignatura */
+use App\Http\Livewire\Assistance\Edit as AssistanceEdit;/* asignatura */
+use App\Http\Controllers\AssistanceController;
+
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Http\Request;
@@ -61,13 +66,19 @@ use App\Http\Controllers\Reports\Asistencia;
 |
 */
 
-Route::get('/', function() {return redirect('/login');});
-Route::get('/google-auth/redirect', function () { return Socialite::driver('google')->redirect();});
-Route::get('/google-auth/callback', function () { $user = Socialite::driver('google')->user();});
+Route::get('/', function () {
+    return redirect('/login');
+});
+Route::get('/google-auth/redirect', function () {
+    return Socialite::driver('google')->redirect();
+});
+Route::get('/google-auth/callback', function () {
+    $user = Socialite::driver('google')->user();
+});
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');
 Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
-Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
+Route::get('/reset-password/{id}', ResetPassword::class)->name('reset-password')->middleware('signed');
 
 Route::middleware('auth')->group(function () {
     /* Rutas de Inicio */
@@ -133,9 +144,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/asignacion/store', [AssignmentController::class, 'store'])->name('asignatura-store');
     Route::post('/asignacion/inhabilitar/{id}', [AssignmentController::class, 'inhabilitar'])->name('asignatura-inhabilitar');
     Route::post('/asignacion/habilitar/{id}', [AssignmentController::class, 'habilitar'])->name('asignatura-habilitar');
+    /* Rutas de Asistencia */
+    Route::get('/asistencia', AssistanceTable::class)->name('tabla-asistencia');
+    Route::get('/asistencia/formulario', AssistanceCreate::class)->name('formulario-asistencia');
+    Route::get('/asistencia/editar', AssistanceEdit::class)->name('editar-asistencia');
+    Route::put('/asistencia/update/{id}', [AssistanceController::class, 'update'])->name('asistencia-update');
+    Route::post('/asistencia/store', [AssistanceController::class, 'store'])->name('asistencia-store');
+    Route::post('/asistencia/inhabilitar/{id}', [AssistanceController::class, 'inhabilitar'])->name('asistencia-inhabilitar');
+    Route::post('/asistencia/habilitar/{id}', [AssistanceController::class, 'habilitar'])->name('asistencia-habilitar');
     /* Rutas de Usuarios */
-     Route::get('/usuario', UserTable::class)->name('tabla-usuario');
+    Route::get('/usuario', UserTable::class)->name('tabla-usuario');
     /* RUtas de Reportes */
     Route::get('/reportes', [Asistencia::class, 'index'])->name('reporte');
 });
-
