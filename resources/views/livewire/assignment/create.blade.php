@@ -95,8 +95,10 @@
                                                                         </h6>
                                                                         <p class="text-xs text-secondary mb-0">
                                                                             Día: {{ $course->dia }},
-                                                                            Hora:
-                                                                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $course->horario)->format('H:i') }}
+                                                                            Hora de inicio:
+                                                                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $course->horario_inicio)->format('H:i') }}
+                                                                            Hora de finalizacion:
+                                                                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $course->horario_final)->format('H:i') }}
                                                                         </p>
                                                                     </div>
                                                                 </div>
