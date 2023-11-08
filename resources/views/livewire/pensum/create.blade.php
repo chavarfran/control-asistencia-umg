@@ -3,6 +3,14 @@
         <div class="row justify-content-center"> <!-- Centralizar el contenido en la fila -->
             <div class="col-lg-6 col-md-8 col-sm-12">
                 <div class="card">
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ url()->previous() }}" class="btn bg-gradient-write btn-md mt-2 mb-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                              </svg>  Cerrar
+                        </a>
+                    </div>
+
                     <div class="card-header pb-0 px-3">
                         <h5 class="mb-0">{{ __('Formulario de pensum') }}</h5>
                     </div>

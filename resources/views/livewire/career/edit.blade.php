@@ -3,6 +3,7 @@
         <div class="row justify-content-center"> <!-- Centralizar el contenido en la fila -->
             <div class="col-lg-6 col-md-8 col-sm-12">
                 <div class="card">
+                    
                     <div class="card-header pb-0 px-3">
                         <h5 class="mb-0">{{ __('Formulario de carrera') }}</h5>
                     </div>
@@ -55,12 +56,13 @@
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <button type="submit"
-                                    class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'ACTUALIZAR CAMBIOS' }}</button>
-                            </div>
+                                <div class="d-flex justify-content-end">
+                                    <a href="{{ url()->previous() }}" type="button" class="btn bg-gradient btn-md mt-4 mb-4"">Cancelar</a>
+                                    <div class="mx-2"></div>
+                                    <button type="submit"
+                                        class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'ACTUALIZAR CAMBIOS' }}</button>
+                                </div>
+                            </div>         
                         </form>
                     </div>
                 </div>
