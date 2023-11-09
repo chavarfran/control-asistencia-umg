@@ -42,7 +42,6 @@ class Dashboard extends Component
 
     public function render()
     {
-        //dd($this->schedule[0]);
         return view('livewire.profesor.dashboard',[
             'schedules' => $this->schedule
         ]);
