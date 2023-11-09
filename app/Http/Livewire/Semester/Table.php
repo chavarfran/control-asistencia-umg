@@ -3,12 +3,12 @@
 namespace App\Http\Livewire\Semester;
 
 use Livewire\Component;
-use Livewire\WithPagination; 
+use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 
 class Table extends Component
 {
-    use WithPagination; 
+    use WithPagination;
 
     protected $semester;
 
