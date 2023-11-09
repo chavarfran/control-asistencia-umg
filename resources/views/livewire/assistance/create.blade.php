@@ -10,23 +10,22 @@
                                 <span class="mask bg-gradient-dark"></span>
                                 <div class="card-body position-relative z-index-1 p-3">
                                     <h3 class="text-white">
-                                        Calculo Integral y sircumstamcial</h3>
+                                       {{ $assistance[0]->nombre_curso }}</h3>
                                     <div class="d-flex">
                                         <div class="d-flex">
                                             <div class="me-4">
-                                                <p class="text-white text-sm opacity-8 mb-2">Ingenieria en sistemas de
-                                                    la informacion y ciencias plan fin de semana</p>
-                                                <h6 class="text-white text-sm opacity-8 mb-0">Cuarto Semestre, Sección:
-                                                    A, Pensum: 2014</h6>
-                                                <h6 class="text-white mb-0">CIencias Fisicas e Ingenieria</h6>
+                                                <p class="text-white text-sm opacity-8 mb-2">{{ $assistance[0]->nombre_carrera }}</p>
+                                                <h6 class="text-white text-sm opacity-8 mb-0">{{ $assistance[0]->nombre_semestre }}, Sección:
+                                                    {{ $assistance[0]->nombre_seccion }}, Pensum: {{ $assistance[0]->nombre_pensum }}</h6>
+                                                <h6 class="text-white mb-0">{{ $assistance[0]->nombre_facultad }}</h6>
                                             </div>
                                             <div>
                                                 <p class="text-white text-sm opacity-8 mb-0">Inicia:
-                                                <h6 class="text-white mb-0">07:00</h6>
+                                                <h6 class="text-white mb-0">{{ $assistance[0]->horario_inicio }}</h6>
                                                 </p>
 
                                                 <p class="text-white text-sm opacity-8 mb-0">Finaliza:
-                                                <h6 class="text-white mb-0">09:00</h6>
+                                                <h6 class="text-white mb-0">{{ $assistance[0]->horario_final }}</h6>
                                                 </p>
 
                                             </div>

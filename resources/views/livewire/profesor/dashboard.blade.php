@@ -8,55 +8,32 @@
                         <h6>Horario de cursos</h6>
                         <p class="text-sm">
                             <i class="fa fa-clock text-success" aria-hidden="true"></i>
-                            <span class="font-weight-bold">Ingenieria en sistemas</span> Ciclo: 2023
+                            <span class="font-weight-bold">{{ $schedules[0]->nombre_carrera }}</span> Ciclo:
+                            {{ $schedules[0]->ciclo }}
                         </p>
                     </div>
                     <div class="card-body p-3">
                         <div class="timeline timeline-one-side">
-                            <div class="timeline-block mb-3">
-                                <span class="timeline-step">
-                                    <i class="ni ni-bell-55 text-success text-gradient"></i>
-                                </span>
-                                <div class="timeline-content">
-                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Matematica Discreta - Segundo
-                                        Semestre</h6>
-                                    <h6 class="text-dark text-sm font-weight-normal mb-0">Sección: A, Pensum: 2022</h6>
-                                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Sabado 7:00 AM</p>
+                            @foreach ($schedules as $schedule)
+                                <div class="timeline-block mb-3">
+                                    <span class="timeline-step">
+                                        <i class="ni ni-bell-55 text-success text-gradient"></i>
+                                    </span>
+                                    <div class="timeline-content">
+                                        <h6 class="text-dark text-sm font-weight-bold mb-0">
+                                            {{ $schedule->nombre_curso }} -
+                                            {{ $schedule->nombre_semestre }}</h6>
+                                        <h6 class="text-dark text-sm font-weight-normal mb-0">Sección:
+                                            {{ $schedule->nombre_seccion }}, Pensum: {{ $schedule->nombre_pensum }}
+                                        </h6>
+                                        <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">
+                                            {{ $schedule->dia }}
+                                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $schedule->horario_inicio)->format('H:i') }} a
+                                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $schedule->horario_final)->format('H:i') }}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="timeline-block mb-3">
-                                <span class="timeline-step">
-                                    <i class="ni ni-bell-55 text-success text-gradient"></i>
-                                </span>
-                                <div class="timeline-content">
-                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Calculo Integral - Cuarto
-                                        Semestre
-                                    </h6>
-                                    <h6 class="text-dark text-sm font-weight-normal mb-0">Sección: A, Pensum: 2014</h6>
-                                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Sabado 9:00 AM</p>
-                                </div>
-                            </div>
-                            <div class="timeline-block mb-3">
-                                <span class="timeline-step">
-                                    <i class="ni ni-bell-55 text-success text-gradient"></i>
-                                </span>
-                                <div class="timeline-content">
-                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Fisica II - Cuarto Semestre</h6>
-                                    <h6 class="text-dark text-sm font-weight-normal mb-0">Sección: B, Pensum: 2014</h6>
-                                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Sabado 11:00 AM</p>
-                                </div>
-                            </div>
-                            <div class="timeline-block mb-3">
-                                <span class="timeline-step">
-                                    <i class="ni ni-bell-55 text-success text-gradient"></i>
-                                </span>
-                                <div class="timeline-content">
-                                    <h6 class="text-dark text-sm font-weight-bold mb-0">Matematica Discreta - Segundo
-                                        Semestre</h6>
-                                    <h6 class="text-dark text-sm font-weight-normal mb-0">Sección: B, Pensum: 2022</h6>
-                                    <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">Sabado 14:00 PM</p>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

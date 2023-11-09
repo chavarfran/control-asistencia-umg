@@ -99,7 +99,7 @@ Route::get('/google-auth/callback', function () {
         auth()->login($user);
 
         // Redirecciona a la página de inicio
-        return redirect('/inicio');
+        return redirect('/catedratico/inicio');
     } else {
         // Si el email no existe en tb_profesor, redirige al login con un mensaje de error
         return redirect('/login')->withErrors([

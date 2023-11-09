@@ -55,7 +55,6 @@ class Create extends Component
 
     public function render()
     {
-        //dd($this->profesor);
         return view('livewire.assignment.create', [
             'profesors' => $this->profesor,
             'courses' => $this->course,

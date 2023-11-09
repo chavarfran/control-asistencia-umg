@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class Dashboard extends Component
 {
-    protected $course;
+    protected $schedule;
 
     public function mount()
     {
         $user = auth()->user();
         $id_profesor = Profesor::where('email', $user->email)->first();
 
-        $this->course = DB::table('tb_assignment')
+        $this->schedule = DB::table('tb_assignment')
             ->where('tb_assignment.id_catedratico', '=', $id_profesor->id)
             ->join('tb_profesor', 'tb_assignment.id_catedratico', '=', 'tb_profesor.id') // Corrección aquí
             ->join('tb_course', 'tb_assignment.id_curso', '=', 'tb_course.id')
@@ -42,7 +42,9 @@ class Dashboard extends Component
 
     public function render()
     {
-        dd($this->course);
-        return view('livewire.profesor.dashboard');
+        //dd($this->schedule[0]);
+        return view('livewire.profesor.dashboard',[
+            'schedules' => $this->schedule
+        ]);
     }
 }
