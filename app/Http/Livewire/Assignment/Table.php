@@ -22,7 +22,6 @@ class Table extends Component
             ->join('tb_pensum', 'tb_semester.id_pensum', '=', 'tb_pensum.id')
             ->join('tb_career', 'tb_pensum.id_carrera', '=', 'tb_career.id')
             ->join('tb_faculty', 'tb_career.id_facultad', '=', 'tb_faculty.id')
-
             ->select(
                 'tb_assignment.*',
                 'tb_profesor.foto',
