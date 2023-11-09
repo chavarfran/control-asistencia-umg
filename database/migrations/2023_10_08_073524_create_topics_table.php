@@ -13,20 +13,25 @@ return new class extends Migration
     {
         Schema::create('tb_topics', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_tema');
+            $table->text('descripcion');
             $table->date('Fecha');
             $table->boolean('activo')->default(true);
-            
+
             $table->foreignId('id_usuario')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
 
-            $table->foreignId('id_horario')
+            $table->foreignId('id_curso')
                 ->references('id')
-                ->on('tb_schedule')
+                ->on('tb_course')
                 ->onDelete('cascade');
-            
+
+            $table->foreignId('id_catedratico')
+                ->references('id')
+                ->on('tb_profesor')
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
