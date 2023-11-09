@@ -24,7 +24,6 @@ class Table extends Component
 
     public function render()
     {
-        //dd($this->semester);
         return view('livewire.semester.table', [
             'semesters' => $this->semester  // Pasa los datos a la vista
         ]);
