@@ -43,7 +43,7 @@
                     <div class="card-header pb-0">
                         <div class="row">
                             <div class="col-lg-6 col-7">
-                                <h6>Lista de temas</h6>
+                                <h6>formulario-tema</h6>
                                 <p class="text-sm mb-0">
                                     <i class="fa fa-check text-info" aria-hidden="true"></i>
                                     <span class="font-weight-bold ms-1">jueves 7</span> de noviembre
@@ -51,7 +51,7 @@
                             </div>
                             <div class="col-lg-6 col-5 my-auto text-end">
                                 <div class="dropdown float-lg-end pe-4">
-                                    <a class="btn bg-gradient-info px-3 mb-0" href="javascript:;">Agregar un nuevo
+                                    <a class="btn bg-gradient-info px-3 mb-0" href="{{ route('formulario-tema') }}">Agregar un nuevo
                                         tema</a>
                                 </div>
                             </div>

@@ -50,6 +50,10 @@ use App\Http\Livewire\Assistance\Create as AssistanceCreate;/* asignatura */
 use App\Http\Livewire\Assistance\Edit as AssistanceEdit;/* asignatura */
 use App\Http\Controllers\AssistanceController;
 
+use App\Http\Livewire\Topics\Create as TopicsCreate;/* tema */
+use App\Http\Livewire\Topics\Edit as TopicsEdit;/* tema */
+use App\Http\Controllers\TopicsController;
+
 use App\Http\Controllers\Reports\Asistencia;
 
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
@@ -76,30 +80,24 @@ use App\Http\Controllers\PackageController;
 Route::get('/', function () {
     return redirect('/login');
 });
+
 Route::get('/google-auth/redirect', function () {
     return Socialite::driver('google')->redirect();
 });
 Route::get('/google-auth/callback', function () {
     $user_google = Socialite::driver('google')->stateless()->user();
-    //dd($user_google);
-    // Verifica si el email existe en la tabla tb_profesor
-    $profesorExists = DB::table('tb_profesor')->where('email', $user_google->email)->exists();
-
+    $profesorExists = DB::table('tb_profesor')->where('email', $user_google->email)->exists(); // Verifica si el email existe en la tabla tb_profesor
+    // Si el email existe, entonces verifica si el usuario ya está creado
     if ($profesorExists) {
-        // Si el email existe, entonces verifica si el usuario ya está creado
         $user = User::updateOrCreate([
             'google_id' => $user_google->id,
         ], [
             'name' => $user_google->name,
             'email' => $user_google->email,
         ]);
-
         $user->assignRole('profesor');
-        // Inicia sesión con el usuario
-        auth()->login($user);
-
-        // Redirecciona a la página de inicio
-        return redirect('/catedratico/inicio');
+        auth()->login($user); // Inicia sesión con el usuario
+        return redirect('/catedratico/inicio'); // Redirecciona a la página de inicio
     } else {
         // Si el email no existe en tb_profesor, redirige al login con un mensaje de error
         return redirect('/login')->withErrors([
@@ -107,6 +105,7 @@ Route::get('/google-auth/callback', function () {
         ]);
     }
 });
+
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');
 Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
@@ -184,6 +183,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/asistencia/store', [AssistanceController::class, 'store'])->name('asistencia-store');
     Route::post('/asistencia/inhabilitar/{id}', [AssistanceController::class, 'inhabilitar'])->name('asistencia-inhabilitar');
     Route::post('/asistencia/habilitar/{id}', [AssistanceController::class, 'habilitar'])->name('asistencia-habilitar');
+    /* Rutas de Asistencia */
+    Route::get('/tema/formulario', TopicsCreate::class)->name('formulario-tema');
+    Route::get('/tema/editar', TopicsEdit::class)->name('editar-tema');
+    Route::put('/tema/update/{id}', [TopicsController::class, 'update'])->name('tema-update');
+    Route::post('/tema/store', [TopicsController::class, 'store'])->name('tema-store');
     /* Rutas de Usuarios */
     Route::get('/usuario', UserTable::class)->name('tabla-usuario');
     /* RUtas de Reportes */
