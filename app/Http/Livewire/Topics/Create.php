@@ -14,13 +14,14 @@ class Create extends Component
     public $date_selected;
     public $id_course;
     public $error = '';
+    public $id_profesor;
 
     public function mount()
     {
         $user = auth()->user();
-        $id_profesor = Profesor::where('email', $user->email)->first();
+        $this->id_profesor = Profesor::where('email', $user->email)->first();
 
-        $this->schedule = Assignment::with('course')->where('id_catedratico', $id_profesor->id)->get();
+        $this->schedule = Assignment::with('course')->where('id_catedratico', $this->id_profesor->id)->get();
     }
 
     public function dateValidate()
@@ -61,7 +62,8 @@ class Create extends Component
     public function render()
     {
         return view('livewire.topics.create', [
-            'schedules' => $this->schedule
+            'schedules' => $this->schedule,
+            'id_catedratico' => $this->id_profesor->id
         ]);
     }
 }

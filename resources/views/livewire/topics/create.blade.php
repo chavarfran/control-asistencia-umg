@@ -7,7 +7,7 @@
                         <h5 class="mb-0">{{ __('Formulario de temas') }}</h5>
                     </div>
                     <div class="card-body pt-4 p-3">
-                        <form action="{{ route('career-store') }}" method="POST">
+                        <form action="{{ route('tema-store') }}" method="POST">
                             @csrf
                             <div class="column">
                                 <div class="form-group">
@@ -50,7 +50,7 @@
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-
+                                <input type="hidden" id="id_catedratico" name="id_catedratico" value="{{ $id_catedratico }}">
 
                             </div>
                             <div class="d-flex justify-content-end">
