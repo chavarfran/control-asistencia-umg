@@ -9,16 +9,20 @@ use Illuminate\Support\Facades\DB;
 
 class Create extends Component
 {
-    protected $assistance;
+    protected $assignment;
     protected $topic;
 
     public function mount()
     {
+        Carbon::setLocale('es');
+
         $user = auth()->user();
         $id_profesor = Profesor::where('email', $user->email)->first();
-        $tiempo_actual = Carbon::now()->format('H:i:s');
 
-        $this->assistance = DB::table('tb_assignment')
+        $tiempo_actual = Carbon::now()->format('H:i:s');
+        $dia_actual = Carbon::now()->isoFormat('dddd');
+
+        $this->assignment = DB::table('tb_assignment')
             ->where('tb_assignment.id_catedratico', '=', $id_profesor->id)
             ->join('tb_profesor', 'tb_assignment.id_catedratico', '=', 'tb_profesor.id') // Corrección aquí
             ->join('tb_course', 'tb_assignment.id_curso', '=', 'tb_course.id')
@@ -43,6 +47,7 @@ class Create extends Component
             )
             ->where('tb_course.horario_inicio', '<=', $tiempo_actual)
             ->where('tb_course.horario_final', '>', $tiempo_actual)
+            ->where('tb_course.dia', '=', $dia_actual)
             ->get();
 
         if(isset($this->assistance[0])){
@@ -60,7 +65,7 @@ class Create extends Component
     public function render()
     {
         return view('livewire.assistance.create', [
-            'assistance' => $this->assistance,
+            'assignment' => $this->assignment,
             'topic' => $this->topic,
         ]);
     }
