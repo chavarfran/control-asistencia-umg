@@ -8,30 +8,42 @@
                             <div class="overflow-hidden position-relative border-radius-xl h-100"
                                 style="background-image: url('../assets/img/curved-images/curved14.jpg');">
                                 <span class="mask bg-gradient-dark"></span>
-                                <div class="card-body position-relative z-index-1 p-3">
-                                    <h3 class="text-white">
-                                       {{ $assistance[0]->nombre_curso }}</h3>
-                                    <div class="d-flex">
+                                @if (isset($assistance[0]))
+                                    <div class="card-body position-relative z-index-1 p-3">
+                                        <h3 class="text-white">
+                                            {{ $assistance[0]->nombre_curso }}</h3>
                                         <div class="d-flex">
-                                            <div class="me-4">
-                                                <p class="text-white text-sm opacity-8 mb-2">{{ $assistance[0]->nombre_carrera }}</p>
-                                                <h6 class="text-white text-sm opacity-8 mb-0">{{ $assistance[0]->nombre_semestre }}, Sección:
-                                                    {{ $assistance[0]->nombre_seccion }}, Pensum: {{ $assistance[0]->nombre_pensum }}</h6>
-                                                <h6 class="text-white mb-0">{{ $assistance[0]->nombre_facultad }}</h6>
-                                            </div>
-                                            <div>
-                                                <p class="text-white text-sm opacity-8 mb-0">Inicia:
-                                                <h6 class="text-white mb-0">{{ $assistance[0]->horario_inicio }}</h6>
-                                                </p>
+                                            <div class="d-flex">
+                                                <div class="me-4">
+                                                    <p class="text-white text-sm opacity-8 mb-2">
+                                                        {{ $assistance[0]->nombre_carrera }}</p>
+                                                    <h6 class="text-white text-sm opacity-8 mb-0">
+                                                        {{ $assistance[0]->nombre_semestre }}, Sección:
+                                                        {{ $assistance[0]->nombre_seccion }}, Pensum:
+                                                        {{ $assistance[0]->nombre_pensum }}</h6>
+                                                    <h6 class="text-white mb-0">{{ $assistance[0]->nombre_facultad }}
+                                                    </h6>
+                                                </div>
+                                                <div>
+                                                    <p class="text-white text-sm opacity-8 mb-0">Inicia:
+                                                    <h6 class="text-white mb-0">{{ $assistance[0]->horario_inicio }}
+                                                    </h6>
+                                                    </p>
 
-                                                <p class="text-white text-sm opacity-8 mb-0">Finaliza:
-                                                <h6 class="text-white mb-0">{{ $assistance[0]->horario_final }}</h6>
-                                                </p>
+                                                    <p class="text-white text-sm opacity-8 mb-0">Finaliza:
+                                                    <h6 class="text-white mb-0">{{ $assistance[0]->horario_final }}</h6>
+                                                    </p>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                @else
+                                <div class="card-body position-relative z-index-1 p-3">
+                                    <h3 class="text-white">
+                                       SIN CURSOS POR INICIAR</h3>
                                 </div>
+                                @endif
                             </div>
                         </div>
                     </div>
