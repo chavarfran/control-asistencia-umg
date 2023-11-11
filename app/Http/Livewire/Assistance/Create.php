@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 class Create extends Component
 {
     protected $assistance;
+    protected $topic;
 
     public function mount()
     {
@@ -28,6 +29,7 @@ class Create extends Component
             ->join('tb_faculty', 'tb_career.id_facultad', '=', 'tb_faculty.id')
             ->select(
                 'tb_profesor.id as id_catedratico',
+                'tb_course.id as id_curso',
                 'tb_course.nombre_curso',
                 'tb_course.horario_inicio',
                 'tb_course.horario_final',
@@ -42,12 +44,24 @@ class Create extends Component
             ->where('tb_course.horario_inicio', '<=', $tiempo_actual)
             ->where('tb_course.horario_final', '>', $tiempo_actual)
             ->get();
+
+        if(isset($this->assistance[0])){
+            $this->topic = DB::table('tb_topics')
+            ->where('tb_topics.id_catedratico', '=', $id_profesor->id)
+            ->where('tb_topics.id_curso', '=', $this->assistance[0]->id_curso)
+            ->select(
+                'tb_topics.id as id_tema',
+                'tb_topics.descripcion',
+            )
+            ->get();
+        }
     }
 
     public function render()
     {
-        return view('livewire.assistance.create',[
-            'assistance' => $this->assistance
+        return view('livewire.assistance.create', [
+            'assistance' => $this->assistance,
+            'topic' => $this->topic,
         ]);
     }
 }

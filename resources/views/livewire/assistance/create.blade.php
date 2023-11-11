@@ -10,6 +10,7 @@
                                 <span class="mask bg-gradient-dark"></span>
                                 @if (isset($assistance[0]))
                                     <div class="card-body position-relative z-index-1 p-3">
+                                        <input type="hidden" id="id_catedratico" name="id_catedratico" value=" {{ $assistance[0]->id_catedratico }}">
                                         <h3 class="text-white">
                                             {{ $assistance[0]->nombre_curso }}</h3>
                                         <div class="d-flex">
@@ -29,20 +30,18 @@
                                                     <h6 class="text-white mb-0">{{ $assistance[0]->horario_inicio }}
                                                     </h6>
                                                     </p>
-
                                                     <p class="text-white text-sm opacity-8 mb-0">Finaliza:
                                                     <h6 class="text-white mb-0">{{ $assistance[0]->horario_final }}</h6>
                                                     </p>
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @else
-                                <div class="card-body position-relative z-index-1 p-3">
-                                    <h3 class="text-white">
-                                       SIN CURSOS POR INICIAR</h3>
-                                </div>
+                                    <div class="card-body position-relative z-index-1 p-3">
+                                        <h3 class="text-white">
+                                            SIN CURSOS POR INICIAR</h3>
+                                    </div>
                                 @endif
                             </div>
                         </div>
@@ -74,10 +73,11 @@
                                     <div class="col-md-12 mb-md-0 mb-4">
                                         <div class="form-group">
                                             <h6 class="text-dark mb-0">Descripcion de tema</h6>
-                                            <div <p class="text-dark text-sm opacity-8 mb-2">Ingenieria en sistemas de
-                                                la informacion y ciencias plan fin de semana</p>
+                                            <input type="hidden" id="id_tema" name="id_tema"
+                                                value="{{ $topic[0]->id_tema ?? '' }}">
+                                            <div <p class="text-dark text-sm opacity-8 mb-2">
+                                                {{ $topic[0]->descripcion ?? '' }}</p>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
