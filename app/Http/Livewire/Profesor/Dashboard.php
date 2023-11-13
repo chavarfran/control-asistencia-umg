@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Profesor;
 
+use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Profesor;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +16,8 @@ class Dashboard extends Component
     {
         $user = auth()->user();
         $id_profesor = Profesor::where('email', $user->email)->first();
+        $inicio_semana = now()->startOfWeek(Carbon::SUNDAY)->format('Y-m-d');
+        $fin_semana = now()->endOfWeek(Carbon::SATURDAY)->format('Y-m-d');
 
         $this->schedule = DB::table('tb_assignment')
             ->where('tb_assignment.id_catedratico', '=', $id_profesor->id)
@@ -42,7 +45,8 @@ class Dashboard extends Component
 
         $this->topics = DB::table('tb_topics')
             ->where('tb_topics.id_catedratico', '=', $id_profesor->id)
-            ->join('tb_profesor', 'tb_topics.id_catedratico', '=', 'tb_profesor.id') // Corrección aquí
+            ->whereBetween('tb_topics.Fecha', [$inicio_semana, $fin_semana])
+            ->join('tb_profesor', 'tb_topics.id_catedratico', '=', 'tb_profesor.id')
             ->join('tb_course', 'tb_topics.id_curso', '=', 'tb_course.id')
             ->select(
                 'tb_topics.*',
