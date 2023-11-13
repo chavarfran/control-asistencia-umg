@@ -78,6 +78,12 @@
                                                         </h6>
                                                         </p>
                                                     </div>
+                                                    <script>
+                                                        var horarioInicio = "{{ $assignment[0]->horario_inicio }}";
+                                                        var horarioFinal = "{{ $assignment[0]->horario_final }}";
+                                                        // Aquí asumimos que $assignment[0]->horario_inicio y $assignment[0]->horario_final
+                                                        // están en formato 'H:i:s' (ejemplo: '08:00:00')
+                                                    </script>
                                                 </div>
                                             </div>
                                         </div>
@@ -94,7 +100,7 @@
                             <div class="card h-100">
                                 <div class="overflow-hidden position-relative border-radius-xl h-100">
                                     <div class="card-body position-relative text-center z-index-1 p-3">
-                                        <button type="submit" id="submitButton" onclick="getLocation()" class="btn">
+                                        <button type="submit" onclick="getLocation();" class="btn" {{ $assistance ? 'disabled' : '' }}>
                                             <div
                                                 class="icon icon-shape icon-lg bg-gradient-secondary shadow text-center border-radius-lg">
                                                 <i class="fa fa-clock text-ligth" aria-hidden="true"></i>
@@ -160,3 +166,34 @@
         </form>
     </div>
 </main>
+<script>
+    function actualizarContador() {
+        var ahora = new Date();
+        var inicioCurso = new Date(ahora.toDateString() + ' ' + horarioInicio);
+        var finCurso = new Date(ahora.toDateString() + ' ' + horarioFinal);
+
+        var diferencia = ahora - inicioCurso; // Diferencia en milisegundos
+        var contador = document.getElementById('cronometro');
+
+        if (ahora >= inicioCurso && ahora <= finCurso) {
+            // Curso en progreso
+            var horas = Math.floor(diferencia / (1000 * 60 * 60));
+            var minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            var segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            contador.innerHTML = `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+        } else if (ahora > finCurso) {
+            // Curso finalizado
+            contador.innerHTML = "Curso finalizado";
+        } else {
+            // Curso no iniciado
+            contador.innerHTML = "Curso no iniciado";
+        }
+    }
+
+    // Actualizar el contador cada segundo
+    setInterval(actualizarContador, 1000);
+
+    // Actualizar el contador al cargar la página
+    actualizarContador();
+</script>

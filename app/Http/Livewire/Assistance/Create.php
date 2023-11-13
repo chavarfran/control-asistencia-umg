@@ -9,8 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class Create extends Component
 {
+    protected $assistance;
     protected $assignment;
     protected $topic;
+
+    public $tiempo_restante;
 
     public function mount()
     {
@@ -18,7 +21,7 @@ class Create extends Component
 
         $user = auth()->user();
         $id_profesor = Profesor::where('email', $user->email)->first();
-
+        $fecha_actual = Carbon::now()->format('Y-m-d');
         $tiempo_actual = Carbon::now()->format('H:i:s');
         $dia_actual = Carbon::now()->isoFormat('dddd');
 
@@ -50,21 +53,31 @@ class Create extends Component
             ->where('tb_course.dia', '=', $dia_actual)
             ->get();
 
-        if(isset($this->assistance[0])){
+        if (isset($this->assignment[0])) {
             $this->topic = DB::table('tb_topics')
-            ->where('tb_topics.id_catedratico', '=', $id_profesor->id)
-            ->where('tb_topics.id_curso', '=', $this->assistance[0]->id_curso)
-            ->select(
-                'tb_topics.id as id_tema',
-                'tb_topics.descripcion',
-            )
-            ->get();
+                ->where('tb_topics.id_catedratico', '=', $id_profesor->id)
+                ->where('tb_topics.id_curso', '=', $this->assignment[0]->id_curso)
+                ->select(
+                    'tb_topics.id as id_tema',
+                    'tb_topics.descripcion',
+                )
+                ->get();
+
+            $this->assistance = DB::table('tb_assistance')
+                ->where('tb_assistance.id_catedratico', '=', $id_profesor->id)
+                ->where('tb_assistance.id_curso', '=', $this->assignment[0]->id_curso)
+                ->where('tb_assistance.hora_entrada', '<=', $tiempo_actual)
+                ->where('tb_assistance.hora_salida', '>', $tiempo_actual)
+                ->whereDate('tb_assistance.created_at', '=', $fecha_actual) // Aquí usas whereDate
+                ->select('tb_assistance.*')
+                ->exists();
         }
     }
 
     public function render()
     {
         return view('livewire.assistance.create', [
+            'assistance' => $this->assistance,
             'assignment' => $this->assignment,
             'topic' => $this->topic,
         ]);
