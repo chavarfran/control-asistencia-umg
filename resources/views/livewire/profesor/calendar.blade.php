@@ -23,6 +23,7 @@
                     </thead>
                     <tbody>
                         @php
+
                             $today = now()->format('Y-m-d');
                             $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $currentMonth, $currentYear);
                             $startDayOfWeek = (int) Carbon\Carbon::create($currentYear, $currentMonth, 1)->format('w');
@@ -35,21 +36,27 @@
                             <tr>
                                 @foreach ($week as $day)
                                     <td
-                                        class="{{ $day && $today == Carbon\Carbon::create($currentYear, $currentMonth, $day)->format('Y-m-d') ? 'bg-gradient-info text-white' : '' }}">
+                                        class="{{ $day && $today == Carbon\Carbon::create($currentYear, $currentMonth, $day)->format('Y-m-d') ? 'calendar-cell bg-gradient-info text-white' : '' }}">
                                         @if ($day)
-                                            @if (Carbon\Carbon::create($currentYear, $currentMonth, $day)->dayOfWeek == Carbon\Carbon::SATURDAY)
-                                                <span class="badge badge-sm bg-gradient-dark"> {{ $day }} -
-                                                    curso</span>
-                                            @else
-                                                {{ $day }}
+                                            {{ $day }}<br>
+                                            @php
+                                                $diaDeLaSemana = ucfirst(
+                                                    Carbon\Carbon::create($this->currentYear, $this->currentMonth, $day)
+                                                        ->locale('es')
+                                                        ->isoFormat('dddd'),
+                                                );
+                                            @endphp
+                                            @if (isset($curso_dia[$diaDeLaSemana]))
+                                                @foreach ($curso_dia[$diaDeLaSemana] as $nombreCurso)
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-dark">{{ $nombreCurso }}</span><br>
+                                                @endforeach
                                             @endif
                                         @else
-                                            &nbsp; <!-- Espacio para los días vacíos -->
+                                            &nbsp;
                                         @endif
                                     </td>
                                 @endforeach
-
-
                             </tr>
                         @endforeach
                     </tbody>

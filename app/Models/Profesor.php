@@ -11,6 +11,11 @@ class Profesor extends Model
 
     protected $table = 'tb_profesor'; // Especifica el nombre de la tabla si no sigue la convención de Laravel.
 
+    public function assignments()
+    {
+        return $this->hasMany(Assignment::class, 'id_catedratico');
+    }
+
     public function municipio()
     {
         return $this->belongsTo(Municipio::class, 'id_municipio');
