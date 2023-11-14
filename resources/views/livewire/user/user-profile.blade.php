@@ -107,7 +107,7 @@
                                     class="form-control-label">{{ __('Correo electrónico') }}</label>
                                 <div class="@error('user.email')border border-danger rounded-3 @enderror">
                                     <input wire:model="user.email" class="form-control" type="email"
-                                        placeholder="@example.com" id="user-email">
+                                        placeholder="@example.com" id="user-email" disabled>
                                 </div>
                                 @error('user.email')
                                     <div class="text-danger">{{ $message }}</div>
