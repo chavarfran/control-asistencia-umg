@@ -153,11 +153,21 @@
                                     <li
                                         class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
                                         <div class="d-flex flex-column">
-                                            <h6 class="mb-1 text-dark font-weight-bold text-sm">Febrero, 01, 2023</h6>
-                                            <span class="text-xs">#RP-1</span>
+                                            @php
+                                                setlocale(LC_TIME, 'es_ES.UTF-8');
+                                                \Carbon\Carbon::setLocale('es');
+
+                                                $fechaActual = \Carbon\Carbon::now();
+                                                $fechaFormateada = strftime('%A %e de %B', $fechaActual->timestamp);
+                                            @endphp
+                                            <h6 class="mb-1 text-dark font-weight-bold text-sm">{{ $fechaFormateada }}
+                                            </h6>
+                                            <span class="text-xs">REPORTE</span>
                                         </div>
                                         <div class="d-flex align-items-center text-sm">
-                                            <button class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
+                                            <button
+                                                href="{{ route('reporte-catedratico-id') }}?profesor_id={{ $assignment[0]->id_catedratico }}"
+                                                class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
                                                     class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
                                         </div>
                                     </li>
@@ -175,7 +185,7 @@
             var inicioCurso = new Date(ahora.toDateString() + ' ' + horarioInicio);
             var finCurso = new Date(ahora.toDateString() + ' ' + horarioFinal);
 
-            var diferencia = ahora - inicioCurso; // Diferencia en milisegundos
+            var diferencia = ahora - inicioCurso;
             var contador = document.getElementById('cronometro');
 
             if (ahora >= inicioCurso && ahora <= finCurso) {
@@ -187,18 +197,12 @@
                 contador.innerHTML =
                     `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
             } else if (ahora > finCurso) {
-                // Curso finalizado
                 contador.innerHTML = "Curso finalizado";
             } else {
-                // Curso no iniciado
                 contador.innerHTML = "Curso no iniciado";
             }
         }
-
-        // Actualizar el contador cada segundo
         setInterval(actualizarContador, 1000);
-
-        // Actualizar el contador al cargar la página
         actualizarContador();
     </script>
 </div>

@@ -54,7 +54,7 @@ use App\Http\Livewire\Topics\Create as TopicsCreate;/* tema */
 use App\Http\Livewire\Topics\Edit as TopicsEdit;/* tema */
 use App\Http\Controllers\TopicsController;
 
-use App\Http\Controllers\Reports\Asistencia;
+use App\Http\Controllers\Reports\ReportsController;
 
 use App\Http\Livewire\User\Table as UserTable;/* Usuario */
 
@@ -191,5 +191,5 @@ Route::middleware('auth')->group(function () {
     /* Rutas de Usuarios */
     Route::get('/usuario', UserTable::class)->name('tabla-usuario');
     /* RUtas de Reportes */
-    Route::get('/reportes', [Asistencia::class, 'index'])->name('reporte');
+    Route::get('/reportes/catedratico', [ReportsController::class, 'reportprofesor'])->name('reporte-catedratico-id');
 });
