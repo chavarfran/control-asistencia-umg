@@ -12,14 +12,14 @@
     <!-- Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="http://tuasistenciaumg.tech:8000/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="http://tuasistenciaumg.tech:8000/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="http://tuasistenciaumg.tech:8000/assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1" rel="stylesheet" />
-    <link id="personalstyle" href="../css/app.css" rel="stylesheet" />
+    <link id="pagestyle" href="http://tuasistenciaumg.tech:8000/assets/css/soft-ui-dashboard.css?v=1" rel="stylesheet" />
+    <link id="personalstyle" href="http://tuasistenciaumg.tech:8000/css/app.css" rel="stylesheet" />
     <!-- Alpine -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     @livewireStyles
@@ -31,9 +31,9 @@
     {{ $slot }}
 
     <!--   Core JS Files   -->
-    <script src="assets/js/core/popper.min.js"></script>
-    <script src="assets/js/core/bootstrap.min.js"></script>
-    <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="http://tuasistenciaumg.tech:8000/assets/js/core/popper.min.js"></script>
+    <script src="http://tuasistenciaumg.tech:8000/assets/js/core/bootstrap.min.js"></script>
+    <script src="http://tuasistenciaumg.tech:8000/assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -47,7 +47,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="assets/js/soft-ui-dashboard.js"></script>
+    <script src="http://tuasistenciaumg.tech:8000/assets/js/soft-ui-dashboard.js"></script>
     @livewireScripts
 </body>
 
