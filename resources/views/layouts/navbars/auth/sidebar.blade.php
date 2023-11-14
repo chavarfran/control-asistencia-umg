@@ -226,6 +226,9 @@
                     </a>
                 </li>
             @endhasrole
+            <li class="nav-item pb-2">
+                <livewire:auth.logout-nav />
+            </li>
         </ul>
     </div>
 </aside>
