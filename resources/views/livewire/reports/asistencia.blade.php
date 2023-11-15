@@ -98,6 +98,7 @@
             <th class="form-label">Catedrático</th>
             <th class="form-label">Curso</th>
             <th class="form-label">Fecha/Horario</th>
+            <th class="form-label">Firma</th>
             <th class="form-label">Tema a trabajar</th>
 
         </tr>
@@ -110,6 +111,7 @@
             </td>
             <td>Curso A</td>
             <td>11/10/2023 10:00AM-12:00PM</td>
+            <td></td>
             <td>Tema 1</td>
 
         </tr>
@@ -118,6 +120,7 @@
             <td>Profesor B</td>
             <td>Curso B</td>
             <td>Miércoles 2:00 PM - 4:00 PM</td>
+            <td></td>
             <td>Tema 2</td>
 
         </tr>
@@ -126,6 +129,7 @@
             <td>Profesor C</td>
             <td>Curso C</td>
             <td>Viernes 8:00 AM - 10:00 AM</td>
+            <td></td>
             <td>Tema 3</td>
 
         </tr>

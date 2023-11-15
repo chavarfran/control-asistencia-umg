@@ -37,7 +37,7 @@
                                 <tr>
                                     @foreach ($week as $day)
                                         <td
-                                            class="{{ $day && $today == Carbon\Carbon::create($currentYear, $currentMonth, $day)->format('Y-m-d') ? 'calendar-cell bg-gradient-info text-white' : '' }}">
+                                            class="{{ $day && $today == Carbon\Carbon::create($currentYear, $currentMonth, $day)->format('Y-m-d') ? 'calendar-cell bg-gradient-ligth text-white' : '' }}">
                                             @if ($day)
                                                 {{ $day }}<br>
                                                 @php

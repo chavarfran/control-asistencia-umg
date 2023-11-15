@@ -32,6 +32,8 @@ class SignUp extends Component
             'password' => Hash::make($this->password)
         ]);
 
+        $user->assignRole('admin');
+
         auth()->login($user);
 
         return redirect('/inicio');
