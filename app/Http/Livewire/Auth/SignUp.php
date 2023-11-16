@@ -32,7 +32,9 @@ class SignUp extends Component
             'password' => Hash::make($this->password)
         ]);
 
-        $user->assignRole('admin');
+        if ($user) {
+            $user->assignRole('admin');
+        }
 
         auth()->login($user);
 
