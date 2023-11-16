@@ -16,7 +16,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable, HasRoles;
 
     protected $fillable = [
-        'google_id', 'name', 'email',
+        'google_id', 'name', 'email', 'password',
     ];
     /**
      * The attributes that are mass assignable.
