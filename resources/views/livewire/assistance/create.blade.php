@@ -165,11 +165,18 @@
                                             <span class="text-xs">REPORTE</span>
                                         </div>
                                         <div class="d-flex align-items-center text-sm">
+
+                                        </div>
+                                        @if (isset($assignment[0]->id_catedratico))
                                             <button
                                                 href="{{ route('reporte-catedratico-id') }}?profesor_id={{ $assignment[0]->id_catedratico }}"
                                                 class="btn btn-link text-dark text-sm mb-0 px-0 ms-4"><i
                                                     class="fas fa-file-pdf text-lg me-1"></i> PDF</button>
-                                        </div>
+                                        @else
+                                            <!-- Manejar la situación donde id_catedratico es null -->
+                                            <!-- Puedes optar por no mostrar el enlace o mostrar algo diferente -->
+                                            <span>No disponible</span>
+                                        @endif
                                     </li>
                                 </ul>
                             </div>
