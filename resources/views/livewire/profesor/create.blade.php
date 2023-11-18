@@ -25,7 +25,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="profesor-codigo_catedratico"
-                                    class="form-control-label">{{ __('Número de carné') }}</label>
+                                    class="form-control-label">{{ __('Código catedratico') }}</label>
                                 <div
                                     class="@error('profesor.codigo_catedratico')border border-danger rounded-3 @enderror">
                                     <input class="form-control" type="text"
