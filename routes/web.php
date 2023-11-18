@@ -194,4 +194,5 @@ Route::middleware('auth')->group(function () {
     /* RUtas de Reportes */
     Route::get('/reportes', ReportsMain::class)->name('menu-reporte');
     Route::get('/reportes/catedratico', [ReportsController::class, 'reportprofesor'])->name('reporte-catedratico-id');
+    Route::get('/reportes/asignacion', [ReportsController::class, 'reportassignment'])->name('reporte-asignacion-gen');
 });
