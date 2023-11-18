@@ -44,9 +44,9 @@
 
         th,
         td {
-            padding: 0.25rem;
+            padding: 0.15rem
             text-align: center;
-            font-size: 12px;
+            font-size: 14px;
         }
 
         th {
@@ -93,47 +93,67 @@
     </div>
     <br>
     <table>
-        <tr>
-            <th class="form-label">Código</th>
-            <th class="form-label">Catedrático</th>
-            <th class="form-label">Curso</th>
-            <th class="form-label">Fecha/Horario</th>
-            <th class="form-label">Firma</th>
-            <th class="form-label">Tema a trabajar</th>
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Curso
+                </th>
+                <th>
+                    Semestre y Ciclo</th>
+                <th>
+                    Sección</th>
+                <th>
+                    Estado</th>
+                <th>
+                    Creado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($assignments as $assignment)
+                <tr>
+                    <td>
+                        {{ $assignment->primer_nombre }}
+                        {{ $assignment->segundo_nombre }}
+                        {{ $assignment->primer_apellido }}
+                        {{ $assignment->segundo_apellido }}
 
-        </tr>
-        <tr>
-            <td>001</td>
-            <td>Anthony Alexander Morales
-                <div>
+                    </td>
+                    <td>
+                        {{ $assignment->nombre_curso }}
 
-                </div>
-            </td>
-            <td>Curso A</td>
-            <td>11/10/2023 10:00AM-12:00PM</td>
-            <td></td>
-            <td>Tema 1</td>
+                    </td>
+                    <td>
+                        {{ $assignment->nombre_semestre }} {{ $assignment->ciclo }}
 
-        </tr>
-        <tr>
-            <td>002</td>
-            <td>Profesor B</td>
-            <td>Curso B</td>
-            <td>Miércoles 2:00 PM - 4:00 PM</td>
-            <td></td>
-            <td>Tema 2</td>
+                    </td>
+                    <td>
+                        {{ $assignment->nombre_seccion }}
 
-        </tr>
-        <tr>
-            <td>003</td>
-            <td>Profesor C</td>
-            <td>Curso C</td>
-            <td>Viernes 8:00 AM - 10:00 AM</td>
-            <td></td>
-            <td>Tema 3</td>
+                    </td>
+                    @switch($assignment->activo)
+                        @case(1)
+                            <td>
+                                Activo
+                            </td>
+                        @break
 
-        </tr>
-    </table>
+                        @case(0)
+                            <td>
+                                Inactivo
+                            </td>
+                        @break
+
+                        @default
+                    @endswitch
+                    <td>
+                        23/04/18
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
 </body>
 
 </html>

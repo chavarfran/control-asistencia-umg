@@ -19,7 +19,7 @@ class ReportsController extends Controller
 
     public function reportassignment()
     {
-        $assignment = DB::table('tb_assignment')
+        $assignments = DB::table('tb_assignment')
         ->join('tb_profesor', 'tb_assignment.id_catedratico', '=', 'tb_profesor.id')
         ->join('tb_course', 'tb_assignment.id_curso', '=', 'tb_course.id')
         ->join('tb_section', 'tb_course.id_seccion', '=', 'tb_section.id')
@@ -44,8 +44,8 @@ class ReportsController extends Controller
         )
         ->get();
 
-        dd($assignment);
-        $pdf = PDF::loadView('livewire.reports.asignacion-general', compact('assignment'))
+        //dd($assignment);
+        $pdf = PDF::loadView('livewire.reports.asignacion-general', compact('assignments'))
             ->setPaper("letter", 'landscape')->stream('Reporte asignacion general.pdf');
 
         return $pdf;
