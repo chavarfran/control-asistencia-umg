@@ -168,7 +168,6 @@ app
     └── Components
         └── Layouts
             ├── App.php
-            └── ...
 
 
 
